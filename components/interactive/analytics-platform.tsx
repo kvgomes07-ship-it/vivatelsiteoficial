@@ -44,7 +44,7 @@ export function AnalyticsPlatform() {
       <div className="flex justify-between items-center mb-3 md:mb-6">
         <div className="flex items-center gap-1 md:gap-2">
           <BarChart3 className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
-          <h3 className="font-medium text-xs sm:text-sm md:text-base">TechNova Analytics</h3>
+          <h3 className="font-medium text-xs sm:text-sm md:text-base">Vivatel Analytics</h3>
         </div>
         <button
           onClick={refreshData}

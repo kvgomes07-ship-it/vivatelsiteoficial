@@ -40,7 +40,7 @@ export function CloudPlatform() {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <Cloud className="h-5 w-5 text-purple-500" />
-          <h3 className="font-medium">TechNova Cloud Console</h3>
+          <h3 className="font-medium">Vivatel Cloud Console</h3>
         </div>
         <div className="flex items-center gap-2 text-xs text-green-400">
           <span className="h-2 w-2 rounded-full bg-green-500"></span>
@@ -73,11 +73,10 @@ export function CloudPlatform() {
             <button
               key={index}
               onClick={() => handleServerClick(index)}
-              className={`relative p-4 rounded-lg border transition-all ${
-                activeServer === index
+              className={`relative p-4 rounded-lg border transition-all ${activeServer === index
                   ? "border-purple-500 bg-purple-500/10"
                   : "border-gray-700 bg-gray-800/30 hover:border-gray-600"
-              }`}
+                }`}
             >
               <Server
                 className={`h-6 w-6 mx-auto mb-2 ${activeServer === index ? "text-purple-400" : "text-gray-400"}`}

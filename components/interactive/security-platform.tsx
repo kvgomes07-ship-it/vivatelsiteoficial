@@ -67,7 +67,7 @@ export function SecurityPlatform() {
       <div className="flex justify-between items-center mb-4 md:mb-6">
         <div className="flex items-center gap-2">
           <Shield className="h-4 w-4 md:h-5 md:w-5 text-green-500" />
-          <h3 className="font-medium text-sm md:text-base">TechNova Security</h3>
+          <h3 className="font-medium text-sm md:text-base">Vivatel Security</h3>
         </div>
         <button
           onClick={runSecurityScan}
@@ -84,9 +84,8 @@ export function SecurityPlatform() {
           <h4 className="text-xs md:text-sm font-medium mb-2 md:mb-3">Security Score</h4>
           <div className="relative h-3 md:h-4 bg-gray-700 rounded-full overflow-hidden mb-1.5 md:mb-2">
             <motion.div
-              className={`h-full ${
-                securityScore >= 80 ? "bg-green-500" : securityScore >= 60 ? "bg-yellow-500" : "bg-red-500"
-              }`}
+              className={`h-full ${securityScore >= 80 ? "bg-green-500" : securityScore >= 60 ? "bg-yellow-500" : "bg-red-500"
+                }`}
               initial={{ width: 0 }}
               animate={{ width: `${securityScore}%` }}
               transition={{ duration: 0.5 }}
@@ -95,13 +94,12 @@ export function SecurityPlatform() {
           <div className="flex justify-between items-center">
             <span className="text-xs md:text-sm font-medium">{securityScore}/100</span>
             <span
-              className={`text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full ${
-                threatLevel === "Low" || threatLevel === "Very Low"
+              className={`text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full ${threatLevel === "Low" || threatLevel === "Very Low"
                   ? "bg-green-900/30 text-green-400"
                   : threatLevel === "Moderate"
                     ? "bg-yellow-900/30 text-yellow-400"
                     : "bg-red-900/30 text-red-400"
-              }`}
+                }`}
             >
               {threatLevel} Threat Level
             </span>
@@ -123,13 +121,12 @@ export function SecurityPlatform() {
                   <span className="text-[10px] md:text-xs">{item.label}</span>
                 </div>
                 <span
-                  className={`text-[10px] md:text-xs ${
-                    item.status === "Active"
+                  className={`text-[10px] md:text-xs ${item.status === "Active"
                       ? "text-green-400"
                       : item.status === "Scanning"
                         ? "text-yellow-400"
                         : "text-gray-400"
-                  }`}
+                    }`}
                 >
                   {item.status}
                 </span>
@@ -200,14 +197,12 @@ export function SecurityPlatform() {
                   top: line.y1,
                   width: "0%",
                   transformOrigin: "left center",
-                  rotate: `calc(atan2(${Number.parseFloat(line.y2) - Number.parseFloat(line.y1)}, ${
-                    Number.parseFloat(line.x2) - Number.parseFloat(line.x1)
-                  }) * 180 / 3.14159deg)`,
+                  rotate: `calc(atan2(${Number.parseFloat(line.y2) - Number.parseFloat(line.y1)}, ${Number.parseFloat(line.x2) - Number.parseFloat(line.x1)
+                    }) * 180 / 3.14159deg)`,
                 }}
                 animate={{
-                  width: `calc(sqrt(pow(${Number.parseFloat(line.x2) - Number.parseFloat(line.x1)}, 2) + pow(${
-                    Number.parseFloat(line.y2) - Number.parseFloat(line.y1)
-                  }, 2)) * 100%)`,
+                  width: `calc(sqrt(pow(${Number.parseFloat(line.x2) - Number.parseFloat(line.x1)}, 2) + pow(${Number.parseFloat(line.y2) - Number.parseFloat(line.y1)
+                    }, 2)) * 100%)`,
                   opacity: [0, 0.5, 0],
                 }}
                 transition={{
@@ -244,13 +239,12 @@ export function SecurityPlatform() {
               </div>
               <div className="flex items-center gap-1.5 md:gap-2">
                 <span
-                  className={`text-[8px] md:text-xs px-1 md:px-1.5 py-0.5 rounded ${
-                    vuln.severity === "High"
+                  className={`text-[8px] md:text-xs px-1 md:px-1.5 py-0.5 rounded ${vuln.severity === "High"
                       ? "bg-red-900/30 text-red-400"
                       : vuln.severity === "Medium"
                         ? "bg-yellow-900/30 text-yellow-400"
                         : "bg-blue-900/30 text-blue-400"
-                  }`}
+                    }`}
                 >
                   {vuln.severity}
                 </span>

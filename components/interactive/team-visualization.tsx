@@ -74,7 +74,7 @@ export function TeamVisualization() {
       <div className="flex justify-between items-center mb-3 md:mb-6">
         <div className="flex items-center gap-1 md:gap-2">
           <Users className="h-4 w-4 md:h-5 md:w-5 text-purple-500" />
-          <h3 className="font-medium text-xs sm:text-sm md:text-base">TechNova Team</h3>
+          <h3 className="font-medium text-xs sm:text-sm md:text-base">Vivatel Team</h3>
         </div>
         <div className="text-[8px] sm:text-xs text-gray-400">{isVerySmall ? "60+" : "60+ Team Members"}</div>
       </div>
@@ -84,11 +84,10 @@ export function TeamVisualization() {
           <button
             key={team.id}
             onClick={() => setActiveTeam(team.id)}
-            className={`flex items-center gap-1 md:gap-2 px-1.5 sm:px-2 md:px-3 py-1 md:py-2 rounded-lg transition-colors whitespace-nowrap text-[8px] sm:text-xs md:text-sm ${
-              activeTeam === team.id
+            className={`flex items-center gap-1 md:gap-2 px-1.5 sm:px-2 md:px-3 py-1 md:py-2 rounded-lg transition-colors whitespace-nowrap text-[8px] sm:text-xs md:text-sm ${activeTeam === team.id
                 ? `bg-gray-800 ${team.color}`
                 : "bg-gray-800/30 text-gray-400 hover:bg-gray-800/50 hover:text-gray-300"
-            }`}
+              }`}
           >
             <team.icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4" />
             <span>{team.name}</span>
@@ -121,27 +120,25 @@ export function TeamVisualization() {
               transition={{ duration: 0.5 }}
             >
               <div
-                className={`relative w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gray-800 flex items-center justify-center ${
-                  activeTeam === "engineering"
+                className={`relative w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-gray-800 flex items-center justify-center ${activeTeam === "engineering"
                     ? "text-blue-500"
                     : activeTeam === "design"
                       ? "text-purple-500"
                       : activeTeam === "product"
                         ? "text-green-500"
                         : "text-yellow-500"
-                }`}
+                  }`}
               >
                 <User className="h-2 w-2 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                 <motion.div
-                  className={`absolute inset-0 rounded-full border ${
-                    activeTeam === "engineering"
+                  className={`absolute inset-0 rounded-full border ${activeTeam === "engineering"
                       ? "border-blue-500"
                       : activeTeam === "design"
                         ? "border-purple-500"
                         : activeTeam === "product"
                           ? "border-green-500"
                           : "border-yellow-500"
-                  }`}
+                    }`}
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3, delay: member.id * 0.1 }}
                 />
@@ -200,26 +197,24 @@ export function TeamVisualization() {
           <div className="flex items-center">
             <div className="w-full bg-gray-700 rounded-full h-1 sm:h-1.5 md:h-2.5">
               <motion.div
-                className={`h-full rounded-full ${
-                  activeTeam === "engineering"
+                className={`h-full rounded-full ${activeTeam === "engineering"
                     ? "bg-blue-500"
                     : activeTeam === "design"
                       ? "bg-purple-500"
                       : activeTeam === "product"
                         ? "bg-green-500"
                         : "bg-yellow-500"
-                }`}
+                  }`}
                 initial={{ width: 0 }}
                 animate={{
-                  width: `${
-                    activeTeam === "engineering"
+                  width: `${activeTeam === "engineering"
                       ? 85
                       : activeTeam === "design"
                         ? 92
                         : activeTeam === "product"
                           ? 78
                           : 88
-                  }%`,
+                    }%`,
                 }}
                 transition={{ duration: 0.5 }}
               />
@@ -243,26 +238,24 @@ export function TeamVisualization() {
           <div className="flex items-center">
             <div className="w-full bg-gray-700 rounded-full h-1 sm:h-1.5 md:h-2.5">
               <motion.div
-                className={`h-full rounded-full ${
-                  activeTeam === "engineering"
+                className={`h-full rounded-full ${activeTeam === "engineering"
                     ? "bg-blue-500"
                     : activeTeam === "design"
                       ? "bg-purple-500"
                       : activeTeam === "product"
                         ? "bg-green-500"
                         : "bg-yellow-500"
-                }`}
+                  }`}
                 initial={{ width: 0 }}
                 animate={{
-                  width: `${
-                    activeTeam === "engineering"
+                  width: `${activeTeam === "engineering"
                       ? 92
                       : activeTeam === "design"
                         ? 88
                         : activeTeam === "product"
                           ? 95
                           : 82
-                  }%`,
+                    }%`,
                 }}
                 transition={{ duration: 0.5 }}
               />
