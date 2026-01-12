@@ -34,6 +34,7 @@ import Image from "next/image"
 import { CloudPlatform } from "./interactive/cloud-platform"
 import { AnalyticsPlatform } from "./interactive/analytics-platform"
 import { SecurityPlatform } from "./interactive/security-platform"
+import { TeamVisualization } from "./interactive/team-visualization"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
 export default function LandingPage() {
@@ -87,8 +88,8 @@ export default function LandingPage() {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <div className="relative h-8 w-32">
-              {mounted && <Image src="/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />}
+            <div className="relative h-8 w-32 cursor-pointer">
+              {mounted && <Image onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} src="/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />}
             </div>
           </motion.div>
           <nav className="hidden md:flex items-center gap-8">
@@ -178,7 +179,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight"
             >
-              Infraestrutura Digital Soberana
+              Infraestrutura Digital Soberana para Angola
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -186,8 +187,7 @@ export default function LandingPage() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
             >
-              Soluções inovadoras que transformam a forma como você se conecta e inova. Poderosas, intuitivas e
-              projetadas para o futuro digital de Angola.
+              Soluções de conectividade e infraestrutura digital de classe mundial, desenvolvidas para fortalecer a soberania tecnológica de Angola.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -350,9 +350,9 @@ export default function LandingPage() {
               },
               {
                 icon: <Brain className="h-10 w-10 text-blue-500" />,
-                title: "Claude & IA",
+                title: "Cloud",
                 description:
-                  "Integração com Claude para automação inteligente, análise avançada e geração de insights.",
+                  "Infraestrutura em nuvem para servidores, hospedagem, escalabilidade e alta disponibilidade de aplicações e serviços.",
               },
               {
                 icon: <Radio className="h-10 w-10 text-cyan-500" />,
@@ -553,6 +553,69 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+
+            {/* About Section */}
+      <section id="sobre" className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.15),transparent_60%)]" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-1 md:order-1"
+            >
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4 md:mb-6">Sobre Nossa Missão</h2>
+              <p className="text-gray-300 mb-4 md:mb-6 text-sm sm:text-base md:text-lg">
+                Vivatel foi criada com uma visão singular: fortalecer a soberania digital de Angola através de
+                infraestrutura de conectividade de classe mundial. Acreditamos que a tecnologia poderosa deve ser
+                acessível e centrada nas necessidades locais.
+              </p>
+              <p className="text-gray-300 mb-4 md:mb-6 text-sm sm:text-base md:text-lg">
+                Nossa equipe de engenheiros e designers apaixonados trabalha incansavelmente para criar soluções
+                intuitivas e poderosas que resolvem problemas reais e capacitam nossos usuários a alcançar mais.
+              </p>
+              <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-8">
+                <div className="bg-gray-800/50 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base">
+                  <span className="text-teal-400 font-medium">50+</span> Membros da Equipe
+                </div>
+                <div className="bg-gray-800/50 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base">
+                  <span className="text-teal-400 font-medium">100+</span> Clientes Ativos
+                </div>
+                <div className="bg-gray-800/50 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full text-xs sm:text-sm md:text-base">
+                  <span className="text-teal-400 font-medium">99.9%</span> Tempo de Atividade
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                className="border-teal-500 text-teal-500 hover:bg-teal-950 text-sm sm:text-base bg-transparent"
+              >
+                Saiba Mais Sobre Nós
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-2 md:order-2"
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-lg blur-xl" />
+                <div className="relative rounded-lg overflow-hidden">
+                  <div className="w-full h-[300px] md:h-[400px]">
+                    <TeamVisualization />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
