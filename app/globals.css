@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated color palette to match VIVATEL branding */
+    --background: 222.2 20% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 20% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 20% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Deep Blue from VIVATEL logo */
+    --primary: 210 85% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Teal/Turquoise accent from VIVATEL logo */
+    --secondary: 165 85% 45%;
+    --secondary-foreground: 222.2 20% 5%;
+
+    --muted: 210 40% 30%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent: Teal to match VIVATEL connectivity icon */
+    --accent: 165 85% 45%;
+    --accent-foreground: 222.2 20% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222.2 30% 20%;
+    --input: 222.2 30% 20%;
+    --ring: 165 85% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 20% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 20% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 20% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 85% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 165 85% 45%;
+    --secondary-foreground: 222.2 20% 5%;
+
+    --muted: 210 40% 30%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 165 85% 45%;
+    --accent-foreground: 222.2 20% 5%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222.2 30% 20%;
+    --input: 222.2 30% 20%;
+    --ring: 165 85% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+}
