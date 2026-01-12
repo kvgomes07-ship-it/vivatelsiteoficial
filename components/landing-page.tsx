@@ -88,7 +88,7 @@ export default function LandingPage() {
             className="flex items-center gap-3"
           >
             <div className="relative h-8 w-32">
-              {mounted && <Image src="/images/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />}
+              {mounted && <Image src="/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />}
             </div>
           </motion.div>
           <nav className="hidden md:flex items-center gap-8">
@@ -660,8 +660,8 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "João Manuel",
-                role: "CTO, TechAngola",
+                name: "Evandro Ferreira",
+                role: "CTO, MELM Solutions",
                 content:
                   "VIVATEL transformou completamente nossa infraestrutura. A segurança e confiabilidade são incomparáveis. Uma solução verdadeiramente soberana para Angola.",
               },
