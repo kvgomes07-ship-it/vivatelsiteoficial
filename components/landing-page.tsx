@@ -645,10 +645,10 @@ export default function LandingPage() {
               { name: "Zap", category: "Telecomunicações" },
               { name: "Banco Fomec", category: "Financeiro" },
               { name: "Ministério da TIC", category: "Governo" },
-              { name: "Tech Angola", category: "Inovação" },
+              { name: "MELM Solutions", category: "Inovação" },
               { name: "UNITEL", category: "Conectividade" },
               { name: "Banco Económico", category: "Financeiro" },
-              { name: "EAGLI", category: "Educação" },
+              { name: "7Smiles", category: "Educação" },
             ].map((partner, index) => (
               <motion.div
                 key={index}
