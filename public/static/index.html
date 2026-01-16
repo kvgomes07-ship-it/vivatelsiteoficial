@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVATEL | Otimizando Conexão</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <main class="container">
+        <div class="logo-container">
+            <!-- Simple CSS Logo placeholder matching the brand style -->
+            <div class="logo-icon">
+                <div class="logo-bar"></div>
+                <div class="logo-bar"></div>
+                <div class="logo-bar"></div>
+            </div>
+            <span class="logo-text">VIVATEL</span>
+        </div>
+
+        <div class="status-card">
+            <div class="scanner-visual">
+                <div class="radar">
+                    <div class="scan-line"></div>
+                    <div class="blip"></div>
+                </div>
+                <div class="server-node" id="node-current">
+                    <div class="node-dot"></div>
+                    <div class="node-label">Você</div>
+                </div>
+                <div class="connection-line">
+                    <div class="data-packet"></div>
+                </div>
+                <div class="server-node node-target" id="node-target">
+                    <div class="node-dot heartbeat"></div>
+                    <div class="node-label">VIVATEL Cloud</div>
+                </div>
+            </div>
+
+            <div class="info-content">
+                <h1 id="status-title">Analisando Conexão...</h1>
+                <p id="status-desc" class="status-text">Identificando o nó de acesso mais próximo para garantir baixa latência.</p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span id="latency-stat">Ping: -- ms</span>
+                        <span id="status-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-area hidden" id="action-area">
+                <p class="redirect-msg">Redirecionando automaticamente em <span id="countdown">3</span>s</p>
+                <a href="#" id="redirect-btn" class="primary-btn">
+                    Acessar Agora
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Powered by <span class="highlight">Angola Cable</span> Infrastructure</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
