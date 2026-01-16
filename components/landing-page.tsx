@@ -8,7 +8,6 @@ import {
   Code,
   Github,
   Globe,
-  Menu,
   Twitter,
   X,
   Zap,
@@ -35,6 +34,10 @@ import { CloudPlatform } from "./interactive/cloud-platform"
 import { AnalyticsPlatform } from "./interactive/analytics-platform"
 import { SecurityPlatform } from "./interactive/security-platform"
 import { TeamVisualization } from "./interactive/team-visualization"
+import { ConnectivityVisualization } from "./interactive/connectivity-visualization"
+import { SoftwareVisualization } from "./interactive/software-visualization"
+import { IoTVisualization } from "./interactive/iot-visualization"
+import { AcademyVisualization } from "./interactive/academy-visualization"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
 export default function LandingPage() {
@@ -43,8 +46,6 @@ export default function LandingPage() {
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
   const isVerySmall = useMediaQuery("(max-width: 500px)")
 
   const [mounted, setMounted] = useState(false)
@@ -53,17 +54,7 @@ export default function LandingPage() {
     setMounted(true)
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const headerClass =
-    scrollY > 50 ? "py-4 bg-black/80 backdrop-blur-md border-b border-gray-800/50" : "py-6 bg-transparent"
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -79,89 +70,9 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerClass}`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3"
-          >
-            <div className="relative h-8 w-32 cursor-pointer">
-              {mounted && <Image onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} src="/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />}
-            </div>
-          </motion.div>
-          <nav className="hidden md:flex items-center gap-8">
-            {["Recursos", "Soluções", "Parceiros", "Sobre", "Testemunhos"].map((item, i) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              >
-                <Link
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium"
-                >
-                  {item}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Button
-              variant="outline"
-              className="hidden md:flex border-cyan-500 text-cyan-400 hover:bg-cyan-950 bg-transparent"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Comece Agora
-            </Button>
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
-          </motion.div>
-        </div>
-      </header>
+      {/* Header removed - using global Navbar */}
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-[72px] left-0 right-0 z-40 bg-black border-b border-gray-800 md:hidden"
-          >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-6">
-              {["Recursos", "Soluções", "Parceiros", "Sobre", "Testemunhos"].map((item) => (
-                <Link
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors text-lg font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
-              <Button
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 w-full"
-                onClick={() => {
-                  setIsMenuOpen(false)
-                  setIsModalOpen(true)
-                }}
-              >
-                Comece Agora
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu removed - using global Navbar */}
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -328,7 +239,7 @@ export default function LandingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Recursos Avançados VIVATEL</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Ecossistema VIVATEL</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Plataforma completa com ferramentas especializadas para transformar sua infraestrutura digital e
                 impulsionar a inovação.
@@ -443,9 +354,11 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-                  Saiba Mais
-                </Button>
+                <Link href="/servicos/cloud">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
               </motion.div>
 
               <motion.div
@@ -502,9 +415,11 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-                  Saiba Mais
-                </Button>
+                <Link href="/servicos/analytics">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
               </motion.div>
             </div>
 
@@ -535,9 +450,11 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
-                  Saiba Mais
-                </Button>
+                <Link href="/servicos/security">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
               </motion.div>
 
               <motion.div
@@ -553,12 +470,217 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             </div>
+            {/* VIVATEL Connectivity */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="order-2 md:order-1"
+              >
+                <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden bg-gray-900">
+                    <ConnectivityVisualization />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 order-1 md:order-2"
+              >
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1">
+                  <Radio className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm text-cyan-400 font-medium">Infraestrutura Global</span>
+                </div>
+                <h3 className="text-3xl font-bold">VIVATEL Conectividade</h3>
+                <p className="text-gray-400 text-lg">
+                  Conectividade soberana com acesso direto aos cabos SACS e MONET. Garantimos baixa latência e alta disponibilidade através da nossa parceria estratégica com a Angola Cable.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Acesso Direto ao Backbone Internacional",
+                    "Rede de Fibra Óptica Nacional",
+                    "Soluções 5G Enterprise",
+                    "Latência Otimizada para Games e Streaming",
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-cyan-500" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/servicos/conectividade">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* VIVATEL Software */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1">
+                  <Code className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm text-cyan-400 font-medium">Desenvolvimento Digital</span>
+                </div>
+                <h3 className="text-3xl font-bold">VIVATEL Software</h3>
+                <p className="text-gray-400 text-lg">
+                  Desenvolvimento de software sob medida, integração de sistemas e automação de processos. Transformamos necessidades de negócio em soluções digitais robustas e escaláveis.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Desenvolvimento de Aplicações Web & Mobile",
+                    "Modernização de Sistemas Legados",
+                    "Integração de APIs e Microserviços",
+                    "DevOps e CI/CD Automatizado",
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-cyan-500" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/servicos">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden bg-gray-900">
+                    <SoftwareVisualization />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* VIVATEL Stream & IoT */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="order-2 md:order-1"
+              >
+                <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden bg-gray-900">
+                    <IoTVisualization />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 order-1 md:order-2"
+              >
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1">
+                  <Zap className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm text-cyan-400 font-medium">Internet das Coisas</span>
+                </div>
+                <h3 className="text-3xl font-bold">VIVATEL Stream & IoT</h3>
+                <p className="text-gray-400 text-lg">
+                  Soluções completas de IoT e streaming de dados para conectar o mundo físico ao digital. Monitore ativos, otimize operações e tome decisões baseadas em dados reais.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Monitoramento Industrial e Smart Cities",
+                    "Streaming de Dados em Tempo Real",
+                    "Processamento na Borda (Edge Computing)",
+                    "Gestão de Frotas e Ativos",
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-cyan-500" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/servicos">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* VIVATEL Academias & Labs */}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 py-1">
+                  <BookOpen className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm text-cyan-400 font-medium">Inovação e Educação</span>
+                </div>
+                <h3 className="text-3xl font-bold">VIVATEL Academias & Labs</h3>
+                <p className="text-gray-400 text-lg">
+                  Investindo no futuro tecnológico de Angola. Nossos laboratórios de inovação e programas de academia desenvolvem o talento necessário para impulsionar a economia digital.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Formação Especializada em Cloud e IA",
+                    "Certificações Técnicas Reconhecidas",
+                    "Laboratórios de Pesquisa e Desenvolvimento",
+                    "Programas de Inovação Aberta",
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-cyan-500" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/servicos">
+                  <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                    Saiba Mais
+                  </Button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-lg overflow-hidden bg-gray-900">
+                    <AcademyVisualization />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
 
-            {/* About Section */}
+      {/* About Section */}
       <section id="sobre" className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.15),transparent_60%)]" />
 
@@ -782,18 +904,28 @@ export default function LandingPage() {
               <h4 className="font-semibold mb-4">Produtos</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/servicos/cloud" className="hover:text-cyan-400 transition-colors">
                     Cloud
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/servicos/analytics" className="hover:text-cyan-400 transition-colors">
                     Analytics
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/servicos/security" className="hover:text-cyan-400 transition-colors">
                     Security
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/conectividade" className="hover:text-cyan-400 transition-colors">
+                    Conectividade
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos" className="hover:text-cyan-400 transition-colors">
+                    Todos os Serviços
                   </Link>
                 </li>
               </ul>
