@@ -271,7 +271,7 @@ export default function CloudPage() {
                         {[
                             {
                                 name: "Starter",
-                                price: "€25",
+                                price: "AOA 25K",
                                 period: "mês",
                                 features: [
                                     "2 vCPUs",
@@ -283,7 +283,7 @@ export default function CloudPage() {
                             },
                             {
                                 name: "Professional",
-                                price: "€99",
+                                price: "AOA 99K",
                                 period: "mês",
                                 features: [
                                     "8 vCPUs",

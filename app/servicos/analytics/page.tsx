@@ -356,7 +356,7 @@ export default function AnalyticsPage() {
                         {[
                             {
                                 name: "Starter",
-                                price: "€49",
+                                price: "AOA 49k",
                                 period: "mês",
                                 features: [
                                     "100K eventos/mês",
@@ -368,7 +368,7 @@ export default function AnalyticsPage() {
                             },
                             {
                                 name: "Professional",
-                                price: "€199",
+                                price: "AOA 199K",
                                 period: "mês",
                                 features: [
                                     "1M eventos/mês",

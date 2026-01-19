@@ -264,7 +264,7 @@ export default function SuportePage() {
                             { title: "Tutoriais e Guias", desc: "Passo a passo para configurar seus serviços." },
                             { title: "Comunidade", desc: "Fóruns de discussão e troca de conhecimento." }
                         ].map((item, i) => (
-                            <Link key={i} href="#" className="group">
+                            <Link key={i} href="/documentacao" className="group">
                                 <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl hover:border-cyan-500/50 transition-colors group-hover:bg-gray-800/50">
                                     <div className="flex items-center justify-between mb-4">
                                         <FileText className="h-8 w-8 text-gray-500 group-hover:text-cyan-400 transition-colors" />

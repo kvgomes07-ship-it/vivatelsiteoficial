@@ -407,7 +407,7 @@ export default function SecurityPage() {
                         {[
                             {
                                 name: "Essential",
-                                price: "€99",
+                                price: "AOA 99K",
                                 period: "mês",
                                 features: [
                                     "Firewall básico",
@@ -419,7 +419,7 @@ export default function SecurityPage() {
                             },
                             {
                                 name: "Advanced",
-                                price: "€399",
+                                price: "AOA 399K",
                                 period: "mês",
                                 features: [
                                     "Firewall avançado + WAF",

@@ -934,18 +934,18 @@ export default function LandingPage() {
               <h4 className="font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
+                  <Link href="/sobre" className="hover:text-cyan-400 transition-colors">
                     Sobre Nós
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
-                    Blog
+                  <Link href="/documentacao" className="hover:text-cyan-400 transition-colors">
+                    Documentação
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-cyan-400 transition-colors">
-                    Carreiras
+                  <Link href="/suporte" className="hover:text-cyan-400 transition-colors">
+                    Suporte
                   </Link>
                 </li>
               </ul>
