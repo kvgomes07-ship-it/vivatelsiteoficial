@@ -91,18 +91,21 @@ export default function CloudPage() {
                             {/* Container */}
                             <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
 
-                                {/* Video */}
-                                <video
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                    src="/videos/cloud.mp4"
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                />
-
-                                {/* Overlay opcional (para melhor contraste do texto) */}
-                                <div className="absolute inset-0 bg-black/30" />
+    {/* Video */}
+    <div>
+    <div className="relative aspect-video overflow-hidden rounded-xl">
+    <video
+      className="absolute inset-0 w-full h-full object-cover"
+      src="/videos/cloud.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+ </div>
+ </div>
+    {/* Overlay opcional (para melhor contraste do texto) */}
+    <div className="absolute inset-0 bg-black/30" />
 
                             </div>
                         </motion.div>
