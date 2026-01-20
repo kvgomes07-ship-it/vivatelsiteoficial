@@ -69,33 +69,33 @@ export default function AcademiasPage() {
                         </motion.div>
                     </div>
 
-<motion.div
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, delay: 0.6 }}
-  className="relative w-full max-w-5xl mx-auto"
->
-  {/* Glow background */}
-  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-sky-500/20 rounded-lg blur-3xl" />
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.6 }}
+                        className="relative w-full max-w-5xl mx-auto"
+                    >
+                        {/* Glow background */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-sky-500/20 rounded-lg blur-3xl" />
 
-  {/* Container */}
-  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                        {/* Container */}
+                        <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
 
-    {/* Video */}
-    <video
-      className="absolute inset-0 w-full h-full object-cover"
-      src="/videos/hero.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
+                            {/* Video */}
+                            <video
+                                className="absolute inset-0 w-full h-full object-cover"
+                                src="/videos/hero.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
 
-    {/* Overlay opcional (para melhor contraste do texto) */}
-    <div className="absolute inset-0 bg-black/30" />
+                            {/* Overlay opcional (para melhor contraste do texto) */}
+                            <div className="absolute inset-0 bg-black/30" />
 
-  </div>
-</motion.div>
+                        </div>
+                    </motion.div>
 
                 </div>
             </section>
