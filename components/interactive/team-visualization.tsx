@@ -11,7 +11,6 @@ export function TeamVisualization() {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isVerySmall = useMediaQuery("(max-width: 500px)")
 
-  // Define team data
   const teams = [
     {
       id: "engineering",
