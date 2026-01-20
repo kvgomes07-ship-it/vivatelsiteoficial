@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "VIVATEL - Infraestrutura Digital Soberana para Angola",
   description: "Soluções inovadoras de infraestrutura digital que transformam a forma como você se conecta e inova.",
-  generator: 'Evandro Ferreira'
+  generator: 'Kevin Gomes'
 }
 
 export default function RootLayout({

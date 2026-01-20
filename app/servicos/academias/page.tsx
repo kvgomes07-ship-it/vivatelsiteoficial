@@ -69,32 +69,34 @@ export default function AcademiasPage() {
                         </motion.div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="relative w-full max-w-5xl mx-auto"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-sky-500/20 rounded-lg blur-3xl" />
-                        <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px] flex items-center justify-center">
-                            {/* Abstract Visual: Growth/Knowledge */}
-                            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                                {/* Floating Elements */}
-                                <div className="absolute top-1/4 left-1/4 animate-[bounce_4s_infinite]">
-                                    <BookOpen className="h-16 w-16 text-indigo-500/50" />
-                                </div>
-                                <div className="absolute bottom-1/3 right-1/4 animate-[bounce_5s_infinite_reverse]">
-                                    <Lightbulb className="h-20 w-20 text-sky-500/50" />
-                                </div>
-                                <div className="absolute top-1/3 right-1/3 animate-[pulse_3s_infinite]">
-                                    <Rocket className="h-12 w-12 text-purple-500/50" />
-                                </div>
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.6 }}
+  className="relative w-full max-w-5xl mx-auto"
+>
+  {/* Glow background */}
+  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-sky-500/20 rounded-lg blur-3xl" />
 
-                                {/* Central Glow */}
-                                <div className="absolute w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl" />
-                            </div>
-                        </div>
-                    </motion.div>
+  {/* Container */}
+  <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+
+    {/* Video */}
+    <video
+      className="absolute inset-0 w-full h-full object-cover"
+      src="/videos/hero.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+
+    {/* Overlay opcional (para melhor contraste do texto) */}
+    <div className="absolute inset-0 bg-black/30" />
+
+  </div>
+</motion.div>
+
                 </div>
             </section>
 
