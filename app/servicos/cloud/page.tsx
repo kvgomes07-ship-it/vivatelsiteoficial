@@ -90,6 +90,8 @@ export default function CloudPage() {
   <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
 
     {/* Video */}
+    <div>
+    <div className="relative aspect-video overflow-hidden rounded-xl">
     <video
       className="absolute inset-0 w-full h-full object-cover"
       src="/videos/cloud.mp4"
@@ -98,7 +100,8 @@ export default function CloudPage() {
       muted
       playsInline
     />
-
+ </div>
+ </div>
     {/* Overlay opcional (para melhor contraste do texto) */}
     <div className="absolute inset-0 bg-black/30" />
 
