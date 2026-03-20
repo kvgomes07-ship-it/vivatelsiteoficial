@@ -56,16 +56,40 @@ export default function LandingPage() {
 
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setTimeout(() => {
+
+    const formEmail = email
+    const formCompany = company
+    const formPhone = phone
+
+    try {
+      // Usando Formspree para tornar o formulário funcional
+      const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID || "mnpkrpkp"}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formEmail,
+          company: formCompany,
+          phone: formPhone,
+        }),
+      })
+
+      if (response.ok) {
+        setIsModalOpen(false)
+        setEmail("")
+        setCompany("")
+        setPhone("")
+        // Você pode adicionar um toast de sucesso aqui se desejar
+      }
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error)
+    } finally {
       setIsSubmitting(false)
-      setIsModalOpen(false)
-      setEmail("")
-      setCompany("")
-      setPhone("")
-    }, 1000)
+    }
   }
 
   return (
