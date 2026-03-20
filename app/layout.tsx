@@ -64,8 +64,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/shortcut-icon.png',
+    icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
 }
