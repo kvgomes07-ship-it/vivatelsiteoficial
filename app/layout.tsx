@@ -35,14 +35,6 @@ export const metadata: Metadata = {
     description: 'Transformando a conectividade e a inovação tecnológica em Angola com soluções de classe mundial.',
     url: '/',
     siteName: 'VIVATEL',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'VIVATEL - Infraestrutura Digital',
-      },
-    ],
     locale: 'pt_AO',
     type: 'website',
   },
@@ -50,7 +42,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'VIVATEL - Infraestrutura Digital Soberana para Angola',
     description: 'Soluções inovadoras de infraestrutura digital para o futuro de Angola.',
-    images: ['/og-image.png'],
   },
   robots: {
     index: true,
