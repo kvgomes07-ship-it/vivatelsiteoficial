@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { TeamVisualization } from "@/components/interactive/team-visualization"
+import { SpinningGlobe } from "@/components/ui/spinning-globe"
 import {
     CheckCircle,
     Trophy,
@@ -60,6 +61,15 @@ export default function SobrePage() {
                             A Vivatel nasceu com o propósito de transformar o cenário tecnológico de Angola, oferecendo infraestrutura de classe mundial desenvolvida localmente.
                         </motion.p>
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.6 }}
+                        className="relative w-full max-w-6xl mx-auto min-h-[400px] md:min-h-[600px] flex items-center justify-center -mt-10"
+                    >
+                        <SpinningGlobe />
+                    </motion.div>
                 </div>
             </section>
 

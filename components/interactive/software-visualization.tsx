@@ -28,7 +28,7 @@ export function SoftwareVisualization() {
             <div className="flex gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
-                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
+                <div className="w-3 h-3 rounded-full bg-blue-500/20 border border-blue-500/50" />
             </div>
 
             {/* Code Area */}
@@ -42,7 +42,7 @@ export function SoftwareVisualization() {
                         className="flex items-center gap-4"
                     >
                         <span className="text-gray-700 select-none">{i + 1}</span>
-                        <span className={line.includes("//") ? "text-green-400" : "text-blue-300"}>
+                        <span className={line.includes("//") ? "text-blue-400" : "text-blue-300"}>
                             {line}
                         </span>
                     </motion.div>
@@ -51,7 +51,7 @@ export function SoftwareVisualization() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: [0, 1, 0] }}
                     transition={{ duration: 0.8, repeat: Infinity }}
-                    className="w-2 h-4 bg-cyan-500 ml-8 mt-1"
+                    className="w-2 h-4 bg-blue-500 ml-8 mt-1"
                 />
             </div>
 

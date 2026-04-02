@@ -69,7 +69,7 @@ export default function AnalyticsPage() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="flex flex-wrap gap-4 justify-center"
                         >
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
                                 Começar Agora
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
@@ -85,7 +85,7 @@ export default function AnalyticsPage() {
                         transition={{ duration: 1, delay: 0.6 }}
                         className="relative w-full max-w-5xl mx-auto"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg blur-3xl" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-sky-500/20 rounded-lg blur-3xl" />
                         <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl">
                             <div className="relative h-[300px] md:h-[500px] w-full">
                                 <AnalyticsPlatform />
@@ -115,7 +115,7 @@ export default function AnalyticsPage() {
                                 description: "Visualize métricas e KPIs atualizados em tempo real com dashboards interativos.",
                             },
                             {
-                                icon: <Brain className="h-10 w-10 text-cyan-500" />,
+                                icon: <Brain className="h-10 w-10 text-sky-500" />,
                                 title: "Machine Learning Integrado",
                                 description: "Análise preditiva com modelos de ML que aprendem com seus dados.",
                             },
@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
                                 description: "Identifique padrões e tendências para tomar decisões proativas.",
                             },
                             {
-                                icon: <PieChart className="h-10 w-10 text-cyan-500" />,
+                                icon: <PieChart className="h-10 w-10 text-sky-500" />,
                                 title: "Visualizações Customizáveis",
                                 description: "Crie gráficos e visualizações personalizadas para suas necessidades.",
                             },
@@ -135,7 +135,7 @@ export default function AnalyticsPage() {
                                 description: "Conecte múltiplas fontes de dados e unifique sua análise.",
                             },
                             {
-                                icon: <Zap className="h-10 w-10 text-cyan-500" />,
+                                icon: <Zap className="h-10 w-10 text-sky-500" />,
                                 title: "Alertas Inteligentes",
                                 description: "Receba notificações automáticas baseadas em condições personalizadas.",
                             },
@@ -148,7 +148,7 @@ export default function AnalyticsPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{feature.icon}</div>
                                         <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                                         <p className="text-gray-400">{feature.description}</p>
@@ -223,13 +223,13 @@ export default function AnalyticsPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <h3 className="text-2xl font-bold mb-3">{useCase.title}</h3>
                                         <p className="text-gray-400 mb-6">{useCase.description}</p>
                                         <ul className="space-y-3">
                                             {useCase.features.map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-3">
-                                                    <CheckCircle className="h-5 w-5 text-cyan-500 flex-shrink-0" />
+                                                    <CheckCircle className="h-5 w-5 text-sky-500 flex-shrink-0" />
                                                     <span className="text-gray-300">{feature}</span>
                                                 </li>
                                             ))}
@@ -269,7 +269,7 @@ export default function AnalyticsPage() {
                                     "Conformidade GDPR e regulamentações locais",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="h-6 w-6 text-cyan-500 flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="h-6 w-6 text-sky-500 flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
@@ -283,7 +283,7 @@ export default function AnalyticsPage() {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="bg-gray-900 p-8 rounded-lg">
                                     <h3 className="text-2xl font-bold mb-6">Performance</h3>
                                     <div className="space-y-6">
@@ -293,7 +293,7 @@ export default function AnalyticsPage() {
                                                 <span className="text-cyan-400 font-medium">&lt; 100ms</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[95%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[95%]"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -302,7 +302,7 @@ export default function AnalyticsPage() {
                                                 <span className="text-cyan-400 font-medium">1M eventos/seg</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[90%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[90%]"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -311,7 +311,7 @@ export default function AnalyticsPage() {
                                                 <span className="text-cyan-400 font-medium">Ilimitada</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-full"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-full"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -320,7 +320,7 @@ export default function AnalyticsPage() {
                                                 <span className="text-cyan-400 font-medium">94%+</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[94%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[94%]"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -328,11 +328,11 @@ export default function AnalyticsPage() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
+                                <div className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
                                     <div className="text-3xl font-bold text-cyan-400 mb-1">10B+</div>
                                     <div className="text-sm text-gray-400">Eventos/Dia</div>
                                 </div>
-                                <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
+                                <div className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
                                     <div className="text-3xl font-bold text-cyan-400 mb-1">99.9%</div>
                                     <div className="text-sm text-gray-400">Uptime</div>
                                 </div>
@@ -404,11 +404,11 @@ export default function AnalyticsPage() {
                                 className="relative"
                             >
                                 {plan.popular && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-medium px-4 py-1 rounded-full">
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-sky-500 text-white text-sm font-medium px-4 py-1 rounded-full">
                                         Mais Popular
                                     </div>
                                 )}
-                                <div className={`h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl ${plan.popular ? 'ring-2 ring-cyan-500/50' : ''}`}>
+                                <div className={`h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl ${plan.popular ? 'ring-2 ring-sky-500/50' : ''}`}>
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50">
                                         <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                                         <div className="mb-6">
@@ -418,12 +418,12 @@ export default function AnalyticsPage() {
                                         <ul className="space-y-3 mb-8">
                                             {plan.features.map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-2">
-                                                    <CheckCircle className="h-5 w-5 text-cyan-500" />
+                                                    <CheckCircle className="h-5 w-5 text-sky-500" />
                                                     <span className="text-gray-300">{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
-                                        <Button className={`w-full ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600' : 'bg-gray-800 hover:bg-gray-700'}`}>
+                                        <Button className={`w-full ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600' : 'bg-gray-800 hover:bg-gray-700'}`}>
                                             {plan.price === "Custom" ? "Contactar Vendas" : "Começar Agora"}
                                         </Button>
                                     </div>
@@ -452,7 +452,7 @@ export default function AnalyticsPage() {
                             </p>
                             <Button
                                 size="lg"
-                                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-8 py-6 text-lg"
+                                className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                             >
                                 Agendar Demonstração
                                 <ArrowRight className="ml-2 h-5 w-5" />

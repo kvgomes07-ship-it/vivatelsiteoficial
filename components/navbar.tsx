@@ -88,20 +88,20 @@ export function Navbar() {
                                         className={cn(
                                             "text-sm font-medium transition-colors relative py-2",
                                             isActive(item.href) || (item.dropdown && isDropdownActive(item.dropdown))
-                                                ? "text-cyan-400"
-                                                : "text-gray-300 hover:text-cyan-400"
+                                                ? "text-blue-400"
+                                                : "text-gray-300 hover:text-blue-400"
                                         )}
                                     >
                                         {item.name}
                                         {(isActive(item.href) || (item.dropdown && isDropdownActive(item.dropdown))) && !item.dropdown && (
                                             <motion.div
                                                 layoutId="activeTab"
-                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-400 shadow-[0_0_10px_rgba(59, 130, 246,0.5)]"
                                             />
                                         )}
                                     </Link>
                                     {item.dropdown && (
-                                        <ChevronDown className={cn("h-4 w-4 transition-transform", activeDropdown === item.name ? "rotate-180 text-cyan-400" : "text-gray-400")} />
+                                        <ChevronDown className={cn("h-4 w-4 transition-transform", activeDropdown === item.name ? "rotate-180 text-blue-400" : "text-gray-400")} />
                                     )}
                                 </div>
 
@@ -123,7 +123,7 @@ export function Navbar() {
                                                         className={cn(
                                                             "text-sm px-3 py-2 rounded-md transition-colors block",
                                                             isActive(subItem.href)
-                                                                ? "bg-cyan-500/10 text-cyan-400"
+                                                                ? "bg-blue-500/10 text-blue-400"
                                                                 : "text-gray-300 hover:bg-gray-800 hover:text-white"
                                                         )}
                                                     >
@@ -146,7 +146,7 @@ export function Navbar() {
                     >
                         <Button
                             variant="outline"
-                            className="hidden md:flex border-cyan-500 text-cyan-400 hover:bg-cyan-950 bg-transparent"
+                            className="hidden md:flex border-blue-500 text-blue-400 hover:bg-blue-950 bg-transparent"
                         >
                             Portal do Cliente
                         </Button>
@@ -174,7 +174,7 @@ export function Navbar() {
                                         href={item.href}
                                         className={cn(
                                             "text-lg font-bold transition-colors",
-                                            isActive(item.href) ? "text-cyan-400" : "text-white"
+                                            isActive(item.href) ? "text-blue-400" : "text-white"
                                         )}
                                         onClick={() => !item.dropdown && setIsMenuOpen(false)}
                                     >
@@ -188,7 +188,7 @@ export function Navbar() {
                                                     href={subItem.href}
                                                     className={cn(
                                                         "text-base font-medium transition-colors",
-                                                        isActive(subItem.href) ? "text-cyan-400" : "text-gray-400"
+                                                        isActive(subItem.href) ? "text-blue-400" : "text-gray-400"
                                                     )}
                                                     onClick={() => setIsMenuOpen(false)}
                                                 >
@@ -200,7 +200,7 @@ export function Navbar() {
                                 </div>
                             ))}
                             <Button
-                                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 w-full text-white mt-4"
+                                className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 w-full text-white mt-4"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Portal do Cliente

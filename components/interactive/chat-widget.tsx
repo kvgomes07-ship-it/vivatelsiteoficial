@@ -115,10 +115,10 @@ export function ChatWidget({ isOpen, onClose }: ChatWidgetProps) {
                         <div className="flex items-center gap-3">
                             <div className={cn(
                                 "h-10 w-10 rounded-full flex items-center justify-center border",
-                                mode === 'ai' ? "bg-cyan-500/10 border-cyan-500/20" : "bg-blue-500/10 border-blue-500/20"
+                                mode === 'ai' ? "bg-blue-500/10 border-blue-500/20" : "bg-blue-500/10 border-blue-500/20"
                             )}>
                                 {mode === 'ai' ? (
-                                    <Bot className="h-6 w-6 text-cyan-400" />
+                                    <Bot className="h-6 w-6 text-blue-400" />
                                 ) : (
                                     <Headphones className="h-6 w-6 text-blue-400" />
                                 )}
@@ -128,7 +128,7 @@ export function ChatWidget({ isOpen, onClose }: ChatWidgetProps) {
                                     {mode === 'ai' ? "VIVATEL Assistant" : "Suporte Técnico"}
                                 </h3>
                                 <div className="flex items-center gap-1.5">
-                                    <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
                                     <span className="text-xs text-gray-400">
                                         {mode === 'ai' ? "IA Online" : "Carlos Online"}
                                     </span>
@@ -171,7 +171,7 @@ export function ChatWidget({ isOpen, onClose }: ChatWidgetProps) {
                                 <div className={cn(
                                     "max-w-[80%] p-3 rounded-2xl text-sm",
                                     msg.sender === 'user'
-                                        ? "bg-cyan-600 text-white rounded-br-none"
+                                        ? "bg-blue-600 text-white rounded-br-none"
                                         : "bg-gray-800 text-gray-200 rounded-bl-none"
                                 )}>
                                     {msg.text}
@@ -192,7 +192,7 @@ export function ChatWidget({ isOpen, onClose }: ChatWidgetProps) {
 
                     {/* Input Area */}
                     <div className="p-4 border-t border-gray-800 bg-gray-900/30">
-                        <div className="flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2 focus-within:border-cyan-500/50 transition-colors">
+                        <div className="flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2 focus-within:border-blue-500/50 transition-colors">
                             <input
                                 type="text"
                                 value={inputValue}
@@ -202,12 +202,12 @@ export function ChatWidget({ isOpen, onClose }: ChatWidgetProps) {
                                 className="flex-1 bg-transparent border-none outline-none text-sm text-white placeholder-gray-500"
                             />
                             <div className="flex items-center gap-1">
-                                <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-cyan-400">
+                                <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-blue-400">
                                     <Paperclip className="h-4 w-4" />
                                 </Button>
                                 <Button
                                     size="icon"
-                                    className="h-8 w-8 rounded-full bg-cyan-600 hover:bg-cyan-700 text-white"
+                                    className="h-8 w-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
                                     onClick={handleSendMessage}
                                 >
                                     <Send className="h-4 w-4" />

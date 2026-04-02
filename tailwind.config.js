@@ -66,10 +66,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "float-particle": {
+          "0%, 100%": { transform: "translateY(0)", opacity: "0.15" },
+          "50%": { transform: "translateY(-30px)", opacity: "0.35" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float-particle": "float-particle 8s ease-in-out infinite",
       },
       backgroundImage: {
         "dots-pattern": "radial-gradient(transparent 1px, white 1px)",

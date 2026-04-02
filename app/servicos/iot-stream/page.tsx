@@ -12,264 +12,264 @@ import {
     Server,
     Laptop,
     Settings,
+    Thermometer,
+    Lightbulb,
+    Camera,
+    Play,
+    Volume2,
+    LayoutDashboard,
+    Boxes,
+    FileText,
+    Bell,
+    Plus,
+    Search,
+    Home,
+    Moon,
+    Lock,
+    Unlock,
+    Mic,
+    Music2
 } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export default function IoTStreamPage() {
+    const [temp, setTemp] = useState(23)
+    const [isLocked, setIsLocked] = useState(true)
+    const [activeStream, setActiveStream] = useState(0)
+
+    const streams = [
+        { title: "Luanda City Feed", desc: "Live CCTV Node 04", color: "bg-orange-500", icon: Camera },
+        { title: "Porto Lobito Grid", desc: "Asset Monitoring", color: "bg-blue-500", icon: Boxes },
+        { title: "Benguela Sensors", desc: "Environmental Logs", color: "bg-cyan-500", icon: Activity },
+        { title: "Sanzala Network", desc: "Edge Traffic Log", color: "bg-purple-500", icon: Zap },
+    ]
+
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden">
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-green-900/20 to-black" />
-                    <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-green-900/10 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.1),transparent_65%)]" />
+        <div className="min-h-screen bg-[#020617] text-white overflow-hidden font-sans flex">
+            {/* Sidebar (Desktop Only) */}
+            <aside className="w-16 md:w-20 border-r border-white/5 bg-black/40 backdrop-blur-xl hidden sm:flex flex-col items-center py-8 gap-10 z-40 mt-20">
+                <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                    <Zap className="h-6 w-6 text-white" />
                 </div>
+                <div className="flex flex-col gap-8 opacity-40">
+                    <Home className="h-6 w-6 hover:text-cyan-400 cursor-pointer transition-colors" />
+                    <LayoutDashboard className="h-6 w-6 text-cyan-400 opacity-100" />
+                    <Boxes className="h-6 w-6 hover:text-cyan-400 cursor-pointer transition-colors" />
+                    <Bell className="h-6 w-6 hover:text-cyan-400 cursor-pointer transition-colors" />
+                    <Settings className="h-6 w-6 hover:text-cyan-400 cursor-pointer transition-colors" />
+                </div>
+                <div className="mt-auto flex flex-col gap-6 items-center">
+                    <div className="w-8 h-8 rounded-full border border-white/20 bg-gray-800" />
+                </div>
+            </aside>
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center mb-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2 mb-6"
-                        >
-                            <Zap className="h-4 w-4 text-green-400" />
-                            <span className="text-sm text-green-400">IoT & Real-time Streaming</span>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-green-200 to-cyan-200 bg-clip-text text-transparent leading-tight"
-                        >
-                            VIVATEL Stream & IoT
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
-                            Conecte o mundo físico ao digital. Soluções de IoT industrial e streaming de dados em tempo real para automação e insights instantâneos.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex flex-wrap gap-4 justify-center"
-                        >
-                            <Button className="bg-gradient-to-r from-green-600 to-cyan-500 hover:from-green-700 hover:to-cyan-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-green-900/30 hover:shadow-green-900/50 transition-all duration-300">
-                                Conhecer Soluções
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                        </motion.div>
+            {/* Main Content Area */}
+            <main className="flex-1 overflow-y-auto max-h-screen pt-32 px-4 md:px-12 pb-20">
+                {/* Header / Stats Bar */}
+                <header className="flex flex-wrap justify-between items-center mb-10 gap-6">
+                    <div className="flex bg-white/5 p-1 rounded-full border border-white/10 gap-1">
+                        {['Resumo', 'Dispositivos', 'Áreas'].map((tab, i) => (
+                            <button key={tab} className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest rounded-full transition-all ${i === 0 ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(6,182,212,0.3)]' : 'hover:bg-white/5 text-gray-500'}`}>{tab}</button>
+                        ))}
                     </div>
+                    <div className="flex gap-4 items-center">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/5 rounded-xl">
+                            <Wifi className="h-4 w-4 text-cyan-500" />
+                            <span className="text-[10px] font-mono">LINK_STABLE: 10Gbps</span>
+                        </div>
+                        <Plus className="h-8 w-8 p-1 bg-white hover:bg-cyan-400 text-black rounded-lg cursor-pointer transition-colors" />
+                    </div>
+                </header>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="relative w-full max-w-5xl mx-auto"
+                {/* Hero Feature Card (Stream Style) */}
+                <section className="mb-12">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="relative h-[250px] md:h-[380px] w-full rounded-[40px] overflow-hidden group shadow-2xl"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-cyan-500/20 rounded-lg blur-3xl" />
-                        <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[400px] flex items-center justify-center">
-                            {/* Abstract Visual: Connected Nodes */}
-                            <div className="relative w-full h-full flex items-center justify-center">
-                                <div className="absolute w-64 h-64 border border-green-500/20 rounded-full animate-[spin_10s_linear_infinite]" />
-                                <div className="absolute w-48 h-48 border border-cyan-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-                                <div className="absolute w-32 h-32 border border-green-400/40 rounded-full animate-[pulse_3s_ease-in-out_infinite]" />
-                                <Zap className="h-16 w-16 text-green-400 drop-shadow-[0_0_15px_rgba(74,222,128,0.5)]" />
+                        {/* Orange/The Weeknd Gradient Style */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#ff512f] via-[#dd2476] to-[#020617] opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
+                        <div className="absolute top-0 right-0 w-3/4 h-full bg-[radial-gradient(circle_at_70%_20%,rgba(255,165,0,0.4)_0%,transparent_70%)]" />
+                        
+                        {/* Content */}
+                        <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
+                            <span className="text-white/70 text-[10px] font-black uppercase tracking-[0.4em] mb-4">Unidade Principal Ativa</span>
+                            <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tighter max-w-2xl leading-[0.9]">VIVATEL<br />Stream & IoT</h1>
+                            <div className="flex items-center gap-6">
+                                <div className="flex -space-x-4">
+                                   {[1,2,3].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-black bg-gray-800" />)}
+                                </div>
+                                <span className="text-white/60 text-xs font-mono">1.2k+ Dispositivos Sincronizados</span>
+                            </div>
+                        </div>
 
-                                {/* Orbiting dots */}
-                                <div className="absolute w-full h-full animate-[spin_20s_linear_infinite]">
-                                    <div className="absolute top-1/2 left-8 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
-                                    <div className="absolute top-8 left-1/2 w-2 h-2 bg-green-400 rounded-full shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                        {/* Floating Play Button Style (Decoration) */}
+                        <div className="absolute bottom-10 right-10 flex items-center gap-4">
+                             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center border border-white/20 hover:scale-110 transition-transform cursor-pointer">
+                                <Play className="h-6 w-6 text-white fill-white ml-1" />
+                             </div>
+                        </div>
+                    </motion.div>
+                </section>
+
+                {/* IoT & Data Grid */}
+                <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* IoT Controls (Reference Image 2) */}
+                    <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Thermostat Gauge Card */}
+                        <div className="bg-white/5 border border-white/5 p-8 rounded-[30px] relative overflow-hidden group hover:bg-white/[0.08] transition-all">
+                             <div className="flex justify-between items-center mb-10">
+                                <span className="text-xs font-black uppercase text-gray-500 tracking-[0.2em]">Temp. Datacenter</span>
+                                <Thermometer className="h-5 w-5 text-orange-400" />
+                             </div>
+                             <div className="flex flex-col items-center py-4">
+                                <div className="relative w-40 h-40 flex items-center justify-center">
+                                    <svg className="w-full h-full -rotate-90">
+                                        <circle cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-white/5" />
+                                        <motion.circle 
+                                            cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="8" fill="transparent" 
+                                            strokeDasharray="440" 
+                                            animate={{ strokeDashoffset: 440 - (440 * (temp / 40)) }}
+                                            className="text-cyan-500 drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]" 
+                                        />
+                                    </svg>
+                                    <div className="absolute text-center">
+                                        <span className="text-5xl font-black tabular-nums">{temp}°</span>
+                                        <div className="flex gap-4 mt-2">
+                                            <button onClick={() => setTemp(t => t - 1)} className="text-xl text-gray-500 hover:text-white">-</button>
+                                            <button onClick={() => setTemp(t => t + 1)} className="text-xl text-gray-500 hover:text-white">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span className="mt-8 text-[10px] font-mono text-cyan-400">STATUS: OTIMIZADO</span>
+                             </div>
+                        </div>
+
+                        {/* Security Toggle Card */}
+                        <div className="bg-black/40 border border-white/5 p-8 rounded-[30px] flex flex-col justify-between">
+                            <div className="flex justify-between items-center">
+                                <div className="p-3 bg-cyan-500/10 rounded-xl"><Lock className="h-6 w-6 text-cyan-400" /></div>
+                                <div className="flex flex-col items-end">
+                                    <span className="text-[10px] font-black text-gray-600 uppercase">Segurança Elétrica</span>
+                                    <span className="text-xs font-black text-white">MODO: {isLocked ? 'PROTEGIDO' : 'ABERTO'}</span>
+                                </div>
+                            </div>
+                            <div className="mt-10 py-6 px-6 bg-white/5 rounded-2xl flex justify-between items-center group cursor-pointer" onClick={() => setIsLocked(!isLocked)}>
+                                <span className="text-sm font-black tracking-widest text-gray-400 group-hover:text-white transition-colors">PORTÃO LOGÍSTICO</span>
+                                <div className={`w-12 h-6 rounded-full relative transition-all duration-300 ${isLocked ? 'bg-cyan-600' : 'bg-gray-800'}`}>
+                                    <motion.div 
+                                        animate={{ x: isLocked ? 26 : 4 }}
+                                        className="absolute top-1 w-4 h-4 bg-white rounded-full shadow-lg"
+                                    />
+                                </div>
+                            </div>
+                            <div className="mt-4 flex gap-4">
+                                <div className="flex-1 p-4 bg-white/5 rounded-2xl flex flex-col items-center">
+                                    <Lightbulb className="h-5 w-5 text-yellow-400 mb-2" />
+                                    <span className="text-[10px] font-black">LUZES: 80%</span>
+                                </div>
+                                <div className="flex-1 p-4 bg-white/5 rounded-2xl flex flex-col items-center">
+                                    <Zap className="h-5 w-5 text-cyan-400 mb-2" />
+                                    <span className="text-[10px] font-black">ENERGIA: ON</span>
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
-                </div>
-            </section>
 
-            {/* Features Section */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_50%)]" />
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Conectividade Inteligente</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Tecnologias que impulsionam a Indústria 4.0 em Angola.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            {
-                                icon: <Cpu className="h-10 w-10 text-green-500" />,
-                                title: "IoT Industrial (IIoT)",
-                                description: "Monitoramento de máquinas e ativos industriais para manutenção preditiva e eficiência operaciomal.",
-                            },
-                            {
-                                icon: <Activity className="h-10 w-10 text-cyan-500" />,
-                                title: "Streaming de Dados",
-                                description: "Ingestão e processamento de dados em tempo real (Kafka, Spark) para tomada de decisão imediata.",
-                            },
-                            {
-                                icon: <Settings className="h-10 w-10 text-green-500" />,
-                                title: "Automação Industrial",
-                                description: "Controle automatizado de processos fabris e logísticos com integração total.",
-                            },
-                            {
-                                icon: <Wifi className="h-10 w-10 text-cyan-500" />,
-                                title: "Edge Computing",
-                                description: "Processamento de dados na borda para latência mínima e resposta instantânea.",
-                            },
-                            {
-                                icon: <Radio className="h-10 w-10 text-green-500" />,
-                                title: "Smart Cities",
-                                description: "Soluções para cidades inteligentes: iluminação, tráfego, resíduos e monitoramento ambiental.",
-                            },
-                            {
-                                icon: <Server className="h-10 w-10 text-cyan-500" />,
-                                title: "Gestão de Ativos",
-                                description: "Rastreamento e gestão de frotas e equipamentos em tempo real via GPS e sensores.",
-                            },
-                        ].map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-green-500/50 transition-colors backdrop-blur-sm">
-                                        <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{feature.icon}</div>
-                                        <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                                        <p className="text-gray-400">{feature.description}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Benefits Section */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
-                            <h2 className="text-3xl md:text-4xl font-bold">Por Que Investir em IoT?</h2>
-                            <p className="text-gray-300 text-lg">
-                                A transformação digital passa pela conectividade dos seus ativos físicos. Ganhe visibilidade total da sua operação.
-                            </p>
-                            <ul className="space-y-4">
-                                {[
-                                    "Redução de custos operacionais",
-                                    "Aumento da eficiência produtiva",
-                                    "Manutenção preditiva (reduz downtime)",
-                                    "Segurança do trabalhador aprimorada",
-                                    "Dados precisos para decisões estratégicas",
-                                    "Monitoramento remoto 24/7",
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                                        <span className="text-gray-300">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
-                            <div className="bg-gradient-to-br from-green-500/20 to-cyan-500/20 p-1 rounded-lg">
-                                <div className="bg-gray-900 p-8 rounded-lg relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                                        <Wifi className="h-32 w-32 text-white" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-4 relative z-10">Casos de Uso</h3>
-                                    <div className="space-y-4 relative z-10">
-                                        <div className="border-l-2 border-green-500 pl-4 py-1">
-                                            <h4 className="text-white font-semibold">Mineração</h4>
-                                            <p className="text-sm text-gray-400">Monitoramento de veículos autônomos e segurança em tempo real.</p>
-                                        </div>
-                                        <div className="border-l-2 border-cyan-500 pl-4 py-1">
-                                            <h4 className="text-white font-semibold">Logística</h4>
-                                            <p className="text-sm text-gray-400">Rastreamento de contêineres e otimização de rotas.</p>
-                                        </div>
-                                        <div className="border-l-2 border-green-500 pl-4 py-1">
-                                            <h4 className="text-white font-semibold">Energia</h4>
-                                            <p className="text-sm text-gray-400">Smart Grids e monitoramento de consumo.</p>
-                                        </div>
-                                        <div className="border-l-2 border-cyan-500 pl-4 py-1">
-                                            <h4 className="text-white font-semibold">Agricultura</h4>
-                                            <p className="text-sm text-gray-400">Agricultura de precisão com sensores de solo e clima.</p>
-                                        </div>
-                                    </div>
+                        {/* Live Feed Component (Ref Image 2) */}
+                        <div className="md:col-span-2 bg-[#101010] border border-white/5 rounded-[40px] overflow-hidden relative h-[300px]">
+                            <div className="absolute top-4 left-6 flex items-center gap-3 z-20">
+                                <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                                    <span className="text-[10px] font-black tracking-[0.2em] uppercase">Camera #01 [Live]</span>
                                 </div>
                             </div>
-                        </motion.div>
+                            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end z-20">
+                                <div className="bg-black/60 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                                    <h4 className="text-sm font-black mb-1">Porto do Lobito - Gate Alpha</h4>
+                                    <p className="text-[10px] text-gray-400 font-mono italic">Coord: 12.332, -13.221</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    <button className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all"><Mic className="h-4 w-4" /></button>
+                                    <button className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all"><Volume2 className="h-4 w-4" /></button>
+                                </div>
+                            </div>
+                            {/* Visual effect for the feed */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                            <div className="absolute inset-0 bg-cyan-900/10 mix-blend-overlay" />
+                            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+                                <div className="w-[80%] h-[80%] border border-white/20 grid grid-cols-4 grid-rows-4" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            {/* CTA Section */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15),transparent_70%)]" />
+                    {/* Data Stream Right Column (Ref Image 1) */}
+                    <div className="flex flex-col gap-6">
+                        <div className="flex items-center justify-between mb-2">
+                            <h3 className="text-lg font-black uppercase tracking-tighter">Fluxos de Dados</h3>
+                            <Search className="h-5 w-5 text-gray-500" />
+                        </div>
+                        <div className="space-y-4">
+                            {streams.map((stream, idx) => (
+                                <motion.div 
+                                    key={idx} 
+                                    whileHover={{ x: 5 }}
+                                    className={`p-5 rounded-3xl bg-white/5 border border-white/5 flex items-center gap-5 cursor-pointer transition-all ${activeStream === idx ? 'border-orange-500/50 bg-white/[0.08]' : 'hover:bg-white/[0.08]'}`}
+                                    onClick={() => setActiveStream(idx)}
+                                >
+                                    <div className={`h-12 w-12 rounded-2xl ${stream.color} flex items-center justify-center shadow-lg`}>
+                                        <stream.icon className="h-6 w-6 text-white" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h4 className="text-sm font-black">{stream.title}</h4>
+                                        <p className="text-[10px] text-gray-500 font-mono tracking-widest uppercase">{stream.desc}</p>
+                                    </div>
+                                    {activeStream === idx && (
+                                        <div className="flex flex-col gap-1">
+                                            {[...Array(3)].map((_, i) => <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-orange-500' : 'bg-gray-800'}`} />)}
+                                        </div>
+                                    )}
+                                </motion.div>
+                            ))}
+                        </div>
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold mb-6">Conecte sua Empresa ao Futuro</h2>
-                            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-                                Descubra como a IoT pode transformar seu negócio hoje mesmo.
-                            </p>
-                            <Button
-                                size="lg"
-                                className="bg-gradient-to-r from-green-600 to-cyan-500 hover:from-green-700 hover:to-cyan-600 px-8 py-6 text-lg"
-                            >
-                                Falar com Especialista IoT
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                        </motion.div>
+                        {/* Mini Activity Player (Ref Image 1 Waveform) */}
+                        <div className="mt-auto bg-gradient-to-br from-indigo-900/40 to-black p-6 rounded-[30px] border border-white/10 relative overflow-hidden">
+                             <div className="flex items-center gap-4 mb-6">
+                                <Music2 className="h-5 w-5 text-orange-400" />
+                                <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Analizador Harmónico</span>
+                             </div>
+                             <div className="flex items-end gap-1 h-12 mb-6">
+                                {[...Array(12)].map((_, i) => (
+                                    <motion.div 
+                                        key={i}
+                                        animate={{ height: [10, Math.random() * 40 + 10, 10] }}
+                                        transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.1 }}
+                                        className="flex-1 bg-cyan-400 rounded-full"
+                                    />
+                                ))}
+                             </div>
+                             <div className="flex justify-between items-center pt-4 border-t border-white/5">
+                                <div className="flex gap-4">
+                                    <Play className="h-4 w-4" />
+                                    <Volume2 className="h-4 w-4" />
+                                </div>
+                                <span className="text-[10px] font-mono text-orange-500">REALTIME_SIGNAL</span>
+                             </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </main>
 
-            {/* Footer */}
-            <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
-                <div className="container mx-auto px-4 py-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm">© 2026 VIVATEL. Todos os direitos reservados.</p>
-                        <Link href="/" className="text-green-400 hover:text-green-300 transition-colors text-sm">
-                            ← Voltar à Página Inicial
-                        </Link>
-                    </div>
-                </div>
-            </footer>
+            {/* Float Bottom Navigation (Mobile Mobile) */}
+            <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-2xl border border-white/10 px-6 py-4 rounded-full flex gap-10 sm:hidden z-50">
+                <LayoutDashboard className="h-6 w-6 text-cyan-400" />
+                <Boxes className="h-6 w-6 text-gray-500" />
+                <Activity className="h-6 w-6 text-gray-500" />
+                <Bell className="h-6 w-6 text-gray-500" />
+            </nav>
         </div>
     )
 }

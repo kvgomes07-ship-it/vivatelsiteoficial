@@ -54,7 +54,7 @@ export function SecurityPlatform() {
     <div className="bg-gray-900 rounded-lg border border-gray-800 p-4 md:p-6 h-full">
       <div className="flex justify-between items-center mb-4 md:mb-6">
         <div className="flex items-center gap-2">
-          <Shield className="h-4 w-4 md:h-5 md:w-5 text-teal-500" />
+          <Shield className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
           <h3 className="font-medium text-sm md:text-base">Segurança Vivatel</h3>
         </div>
         <button
@@ -73,7 +73,7 @@ export function SecurityPlatform() {
           <div className="relative h-3 md:h-4 bg-gray-700 rounded-full overflow-hidden mb-1.5 md:mb-2">
             <motion.div
               className={`h-full ${
-                securityScore >= 80 ? "bg-teal-500" : securityScore >= 60 ? "bg-blue-500" : "bg-red-500"
+                securityScore >= 80 ? "bg-blue-500" : securityScore >= 60 ? "bg-blue-500" : "bg-red-500"
               }`}
               initial={{ width: 0 }}
               animate={{ width: `${securityScore}%` }}
@@ -85,7 +85,7 @@ export function SecurityPlatform() {
             <span
               className={`text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full ${
                 threatLevel === "Baixo" || threatLevel === "Muito Baixo"
-                  ? "bg-teal-900/30 text-teal-400"
+                  ? "bg-blue-900/30 text-blue-400"
                   : threatLevel === "Moderado"
                     ? "bg-blue-900/30 text-blue-400"
                     : "bg-red-900/30 text-red-400"
@@ -117,7 +117,7 @@ export function SecurityPlatform() {
                 <span
                   className={`text-[10px] md:text-xs ${
                     item.status === "Ativo"
-                      ? "text-teal-400"
+                      ? "text-blue-400"
                       : item.status === "Verificando"
                         ? "text-blue-400"
                         : "text-gray-400"
@@ -148,7 +148,7 @@ export function SecurityPlatform() {
                 ) : vuln.severity === "Médio" ? (
                   <AlertTriangle className="h-3 w-3 md:h-4 md:w-4 text-blue-500" />
                 ) : (
-                  <AlertTriangle className="h-3 w-3 md:h-4 md:w-4 text-cyan-500" />
+                  <AlertTriangle className="h-3 w-3 md:h-4 md:w-4 text-blue-500" />
                 )}
                 <span className="text-[10px] md:text-xs">{vuln.description}</span>
               </div>
@@ -159,13 +159,13 @@ export function SecurityPlatform() {
                       ? "bg-red-900/30 text-red-400"
                       : vuln.severity === "Médio"
                         ? "bg-blue-900/30 text-blue-400"
-                        : "bg-cyan-900/30 text-cyan-400"
+                        : "bg-blue-900/30 text-blue-400"
                   }`}
                 >
                   {vuln.severity}
                 </span>
                 <span
-                  className={`text-[8px] md:text-xs ${vuln.status === "Aberto" ? "text-red-400" : "text-teal-400"}`}
+                  className={`text-[8px] md:text-xs ${vuln.status === "Aberto" ? "text-red-400" : "text-blue-400"}`}
                 >
                   {vuln.status}
                 </span>

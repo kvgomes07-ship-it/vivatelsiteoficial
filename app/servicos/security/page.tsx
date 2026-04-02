@@ -69,7 +69,7 @@ export default function SecurityPage() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="flex flex-wrap gap-4 justify-center"
                         >
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
                                 Começar Agora
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
@@ -85,7 +85,7 @@ export default function SecurityPage() {
                         transition={{ duration: 1, delay: 0.6 }}
                         className="relative w-full max-w-5xl mx-auto"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg blur-3xl" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-sky-500/20 rounded-lg blur-3xl" />
                         <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl">
                             <div className="relative h-[300px] md:h-[500px] w-full">
                                 <SecurityPlatform />
@@ -115,7 +115,7 @@ export default function SecurityPage() {
                                 description: "Proteção de perímetro com regras inteligentes e filtragem de tráfego.",
                             },
                             {
-                                icon: <Lock className="h-10 w-10 text-cyan-500" />,
+                                icon: <Lock className="h-10 w-10 text-sky-500" />,
                                 title: "Criptografia End-to-End",
                                 description: "Dados protegidos em repouso e em trânsito com AES-256 e TLS 1.3.",
                             },
@@ -125,7 +125,7 @@ export default function SecurityPage() {
                                 description: "Vigilância 24/7 com detecção de anomalias e comportamentos suspeitos.",
                             },
                             {
-                                icon: <AlertTriangle className="h-10 w-10 text-cyan-500" />,
+                                icon: <AlertTriangle className="h-10 w-10 text-sky-500" />,
                                 title: "Detecção de Ameaças com IA",
                                 description: "Machine learning identifica e bloqueia ameaças antes que causem danos.",
                             },
@@ -135,7 +135,7 @@ export default function SecurityPage() {
                                 description: "Certificações ISO 27001, SOC 2 e conformidade com GDPR.",
                             },
                             {
-                                icon: <Key className="h-10 w-10 text-cyan-500" />,
+                                icon: <Key className="h-10 w-10 text-sky-500" />,
                                 title: "Gestão de Identidades",
                                 description: "Autenticação multifator e controle de acesso baseado em funções.",
                             },
@@ -148,7 +148,7 @@ export default function SecurityPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{feature.icon}</div>
                                         <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
                                         <p className="text-gray-400">{feature.description}</p>
@@ -227,9 +227,9 @@ export default function SecurityPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="flex items-center gap-4 mb-4">
-                                            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg">
+                                            <div className="p-3 bg-gradient-to-br from-blue-500/20 to-sky-500/20 rounded-lg">
                                                 {service.icon}
                                             </div>
                                             <h3 className="text-2xl font-bold">{service.title}</h3>
@@ -238,7 +238,7 @@ export default function SecurityPage() {
                                         <ul className="space-y-3">
                                             {service.features.map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-3">
-                                                    <CheckCircle className="h-5 w-5 text-cyan-500 flex-shrink-0" />
+                                                    <CheckCircle className="h-5 w-5 text-sky-500 flex-shrink-0" />
                                                     <span className="text-gray-300">{feature}</span>
                                                 </li>
                                             ))}
@@ -278,7 +278,7 @@ export default function SecurityPage() {
                                     "Relatórios executivos personalizados",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="h-6 w-6 text-cyan-500 flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="h-6 w-6 text-sky-500 flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
@@ -292,7 +292,7 @@ export default function SecurityPage() {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="bg-gray-900 p-8 rounded-lg">
                                     <h3 className="text-2xl font-bold mb-6">Estatísticas de Proteção</h3>
                                     <div className="space-y-6">
@@ -302,7 +302,7 @@ export default function SecurityPage() {
                                                 <span className="text-cyan-400 font-medium">99.7%</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[99.7%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[99.7%]"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -311,7 +311,7 @@ export default function SecurityPage() {
                                                 <span className="text-cyan-400 font-medium">&lt; 60s</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[95%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[95%]"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -320,7 +320,7 @@ export default function SecurityPage() {
                                                 <span className="text-cyan-400 font-medium">&lt; 0.1%</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-[2%]"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-[2%]"></div>
                                             </div>
                                         </div>
                                         <div>
@@ -329,7 +329,7 @@ export default function SecurityPage() {
                                                 <span className="text-cyan-400 font-medium">100%</span>
                                             </div>
                                             <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <div className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 w-full"></div>
+                                                <div className="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-full"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -337,11 +337,11 @@ export default function SecurityPage() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
+                                <div className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
                                     <div className="text-3xl font-bold text-cyan-400 mb-1">2.5M+</div>
                                     <div className="text-sm text-gray-400">Ameaças Bloqueadas/Dia</div>
                                 </div>
-                                <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
+                                <div className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
                                     <div className="text-3xl font-bold text-cyan-400 mb-1">24/7</div>
                                     <div className="text-sm text-gray-400">SOC Operacional</div>
                                 </div>
@@ -382,7 +382,7 @@ export default function SecurityPage() {
                                 transition={{ duration: 0.3, delay: index * 0.05 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-lg">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm text-center">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm text-center">
                                         <ShieldCheck className="h-12 w-12 text-cyan-400 mx-auto mb-3" />
                                         <h3 className="text-sm font-bold">{cert}</h3>
                                     </div>
@@ -456,11 +456,11 @@ export default function SecurityPage() {
                                 className="relative"
                             >
                                 {plan.popular && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm font-medium px-4 py-1 rounded-full">
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-sky-500 text-white text-sm font-medium px-4 py-1 rounded-full">
                                         Recomendado
                                     </div>
                                 )}
-                                <div className={`h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl ${plan.popular ? 'ring-2 ring-cyan-500/50' : ''}`}>
+                                <div className={`h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl ${plan.popular ? 'ring-2 ring-sky-500/50' : ''}`}>
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50">
                                         <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                                         <div className="mb-6">
@@ -470,12 +470,12 @@ export default function SecurityPage() {
                                         <ul className="space-y-3 mb-8">
                                             {plan.features.map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-2">
-                                                    <CheckCircle className="h-5 w-5 text-cyan-500" />
+                                                    <CheckCircle className="h-5 w-5 text-sky-500" />
                                                     <span className="text-gray-300 text-sm">{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
-                                        <Button className={`w-full ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600' : 'bg-gray-800 hover:bg-gray-700'}`}>
+                                        <Button className={`w-full ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600' : 'bg-gray-800 hover:bg-gray-700'}`}>
                                             {plan.price === "Custom" ? "Contactar Vendas" : "Começar Agora"}
                                         </Button>
                                     </div>
@@ -505,7 +505,7 @@ export default function SecurityPage() {
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <Button
                                     size="lg"
-                                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-8 py-6 text-lg"
+                                    className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                                 >
                                     Avaliação Gratuita
                                     <ArrowRight className="ml-2 h-5 w-5" />

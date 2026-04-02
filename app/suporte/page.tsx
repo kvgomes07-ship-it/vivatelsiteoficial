@@ -61,7 +61,7 @@ export default function SuportePage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-2 mb-6"
+                            className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6"
                         >
                             <LifeBuoy className="h-4 w-4 text-cyan-400" />
                             <span className="text-sm text-cyan-400">Central de Ajuda</span>
@@ -117,7 +117,7 @@ export default function SuportePage() {
                             },
                         ].map((channel, i) => (
                             <div key={i} className="bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform">
-                                <div className="h-full bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800/50 hover:border-cyan-500/30 transition-colors text-center">
+                                <div className="h-full bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/30 transition-colors text-center">
                                     <div className="bg-gray-800/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                                         {channel.icon}
                                     </div>
@@ -156,22 +156,22 @@ export default function SuportePage() {
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-300">Nome</label>
-                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="Seu nome" />
+                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Seu nome" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-300">Empresa</label>
-                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="Nome da empresa" />
+                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Nome da empresa" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Email Corporativo</label>
-                                    <input type="email" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" placeholder="voce@empresa.com" />
+                                    <input type="email" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="voce@empresa.com" />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Assunto</label>
-                                    <select className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors appearance-none">
+                                    <select className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors appearance-none">
                                         <option>Suporte Técnico</option>
                                         <option>Vendas / Comercial</option>
                                         <option>Financeiro</option>
@@ -182,10 +182,10 @@ export default function SuportePage() {
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Mensagem</label>
-                                    <textarea className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors h-32 resize-none" placeholder="Como podemos ajudar?" />
+                                    <textarea className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors h-32 resize-none" placeholder="Como podemos ajudar?" />
                                 </div>
 
-                                <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 h-12 text-lg">
+                                <Button className="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 h-12 text-lg">
                                     Enviar Mensagem
                                     <Send className="ml-2 h-4 w-4" />
                                 </Button>
@@ -265,7 +265,7 @@ export default function SuportePage() {
                             { title: "Comunidade", desc: "Fóruns de discussão e troca de conhecimento." }
                         ].map((item, i) => (
                             <Link key={i} href="/documentacao" className="group">
-                                <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl hover:border-cyan-500/50 transition-colors group-hover:bg-gray-800/50">
+                                <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl hover:border-sky-500/50 transition-colors group-hover:bg-gray-800/50">
                                     <div className="flex items-center justify-between mb-4">
                                         <FileText className="h-8 w-8 text-gray-500 group-hover:text-cyan-400 transition-colors" />
                                         <ArrowRight className="h-4 w-4 text-gray-600 group-hover:text-cyan-400 transition-colors -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 duration-300" />
@@ -299,7 +299,7 @@ export default function SuportePage() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
                         onClick={() => setIsChatOpen(true)}
-                        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-full p-4 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110"
+                        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-full p-4 shadow-lg hover:shadow-sky-500/50 transition-all duration-300 hover:scale-110"
                     >
                         <MessageSquare className="h-6 w-6" />
                         <span className="sr-only">Abrir Chat</span>

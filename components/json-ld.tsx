@@ -28,6 +28,7 @@ export function JsonLd() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      key="json-ld"
     />
   )
 }

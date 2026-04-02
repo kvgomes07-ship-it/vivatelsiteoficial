@@ -23,22 +23,22 @@ export function TeamVisualization() {
       id: "design",
       name: "Design",
       icon: Palette,
-      color: "text-purple-500",
+      color: "text-blue-500",
       count: isVerySmall ? 4 : isMobile ? 6 : 12,
     },
     {
       id: "product",
       name: isVerySmall ? "Prod" : "Product",
       icon: Briefcase,
-      color: "text-green-500",
+      color: "text-blue-400",
       count: isVerySmall ? 3 : isMobile ? 4 : 8,
     },
     {
       id: "support",
       name: isVerySmall ? "Supp" : "Support",
       icon: MessageSquare,
-      color: "text-yellow-500",
-      count: isVerySmall ? 4 : isMobile ? 6 : 16,
+      color: "text-blue-400",
+      count: isVerySmall ? 2 : isMobile ? 3 : 6,
     },
   ]
 
@@ -72,7 +72,7 @@ export function TeamVisualization() {
     <div className="bg-gray-900 rounded-lg border border-gray-800 p-3 md:p-6 h-full">
       <div className="flex justify-between items-center mb-3 md:mb-6">
         <div className="flex items-center gap-1 md:gap-2">
-          <Users className="h-4 w-4 md:h-5 md:w-5 text-purple-500" />
+          <Users className="h-4 w-4 md:h-5 md:w-5 text-blue-500" />
           <h3 className="font-medium text-xs sm:text-sm md:text-base">Vivatel Team</h3>
         </div>
         <div className="text-[8px] sm:text-xs text-gray-400">{isVerySmall ? "60+" : "60+ Team Members"}</div>
@@ -124,7 +124,7 @@ export function TeamVisualization() {
                     : activeTeam === "design"
                       ? "text-purple-500"
                       : activeTeam === "product"
-                        ? "text-green-500"
+                        ? "text-blue-500"
                         : "text-yellow-500"
                   }`}
               >
@@ -135,7 +135,7 @@ export function TeamVisualization() {
                       : activeTeam === "design"
                         ? "border-purple-500"
                         : activeTeam === "product"
-                          ? "border-green-500"
+                          ? "border-blue-500"
                           : "border-yellow-500"
                     }`}
                   animate={{ scale: [1, 1.2, 1] }}
@@ -168,12 +168,12 @@ export function TeamVisualization() {
                     y2={`${connection.y}%`}
                     stroke={
                       activeTeam === "engineering"
-                        ? "#3b82f6"
+                        ? "#3B82F6" // blue-500
                         : activeTeam === "design"
-                          ? "#8b5cf6"
+                          ? "#8b5cf6" // purple-500
                           : activeTeam === "product"
-                            ? "#22c55e"
-                            : "#eab308"
+                            ? "#10b981" // blue-500
+                            : "#eab308" // yellow-500
                     }
                     strokeWidth="0.5"
                     strokeOpacity="0.2"
@@ -201,7 +201,7 @@ export function TeamVisualization() {
                     : activeTeam === "design"
                       ? "bg-purple-500"
                       : activeTeam === "product"
-                        ? "bg-green-500"
+                        ? "bg-blue-500"
                         : "bg-yellow-500"
                   }`}
                 initial={{ width: 0 }}
@@ -242,7 +242,7 @@ export function TeamVisualization() {
                     : activeTeam === "design"
                       ? "bg-purple-500"
                       : activeTeam === "product"
-                        ? "bg-green-500"
+                        ? "bg-blue-500"
                         : "bg-yellow-500"
                   }`}
                 initial={{ width: 0 }}

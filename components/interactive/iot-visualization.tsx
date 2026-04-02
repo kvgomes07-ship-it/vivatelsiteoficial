@@ -13,7 +13,7 @@ export function IoTVisualization() {
 
     return (
         <div className="w-full h-full bg-gray-950 relative overflow-hidden flex items-center justify-center border border-gray-800 rounded-lg">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59, 130, 246,0.1),transparent_70%)]" />
 
             {/* Connection Lines */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -24,7 +24,7 @@ export function IoTVisualization() {
                         y1={`${device.y}%`}
                         x2="50%"
                         y2="50%"
-                        stroke="rgba(34, 211, 238, 0.2)"
+                        stroke="rgba(59, 130, 246, 0.2)"
                         strokeWidth="1"
                         strokeDasharray="4 4"
                         initial={{ pathLength: 0, opacity: 0 }}
@@ -45,10 +45,10 @@ export function IoTVisualization() {
                     <motion.div
                         animate={{ scale: [1, 2], opacity: [0.5, 0] }}
                         transition={{ duration: 2, repeat: Infinity, delay: device.delay }}
-                        className="absolute inset-0 bg-cyan-500/30 rounded-full"
+                        className="absolute inset-0 bg-blue-500/30 rounded-full"
                     />
                     {/* Device Core */}
-                    <div className={`relative w-4 h-4 rounded-full ${i === 4 ? 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,1)] w-6 h-6' : 'bg-cyan-500 shadow-[0_0_10px_rgba(34,211,238,0.8)]'}`} />
+                    <div className={`relative w-4 h-4 rounded-full ${i === 4 ? 'bg-blue-500 shadow-[0_0_15px_rgba(59, 130, 246,1)] w-6 h-6' : 'bg-blue-500 shadow-[0_0_10px_rgba(59, 130, 246,0.8)]'}`} />
 
                     {/* Data packet animation */}
                     {i !== 4 && (

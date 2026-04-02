@@ -14,19 +14,19 @@
     --popover: 222.2 20% 5%;
     --popover-foreground: 210 40% 98%;
 
-    /* Primary: Deep Blue from VIVATEL logo */
-    --primary: 210 85% 35%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Emerald Green for Vivatel */
+    --primary: 160 84% 33%;
+    --primary-foreground: 160 40% 98%;
 
-    /* Secondary: Teal/Turquoise accent from VIVATEL logo */
-    --secondary: 165 85% 45%;
-    --secondary-foreground: 222.2 20% 5%;
+    /* Secondary: Muted Glasiano */
+    --secondary: 158 35% 15%;
+    --secondary-foreground: 160 40% 98%;
 
-    --muted: 210 40% 30%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 160 20% 15%;
+    --muted-foreground: 158 20% 65%;
 
-    /* Accent: Teal to match VIVATEL connectivity icon */
-    --accent: 165 85% 45%;
+    /* Accent: Glasiano Green */
+    --accent: 160 84% 39%;
     --accent-foreground: 222.2 20% 5%;
 
     --destructive: 0 84.2% 60.2%;
@@ -49,24 +49,24 @@
     --popover: 222.2 20% 5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 85% 35%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 160 84% 33%;
+    --primary-foreground: 160 40% 98%;
 
-    --secondary: 165 85% 45%;
-    --secondary-foreground: 222.2 20% 5%;
+    --secondary: 158 35% 15%;
+    --secondary-foreground: 160 40% 98%;
 
-    --muted: 210 40% 30%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 160 20% 15%;
+    --muted-foreground: 158 20% 65%;
 
-    --accent: 165 85% 45%;
-    --accent-foreground: 222.2 20% 5%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222.2 30% 20%;
-    --input: 222.2 30% 20%;
-    --ring: 165 85% 45%;
+    --border: 160 30% 15%;
+    --input: 160 30% 15%;
+    --ring: 160 84% 39%;
   }
 }
 
@@ -76,6 +76,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+    font-feature-settings: 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     @apply scroll-smooth;

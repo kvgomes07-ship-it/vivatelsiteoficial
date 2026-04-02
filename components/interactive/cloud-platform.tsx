@@ -37,11 +37,11 @@ export function CloudPlatform() {
     <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 h-full">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
-          <Cloud className="h-5 w-5 text-teal-500" />
+          <Cloud className="h-5 w-5 text-blue-500" />
           <h3 className="font-medium">Console de Nuvem Vivatel</h3>
         </div>
-        <div className="flex items-center gap-2 text-xs text-teal-400">
-          <span className="h-2 w-2 rounded-full bg-teal-500"></span>
+        <div className="flex items-center gap-2 text-xs text-blue-400">
+          <span className="h-2 w-2 rounded-full bg-blue-500"></span>
           Todos os Sistemas Operacionais
         </div>
       </div>
@@ -53,7 +53,7 @@ export function CloudPlatform() {
           <span className="text-sm font-medium">24%</span>
         </div>
         <div className="bg-gray-800/50 p-3 rounded-lg flex flex-col items-center justify-center text-center">
-          <Database className="h-6 w-6 text-teal-400 mb-2" />
+          <Database className="h-6 w-6 text-blue-400 mb-2" />
           <span className="text-xs text-gray-400">Armazenamento</span>
           <span className="text-sm font-medium">1.2 TB</span>
         </div>
@@ -73,17 +73,17 @@ export function CloudPlatform() {
               onClick={() => handleServerClick(index)}
               className={`relative p-4 rounded-lg border transition-all ${
                 activeServer === index
-                  ? "border-teal-500 bg-teal-500/10"
+                  ? "border-blue-500 bg-blue-500/10"
                   : "border-gray-700 bg-gray-800/30 hover:border-gray-600"
               }`}
             >
               <Server
-                className={`h-6 w-6 mx-auto mb-2 ${activeServer === index ? "text-teal-400" : "text-gray-400"}`}
+                className={`h-6 w-6 mx-auto mb-2 ${activeServer === index ? "text-blue-400" : "text-gray-400"}`}
               />
               <span className="block text-xs text-center">Região {index + 1}</span>
               {activeServer === index && (
                 <motion.div
-                  className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-teal-500"
+                  className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-blue-500"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
                 />
@@ -109,8 +109,8 @@ export function CloudPlatform() {
             <span>Implantando na Região {activeServer !== null ? activeServer + 1 : "..."}</span>
           </div>
         ) : deployStatus ? (
-          <div className="flex items-center gap-2 text-sm text-teal-400">
-            <span className="h-3 w-3 rounded-full bg-teal-500"></span>
+          <div className="flex items-center gap-2 text-sm text-blue-400">
+            <span className="h-3 w-3 rounded-full bg-blue-500"></span>
             <span>{deployStatus}</span>
           </div>
         ) : (
@@ -127,7 +127,7 @@ export function CloudPlatform() {
           <span className="text-xs text-gray-400">
             {activeServer !== null ? `Conectado à Região ${activeServer + 1}` : "Não conectado"}
           </span>
-          <button className="text-xs text-teal-400 flex items-center gap-1 hover:text-teal-300">
+          <button className="text-xs text-blue-400 flex items-center gap-1 hover:text-blue-300">
             Ver Detalhes <ArrowRight className="h-3 w-3" />
           </button>
         </div>

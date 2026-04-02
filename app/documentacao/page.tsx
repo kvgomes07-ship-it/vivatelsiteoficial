@@ -64,10 +64,10 @@ export default function DocumentacaoPage() {
     ]
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
+        <div className="min-h-screen bg-black text-white selection:bg-sky-500/30">
             {/* Background Decorations */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] -translate-y-1/2" />
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] -translate-y-1/2" />
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] translate-y-1/2" />
             </div>
 
@@ -77,7 +77,7 @@ export default function DocumentacaoPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-2 mb-6"
+                        className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6"
                     >
                         <Book className="h-4 w-4 text-cyan-400" />
                         <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">Documentação Oficial</span>
@@ -102,7 +102,7 @@ export default function DocumentacaoPage() {
                         <input
                             type="text"
                             placeholder="Pesquise por produtos, guias ou termos técnicos..."
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 pl-12 pr-4 text-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all backdrop-blur-md"
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 pl-12 pr-4 text-lg focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500/50 transition-all backdrop-blur-md"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -123,7 +123,7 @@ export default function DocumentacaoPage() {
                         className="lg:col-span-2 grid sm:grid-cols-2 gap-4"
                     >
                         <Link href="#" className="group p-6 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
-                            <div className="bg-cyan-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-cyan-400 group-hover:scale-110 transition-transform">
+                            <div className="bg-sky-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-cyan-400 group-hover:scale-110 transition-transform">
                                 <Play className="h-6 w-6 fill-current" />
                             </div>
                             <h3 className="text-xl font-bold mb-2">Guia de Início Rápido</h3>
@@ -156,7 +156,7 @@ export default function DocumentacaoPage() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="p-8 bg-gradient-to-br from-cyan-950/40 to-black border border-cyan-500/20 rounded-3xl"
+                        className="p-8 bg-gradient-to-br from-cyan-950/40 to-black border border-sky-500/20 rounded-3xl"
                     >
                         <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                             <FileText className="h-5 w-5 text-cyan-400" />
@@ -255,12 +255,12 @@ export default function DocumentacaoPage() {
                         {/* Empty Space for visual separation */}
                     </div>
                     <div className="space-y-4 md:-ml-12">
-                        <div className="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-green-400">
+                        <div className="bg-blue-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-400">
                             <Zap className="h-8 w-8" />
                         </div>
                         <h3 className="text-xl font-bold">Suporte Dedicado</h3>
                         <p className="text-gray-400">Precisa de suporte arquitetural? Nossos engenheiros de soluções estão disponíveis 24/7.</p>
-                        <Button variant="link" className="text-green-400">Contatar Engenharia →</Button>
+                        <Button variant="link" className="text-blue-400">Contatar Engenharia →</Button>
                     </div>
                 </div>
             </div>

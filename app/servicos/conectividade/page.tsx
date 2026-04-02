@@ -65,7 +65,7 @@ export default function ConectividadePage() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="flex flex-wrap gap-4 justify-center"
                         >
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
                                 Solicitar Proposta
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
@@ -128,7 +128,7 @@ export default function ConectividadePage() {
                                 speeds: "100 Mbps - 10 Gbps",
                             },
                             {
-                                icon: <Antenna className="h-10 w-10 text-cyan-500" />,
+                                icon: <Antenna className="h-10 w-10 text-sky-500" />,
                                 title: "5G Enterprise",
                                 description: "Rede 5G privada para empresas com cobertura dedicada e segurança avançada.",
                                 speeds: "Até 1 Gbps",
@@ -140,7 +140,7 @@ export default function ConectividadePage() {
                                 speeds: "10 Mbps - 1 Gbps",
                             },
                             {
-                                icon: <Wifi className="h-10 w-10 text-cyan-500" />,
+                                icon: <Wifi className="h-10 w-10 text-sky-500" />,
                                 title: "SD-WAN",
                                 description: "Redes WAN definidas por software para conectar múltiplas localizações.",
                                 speeds: "Escalável",
@@ -152,7 +152,7 @@ export default function ConectividadePage() {
                                 speeds: "Até 400 Gbps",
                             },
                             {
-                                icon: <Network className="h-10 w-10 text-cyan-500" />,
+                                icon: <Network className="h-10 w-10 text-sky-500" />,
                                 title: "MPLS",
                                 description: "Redes privadas MPLS para conectar filiais com segurança e performance.",
                                 speeds: "Personalizado",
@@ -166,7 +166,7 @@ export default function ConectividadePage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{service.icon}</div>
                                         <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                                         <p className="text-gray-400 mb-4">{service.description}</p>
@@ -195,7 +195,7 @@ export default function ConectividadePage() {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-2 mb-4">
+                            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-4">
                                 <Globe className="h-4 w-4 text-cyan-400" />
                                 <span className="text-sm text-cyan-400">Parceria Estratégica</span>
                             </div>
@@ -215,7 +215,7 @@ export default function ConectividadePage() {
                                     "SLA de 99.99% de disponibilidade",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="h-6 w-6 text-cyan-500 flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="h-6 w-6 text-sky-500 flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
@@ -229,7 +229,7 @@ export default function ConectividadePage() {
                             transition={{ duration: 0.8 }}
                             className="space-y-6"
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="bg-gray-900 p-8 rounded-lg">
                                     <h3 className="text-2xl font-bold mb-6">Infraestrutura Global</h3>
                                     <div className="space-y-6">
@@ -314,7 +314,7 @@ export default function ConectividadePage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm text-center">
+                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm text-center">
                                         <div className="text-3xl font-bold text-cyan-400 mb-2">{feature.stat}</div>
                                         <div className="text-sm text-cyan-400/70 mb-4">{feature.label}</div>
                                         <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
@@ -367,7 +367,7 @@ export default function ConectividadePage() {
                                         <ul className="space-y-3">
                                             {useCase.features.map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-3">
-                                                    <CheckCircle className="h-5 w-5 text-cyan-500 flex-shrink-0" />
+                                                    <CheckCircle className="h-5 w-5 text-sky-500 flex-shrink-0" />
                                                     <span className="text-gray-300">{feature}</span>
                                                 </li>
                                             ))}
@@ -399,7 +399,7 @@ export default function ConectividadePage() {
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <Button
                                     size="lg"
-                                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-8 py-6 text-lg"
+                                    className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                                 >
                                     Solicitar Proposta
                                     <ArrowRight className="ml-2 h-5 w-5" />

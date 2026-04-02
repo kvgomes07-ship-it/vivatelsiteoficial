@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 export function AcademyVisualization() {
     const skills = [
         { name: "Cloud", level: 85, color: "bg-blue-500" },
-        { name: "Security", level: 92, color: "bg-cyan-500" },
-        { name: "DevOps", level: 78, color: "bg-teal-500" },
-        { name: "Data", level: 88, color: "bg-indigo-500" },
+        { name: "Security", level: 92, color: "bg-blue-500" },
+        { name: "DevOps", level: 78, color: "bg-blue-400" },
+        { name: "Data", level: 88, color: "bg-blue-400" },
     ]
 
     return (
@@ -40,7 +40,7 @@ export function AcademyVisualization() {
             </div>
 
             {/* Background Decor */}
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         </div>
     )
 }

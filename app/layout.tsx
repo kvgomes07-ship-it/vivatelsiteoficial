@@ -5,8 +5,13 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { JsonLd } from "@/components/json-ld"
+import { MeshBackground } from "@/components/ui/mesh-background"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-inter",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -66,9 +71,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className="dark" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.variable} font-sans`}>
         <JsonLd />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <MeshBackground />
           <Navbar />
           {children}
         </ThemeProvider>

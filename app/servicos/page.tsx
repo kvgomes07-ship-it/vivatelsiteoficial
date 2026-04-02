@@ -25,15 +25,15 @@ export default function ServicosPage() {
             description: "Infraestrutura em nuvem escalável e soberana para hospedar aplicações, gerenciar dados e escalar recursos com total controle.",
             features: ["Servidores Virtuais", "Armazenamento Escalável", "Auto-scaling", "99.99% Uptime"],
             href: "/servicos/cloud",
-            color: "from-blue-500/20 to-cyan-500/20",
+            color: "from-blue-500/20 to-sky-500/20",
         },
         {
-            icon: <BarChart3 className="h-12 w-12 text-cyan-500" />,
+            icon: <BarChart3 className="h-12 w-12 text-sky-500" />,
             title: "VIVATEL Analytics",
             description: "Análise avançada de dados com insights acionáveis em tempo real. Machine learning integrado para análise preditiva.",
             features: ["Dashboards em Tempo Real", "ML Integrado", "Análise de Tendências", "Alertas Inteligentes"],
             href: "/servicos/analytics",
-            color: "from-cyan-500/20 to-blue-500/20",
+            color: "from-sky-500/20 to-blue-500/20",
         },
         {
             icon: <Shield className="h-12 w-12 text-blue-500" />,
@@ -44,12 +44,12 @@ export default function ServicosPage() {
             color: "from-blue-500/20 to-purple-500/20",
         },
         {
-            icon: <Radio className="h-12 w-12 text-cyan-500" />,
+            icon: <Radio className="h-12 w-12 text-sky-500" />,
             title: "VIVATEL Conectividade",
             description: "Infraestrutura de conectividade soberana com acesso direto aos cabos SACS e MONET, 5G Enterprise e baixa latência.",
             features: ["Fibra Óptica Dedicada", "5G Enterprise", "Latência < 3ms", "Redundância Total"],
             href: "/servicos/conectividade",
-            color: "from-blue-500/20 to-green-500/20",
+            color: "from-blue-500/20 to-blue-500/20",
         },
     ]
 
@@ -67,7 +67,7 @@ export default function ServicosPage() {
             href: "/servicos/analytics",
         },
         {
-            icon: <Zap className="h-10 w-10 text-cyan-500" />,
+            icon: <Zap className="h-10 w-10 text-sky-500" />,
             title: "Stream & IoT",
             description: "Streaming de dados em tempo real, robótica industrial e IoT para automação completa.",
             href: "/servicos/iot-stream",
@@ -99,7 +99,7 @@ export default function ServicosPage() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight"
+                            className="text-[48px] sm:text-[56px] md:text-[64px] lg:text-[72px] font-semibold mb-5 tracking-[-0.02em] text-[#ffffff] leading-[1.1] text-center"
                         >
                             Nossos Serviços
                         </motion.h1>
@@ -139,7 +139,7 @@ export default function ServicosPage() {
                             >
                                 <Link href={service.href}>
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
-                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                             <div className={`mb-6 p-4 bg-gradient-to-br ${service.color} rounded-lg inline-block`}>
                                                 {service.icon}
                                             </div>
@@ -148,7 +148,7 @@ export default function ServicosPage() {
                                             <div className="space-y-2 mb-6">
                                                 {service.features.map((feature, i) => (
                                                     <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                                                        <div className="h-1.5 w-1.5 rounded-full bg-cyan-500"></div>
+                                                        <div className="h-1.5 w-1.5 rounded-full bg-sky-500"></div>
                                                         <span>{feature}</span>
                                                     </div>
                                                 ))}
@@ -188,7 +188,7 @@ export default function ServicosPage() {
                             >
                                 <Link href={service.href}>
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
-                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-cyan-500/50 transition-colors backdrop-blur-sm">
+                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                             <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{service.icon}</div>
                                             <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                                             <p className="text-gray-400 mb-4">{service.description}</p>
@@ -216,7 +216,7 @@ export default function ServicosPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-2 mb-6">
+                            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6">
                                 <Radio className="h-4 w-4 text-cyan-400" />
                                 <span className="text-sm text-cyan-400">Parceria Estratégica</span>
                             </div>
@@ -231,7 +231,7 @@ export default function ServicosPage() {
                                     { label: "Latência", value: "< 3ms" },
                                     { label: "Cobertura", value: "Nacional" },
                                 ].map((stat, index) => (
-                                    <div key={index} className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
+                                    <div key={index} className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
                                         <div className="text-2xl font-bold text-cyan-400 mb-1">{stat.value}</div>
                                         <div className="text-sm text-gray-400">{stat.label}</div>
                                     </div>
@@ -261,7 +261,7 @@ export default function ServicosPage() {
                             <div className="flex flex-wrap gap-4 justify-center">
                                 <Button
                                     size="lg"
-                                    className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-8 py-6 text-lg"
+                                    className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                                 >
                                     Contactar Vendas
                                     <ArrowRight className="ml-2 h-5 w-5" />

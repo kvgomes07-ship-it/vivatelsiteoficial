@@ -10,7 +10,7 @@ export default function NotFound() {
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_70%)]" />
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-20 animate-scanline" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent opacity-20 animate-scanline" />
             </div>
 
             <div className="relative z-10 text-center px-4">

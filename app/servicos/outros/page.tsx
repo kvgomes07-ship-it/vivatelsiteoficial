@@ -89,12 +89,12 @@ export default function OutrosServicosPage() {
                                     "Design de UI/UX Centrado no Usuário",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-center gap-3">
-                                        <CheckCircle className="h-5 w-5 text-cyan-500" />
+                                        <CheckCircle className="h-5 w-5 text-sky-500" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
                                 Solicitar Orçamento
                             </Button>
                         </motion.div>
@@ -105,7 +105,7 @@ export default function OutrosServicosPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="h-[300px] w-full bg-gray-900 rounded-lg overflow-hidden relative">
                                     <SoftwareVisualization />
                                 </div>
@@ -127,7 +127,7 @@ export default function OutrosServicosPage() {
                             transition={{ duration: 0.8 }}
                             className="order-2 md:order-1"
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="h-[300px] w-full bg-gray-900 rounded-lg overflow-hidden relative">
                                     <IoTVisualization />
                                 </div>
@@ -157,12 +157,12 @@ export default function OutrosServicosPage() {
                                     "Plataforma de Gestão de Dispositivos",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-center gap-3">
-                                        <CheckCircle className="h-5 w-5 text-cyan-500" />
+                                        <CheckCircle className="h-5 w-5 text-sky-500" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
                                 Falar com Especialista
                             </Button>
                         </motion.div>
@@ -197,12 +197,12 @@ export default function OutrosServicosPage() {
                                     "Programas de Aceleração de Startups",
                                 ].map((feature, i) => (
                                     <li key={i} className="flex items-center gap-3">
-                                        <CheckCircle className="h-5 w-5 text-cyan-500" />
+                                        <CheckCircle className="h-5 w-5 text-sky-500" />
                                         <span className="text-gray-300">{feature}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
+                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
                                 Conhecer Programas
                             </Button>
                         </motion.div>
@@ -213,7 +213,7 @@ export default function OutrosServicosPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-1 rounded-lg">
+                            <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="h-[300px] w-full bg-gray-900 rounded-lg overflow-hidden relative">
                                     <AcademyVisualization />
                                 </div>
@@ -235,7 +235,7 @@ export default function OutrosServicosPage() {
                         <Link href="/">
                             <Button
                                 size="lg"
-                                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 px-8 py-6 text-lg"
+                                className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                             >
                                 Contactar Agora
                             </Button>
