@@ -37,7 +37,7 @@ export default function AcademiasPage() {
                 <motion.div 
                     animate={{ y: ["0vh", "100vh"] }} 
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-x-0 h-px bg-cyan-500/20 shadow-[0_0_15px_rgba(6,182,212,0.5)] z-0"
+                    className="absolute inset-x-0 h-px bg-cyan-500/20 shadow-[0_0_15px_rgba(6,182,212,0.5)] z-0 transform-gpu will-change-transform"
                 />
             </div>
 
@@ -71,7 +71,7 @@ export default function AcademiasPage() {
                         <motion.div 
                             animate={{ rotate: 360 }}
                             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-[-15px] border-2 border-dashed border-cyan-500/30 rounded-full"
+                            className="absolute inset-[-15px] border-2 border-dashed border-cyan-500/30 rounded-full transform-gpu will-change-transform"
                         />
                         <motion.div 
                             animate={{ rotate: -360 }}
@@ -101,7 +101,7 @@ export default function AcademiasPage() {
                 >
                     <div className="relative w-full h-full">
                         {/* Rotating Data Ring */}
-                        <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute inset-[-15px] border border-cyan-500/10 rounded-full" />
+                        <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute inset-[-15px] border border-cyan-500/10 rounded-full transform-gpu will-change-transform" />
                         <div className="absolute inset-20 bg-cyan-500/10 blur-3xl rounded-full" />
                         <Image src="/pc_blueprint.gif" alt="System Blueprint" fill className="object-contain filter brightness-125 contrast-110 hue-rotate-[180deg]" unoptimized />
                         <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-cyan-400/60 font-mono tracking-tighter uppercase whitespace-nowrap">SYS_X86: COMPILING_PROTO</span>

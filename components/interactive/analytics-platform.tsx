@@ -32,12 +32,7 @@ function LiveCounter({ value, suffix = "", decimals = 0 }: { value: number; suff
   }, [value, springValue])
 
   return (
-    <motion.span
-      key={value}
-      initial={{ scale: 1 }}
-      animate={{ scale: [1, 1.02, 1] }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
+    <motion.span className="transform-gpu">
       {displayValue}
     </motion.span>
   )
@@ -148,7 +143,7 @@ export function AnalyticsPlatform() {
         }]
         return next
       })
-    }, 2500)
+    }, 3000)
     return () => clearInterval(interval)
   }, [])
 
@@ -314,7 +309,8 @@ export function AnalyticsPlatform() {
                   strokeWidth="3"
                   strokeLinecap="round"
                   initial={false}
-                  transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                  transition={{ duration: 0.8 }}
+                  className="transform-gpu will-change-transform"
                 />
 
                 {/* Upload Line */}
@@ -327,13 +323,14 @@ export function AnalyticsPlatform() {
                   strokeLinecap="round"
                   opacity="0.7"
                   initial={false}
-                  transition={{ type: "spring", stiffness: 50, damping: 20 }}
+                  transition={{ duration: 0.8 }}
+                  className="transform-gpu will-change-transform"
                 />
               </AnimatePresence>
 
-              {/* Scanning interaction line */}
+              {/* Scanning interaction line - Simplified */}
               <motion.line
-                x1={mousePos.x / 1.5} // Adjust based on container width
+                x1={mousePos.x / 1.5}
                 y1="0"
                 x2={mousePos.x / 1.5}
                 y2="150"
@@ -341,7 +338,7 @@ export function AnalyticsPlatform() {
                 strokeWidth="1"
                 strokeDasharray="4 2"
                 opacity="0"
-                className="group-hover/chart:opacity-30"
+                className="group-hover/chart:opacity-30 transform-gpu"
               />
             </svg>
           </div>

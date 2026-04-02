@@ -49,7 +49,7 @@ export default function IoTStreamPage() {
     return (
         <div className="min-h-screen bg-[#020617] text-white overflow-hidden font-sans flex">
             {/* Sidebar (Desktop Only) */}
-            <aside className="w-16 md:w-20 border-r border-white/5 bg-black/40 backdrop-blur-xl hidden sm:flex flex-col items-center py-8 gap-10 z-40 mt-20">
+            <aside className="w-16 md:w-20 border-r border-white/5 bg-black/40 backdrop-blur-xl hidden sm:flex flex-col items-center py-8 gap-10 z-40 mt-20 transform-gpu will-change-transform">
                 <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.4)]">
                     <Zap className="h-6 w-6 text-white" />
                 </div>
@@ -88,7 +88,7 @@ export default function IoTStreamPage() {
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="relative h-[250px] md:h-[380px] w-full rounded-[40px] overflow-hidden group shadow-2xl"
+                        className="relative h-[250px] md:h-[380px] w-full rounded-[40px] overflow-hidden group shadow-2xl transform-gpu will-change-transform"
                     >
                         {/* Orange/The Weeknd Gradient Style */}
                         <div className="absolute inset-0 bg-gradient-to-br from-[#ff512f] via-[#dd2476] to-[#020617] opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
@@ -133,7 +133,7 @@ export default function IoTStreamPage() {
                                             cx="80" cy="80" r="70" stroke="currentColor" strokeWidth="8" fill="transparent" 
                                             strokeDasharray="440" 
                                             animate={{ strokeDashoffset: 440 - (440 * (temp / 40)) }}
-                                            className="text-cyan-500 drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]" 
+                                            className="text-cyan-500 drop-shadow-[0_0_10px_rgba(6,182,212,0.5)] transform-gpu will-change-transform" 
                                         />
                                     </svg>
                                     <div className="absolute text-center">
@@ -242,12 +242,12 @@ export default function IoTStreamPage() {
                                 <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Analizador Harmónico</span>
                              </div>
                              <div className="flex items-end gap-1 h-12 mb-6">
-                                {[...Array(12)].map((_, i) => (
+                                 {[...Array(12)].map((_, i) => (
                                     <motion.div 
                                         key={i}
-                                        animate={{ height: [10, Math.random() * 40 + 10, 10] }}
-                                        transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.1 }}
-                                        className="flex-1 bg-cyan-400 rounded-full"
+                                        animate={{ height: [(i % 3 === 0 ? 10 : 20), (i % 2 === 0 ? 40 : 30), (i % 3 === 0 ? 10 : 20)] }}
+                                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.1 }}
+                                        className="flex-1 bg-cyan-400 rounded-full transform-gpu will-change-[height]"
                                     />
                                 ))}
                              </div>
