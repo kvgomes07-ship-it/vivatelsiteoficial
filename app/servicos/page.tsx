@@ -1,297 +1,117 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import {
-    ArrowRight,
-    Code,
-    Shield,
-    Brain,
-    Radio,
-    Database,
-    Zap,
-    BookOpen,
-    Cloud,
-    BarChart3,
+    ArrowRight, Code, Shield, Radio, Database, Zap, BookOpen, Cloud, BarChart3,
 } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { Footer } from "@/components/footer"
 
 export default function ServicosPage() {
     const mainServices = [
-        {
-            icon: <Cloud className="h-12 w-12 text-blue-500" />,
-            title: "VIVATEL Cloud",
-            description: "Infraestrutura em nuvem escalável e soberana para hospedar aplicações, gerenciar dados e escalar recursos com total controle.",
-            features: ["Servidores Virtuais", "Armazenamento Escalável", "Auto-scaling", "99.99% Uptime"],
-            href: "/servicos/cloud",
-            color: "from-blue-500/20 to-sky-500/20",
-        },
-        {
-            icon: <BarChart3 className="h-12 w-12 text-sky-500" />,
-            title: "VIVATEL Analytics",
-            description: "Análise avançada de dados com insights acionáveis em tempo real. Machine learning integrado para análise preditiva.",
-            features: ["Dashboards em Tempo Real", "ML Integrado", "Análise de Tendências", "Alertas Inteligentes"],
-            href: "/servicos/analytics",
-            color: "from-sky-500/20 to-blue-500/20",
-        },
-        {
-            icon: <Shield className="h-12 w-12 text-blue-500" />,
-            title: "VIVATEL Security",
-            description: "Proteção abrangente com detecção de ameaças em tempo real, conformidade regulatória e criptografia end-to-end.",
-            features: ["Firewall Avançado", "Detecção com IA", "Conformidade ISO 27001", "Monitoramento 24/7"],
-            href: "/servicos/security",
-            color: "from-blue-500/20 to-purple-500/20",
-        },
-        {
-            icon: <Radio className="h-12 w-12 text-sky-500" />,
-            title: "VIVATEL Conectividade",
-            description: "Infraestrutura de conectividade soberana com acesso direto aos cabos SACS e MONET, 5G Enterprise e baixa latência.",
-            features: ["Fibra Óptica Dedicada", "5G Enterprise", "Latência < 3ms", "Redundância Total"],
-            href: "/servicos/conectividade",
-            color: "from-blue-500/20 to-blue-500/20",
-        },
+        { icon: <Cloud className="h-12 w-12 text-blue-500" />, title: "VIVATEL Cloud", description: "Infraestrutura em nuvem escalável e soberana para hospedar aplicações e gerenciar dados.", features: ["Servidores Virtuais", "Auto-scaling", "99.99% Uptime"], href: "/servicos/cloud", color: "from-blue-500/20 to-sky-500/20" },
+        { icon: <BarChart3 className="h-12 w-12 text-sky-500" />, title: "VIVATEL Analytics", description: "Análise avançada de dados com insights acionáveis em tempo real.", features: ["Dashboards Live", "ML Integrado", "Alertas"], href: "/servicos/analytics", color: "from-sky-500/20 to-blue-500/20" },
+        { icon: <Shield className="h-12 w-12 text-blue-500" />, title: "VIVATEL Security", description: "Proteção abrangente com detecção de ameaças e conformidade regulatória.", features: ["Firewall IA", "Conformidade ISO", "Monitoramento 24/7"], href: "/servicos/security", color: "from-blue-500/20 to-purple-500/20" },
+        { icon: <Radio className="h-12 w-12 text-sky-500" />, title: "VIVATEL Conectividade", description: "Infraestrutura soberana com acesso direto aos cabos SACS e MONET.", features: ["Fibra Dedicada", "5G Enterprise", "Baixa Latência"], href: "/servicos/conectividade", color: "from-blue-500/20 to-blue-500/20" },
     ]
 
     const additionalServices = [
-        {
-            icon: <Code className="h-10 w-10 text-blue-500" />,
-            title: "Software",
-            description: "Desenvolvimento, APIs robustas e workflows automatizados para acelerar time-to-market.",
-            href: "/servicos/software",
-        },
-        {
-            icon: <Database className="h-10 w-10 text-blue-500" />,
-            title: "AI & DATA",
-            description: "Processamento de dados em tempo real com modelos de IA personalizados.",
-            href: "/servicos/analytics",
-        },
-        {
-            icon: <Zap className="h-10 w-10 text-sky-500" />,
-            title: "Stream & IoT",
-            description: "Streaming de dados em tempo real, robótica industrial e IoT para automação completa.",
-            href: "/servicos/iot-stream",
-        },
-        {
-            icon: <BookOpen className="h-10 w-10 text-blue-500" />,
-            title: "Academias & Labs",
-            description: "Programas de formação, certificação e inovação para desenvolver talento local.",
-            href: "/servicos/academias",
-        },
+        { icon: <Code className="h-10 w-10 text-blue-500" />, title: "Software", description: "Desenvolvimento e APIs robustas.", href: "/servicos/software" },
+        { icon: <Database className="h-10 w-10 text-blue-500" />, title: "AI & DATA", description: "Modelos de IA personalizados.", href: "/servicos/analytics" },
+        { icon: <Zap className="h-10 w-10 text-sky-500" />, title: "Stream & IoT", description: "Automação industrial e robótica.", href: "/servicos/iot-stream" },
+        { icon: <BookOpen className="h-10 w-10 text-blue-500" />, title: "Academias & Labs", description: "Desenvolvimento de talento local.", href: "/servicos/academias" },
     ]
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden">
-            {/* Header */}
-            {/* Header removed - using global Navbar */}
-
+        <div className="min-h-screen bg-black text-white overflow-hidden selection:bg-blue-500/30">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black" />
-                    <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-900/10 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_65%)]" />
-                </div>
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-[48px] sm:text-[56px] md:text-[64px] lg:text-[72px] font-semibold mb-5 tracking-[-0.02em] text-[#ffffff] leading-[1.1] text-center"
-                        >
-                            Nossos Serviços
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
-                            Soluções completas de infraestrutura digital para empresas e instituições angolanas. Parceria com Angola Cable para conectividade de classe mundial.
-                        </motion.p>
-                    </div>
+                <div className="absolute inset-0 z-0 bg-gradient-to-b from-blue-900/20 to-black" />
+                <div className="container mx-auto px-4 relative z-10 text-center animate-fade-in-up">
+                    <h1 className="text-[48px] sm:text-[56px] md:text-[64px] lg:text-[96px] font-black mb-5 tracking-tighter text-[#ffffff] leading-[0.8] uppercase italic">Nossos Serviços</h1>
+                    <p className="text-sm md:text-xl text-gray-500 font-bold uppercase tracking-[0.2em] mb-10 max-w-2xl mx-auto">Soluções completas de infraestrutura digital soberana.</p>
                 </div>
             </section>
 
             {/* Main Services */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent_50%)]" />
-
+            <section className="py-24 relative overflow-hidden text-center">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Soluções Principais</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Nossa suíte completa de soluções para transformar sua infraestrutura digital.
-                        </p>
-                    </div>
-
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
                         {mainServices.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <Link href={service.href}>
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
-                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
-                                            <div className={`mb-6 p-4 bg-gradient-to-br ${service.color} rounded-lg inline-block`}>
-                                                {service.icon}
+                            <Link key={index} href={service.href} className="group animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                                <div className="h-full bg-white/[0.02] border border-white/5 p-8 rounded-none group-hover:border-blue-500/40 transition-all text-left">
+                                    <div className={`mb-6 p-4 bg-gradient-to-br ${service.color} rounded-none inline-block`}>{service.icon}</div>
+                                    <h3 className="text-2xl font-black mb-3 uppercase tracking-tighter italic">{service.title}</h3>
+                                    <p className="text-gray-500 font-medium mb-6">{service.description}</p>
+                                    <div className="space-y-2 mb-8 opacity-40">
+                                        {service.features.map((feature, i) => (
+                                            <div key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-300">
+                                                <div className="h-1 w-1 bg-blue-500" /><span>{feature}</span>
                                             </div>
-                                            <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                                            <p className="text-gray-400 mb-6">{service.description}</p>
-                                            <div className="space-y-2 mb-6">
-                                                {service.features.map((feature, i) => (
-                                                    <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                                                        <div className="h-1.5 w-1.5 rounded-full bg-sky-500"></div>
-                                                        <span>{feature}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <div className="flex items-center gap-2 text-cyan-400 font-medium">
-                                                Saiba Mais <ArrowRight className="h-4 w-4" />
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
-                                </Link>
-                            </motion.div>
+                                    <div className="flex items-center gap-2 text-blue-400 font-black text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform">Saiba Mais <ArrowRight className="h-4 w-4" /></div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Additional Services */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.15),transparent_50%)]" />
-
+            <section className="py-24 relative overflow-hidden bg-white/[0.01]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Recursos Adicionais</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Ferramentas e serviços especializados para necessidades específicas.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                         {additionalServices.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <Link href={service.href}>
-                                    <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform cursor-pointer">
-                                        <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
-                                            <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{service.icon}</div>
-                                            <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-                                            <p className="text-gray-400 mb-4">{service.description}</p>
-                                            <div className="flex items-center gap-2 text-cyan-400 font-medium text-sm">
-                                                Explorar <ArrowRight className="h-3 w-3" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </motion.div>
+                            <Link key={index} href={service.href} className="group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
+                                <div className="h-full bg-white/[0.02] border border-white/5 p-6 rounded-none group-hover:border-blue-500/40 transition-all text-left">
+                                    <div className="mb-4 p-3 bg-white/5 rounded-none inline-block group-hover:scale-110 transition-transform">{service.icon}</div>
+                                    <h3 className="text-sm font-black mb-2 uppercase tracking-widest italic">{service.title}</h3>
+                                    <p className="text-gray-500 text-[11px] font-medium mb-4 leading-relaxed">{service.description}</p>
+                                    <div className="flex items-center gap-2 text-blue-500 font-black text-[10px] uppercase tracking-widest">Explorar <ArrowRight className="h-3 w-3" /></div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Angola Cable Partnership */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent_60%)]" />
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6">
-                                <Radio className="h-4 w-4 text-cyan-400" />
-                                <span className="text-sm text-cyan-400">Parceria Estratégica</span>
+            <section className="py-24 relative overflow-hidden border-y border-white/5 bg-black">
+                <div className="container mx-auto px-4 relative z-10 text-center animate-fade-in-up">
+                    <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6 uppercase">
+                        <Radio className="h-3 w-3 text-blue-400" />
+                        <span className="text-[10px] text-blue-400 font-black tracking-widest">Powered by Angola Cable</span>
+                    </div>
+                    <h2 className="text-3xl md:text-6xl font-black mb-6 uppercase tracking-tighter italic">Infraestrutura Global</h2>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-10 max-w-2xl mx-auto">Acesso soberano aos cabos submarinos SACS e MONET com latência otimizada.</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                        {[
+                            { label: "Capacidade", value: "40 Tbps" },
+                            { label: "Uptime", value: "99.99%" },
+                            { label: "Latência", value: "< 3ms" },
+                            { label: "Cobertura", value: "Soberana" },
+                        ].map((stat, index) => (
+                            <div key={index} className="bg-white/5 border border-white/5 p-6 text-center">
+                                <div className="text-xl font-black text-blue-500 mb-1 italic">{stat.value}</div>
+                                <div className="text-[10px] font-black text-gray-600 uppercase tracking-widest">{stat.label}</div>
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold mb-6">Powered by Angola Cable</h2>
-                            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                                A VIVATEL é parceira oficial da Angola Cable, garantindo que todos os nossos serviços operem sobre uma das infraestruturas de telecomunicações mais avançadas da África, com acesso aos cabos submarinos SACS e MONET.
-                            </p>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-                                {[
-                                    { label: "Capacidade", value: "40 Tbps" },
-                                    { label: "Uptime", value: "99.99%" },
-                                    { label: "Latência", value: "< 3ms" },
-                                    { label: "Cobertura", value: "Nacional" },
-                                ].map((stat, index) => (
-                                    <div key={index} className="bg-gradient-to-br from-blue-500/10 to-sky-500/10 border border-blue-500/20 p-4 rounded-lg text-center">
-                                        <div className="text-2xl font-bold text-cyan-400 mb-1">{stat.value}</div>
-                                        <div className="text-sm text-gray-400">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_70%)]" />
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold mb-6">Pronto para Começar?</h2>
-                            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-                                Fale com nossa equipe e descubra como podemos transformar sua infraestrutura digital.
-                            </p>
-                            <div className="flex flex-wrap gap-4 justify-center">
-                                <Button
-                                    size="lg"
-                                    className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
-                                >
-                                    Contactar Vendas
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                                <Link href="/">
-                                    <Button
-                                        size="lg"
-                                        variant="outline"
-                                        className="border-gray-700 text-gray-300 hover:bg-gray-900 px-8 py-6 text-lg"
-                                    >
-                                        Voltar à Página Inicial
-                                    </Button>
-                                </Link>
-                            </div>
-                        </motion.div>
+            <section className="py-24 relative overflow-hidden bg-black">
+                <div className="container mx-auto px-4 relative z-10 text-center animate-fade-in-up">
+                    <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tighter italic">Pronto para<br /><span className="text-blue-500">Começar?</span></h2>
+                    <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-10 max-w-2xl mx-auto">Fale com nossa equipa de engenharia hoje mesmo.</p>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-8 text-xl font-black rounded-none uppercase tracking-widest italic group">
+                            Contactar Vendas <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                        </Button>
                     </div>
                 </div>
             </section>
-
-            {/* Footer */}
-            <footer className="border-t border-gray-800 bg-black/40 backdrop-blur-sm">
-                <div className="container mx-auto px-4 py-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm">© 2026 VIVATEL. Todos os direitos reservados.</p>
-                        <Link href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
-                            ← Voltar à Página Inicial
-                        </Link>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     )
 }
