@@ -1,4 +1,5 @@
-"use client"
+// Server Component — no "use client", no Framer Motion
+// All entrance animations use CSS classes from styles/animations.css
 
 import { Button } from "@/components/ui/button"
 import {
@@ -11,10 +12,8 @@ import {
     Layout,
     Smartphone,
     Terminal,
-    Zap,
 } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 
 export default function SoftwarePage() {
     return (
@@ -29,40 +28,20 @@ export default function SoftwarePage() {
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center mb-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6"
-                        >
+                        <div className="animate-fade-in-up inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
                             <Code className="h-4 w-4 text-purple-400" />
                             <span className="text-sm text-purple-400">Desenvolvimento de Software Premium</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight"
-                        >
+                        <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
                             VIVATEL Software
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
+                        <p className="animate-fade-in-up [animation-delay:200ms] text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                             Transformamos ideias em realidade digital. Desenvolvimento de software sob medida, APIs robustas e workflows automatizados para acelerar o crescimento do seu negócio.
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex flex-wrap gap-4 justify-center"
-                        >
+                        <div className="animate-fade-in-up [animation-delay:300ms] flex flex-wrap gap-4 justify-center">
                             <Button className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-purple-900/30 hover:shadow-purple-900/50 transition-all duration-300">
                                 Iniciar Projeto
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -70,15 +49,10 @@ export default function SoftwarePage() {
                             <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-900 px-8 py-6 rounded-full text-lg font-medium">
                                 Ver Portfolio
                             </Button>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="relative w-full max-w-5xl mx-auto"
-                    >
+                    <div className="animate-fade-in-up [animation-delay:400ms] relative w-full max-w-5xl mx-auto">
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg blur-3xl" />
                         <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl h-[300px] md:h-[500px] flex items-center justify-center">
                             {/* Abstract Visual Representation of Code/Software */}
@@ -114,7 +88,7 @@ export default new DigitalTransformation();
                                 </pre>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -163,13 +137,7 @@ export default new DigitalTransformation();
                                 description: "Robôs de software para automatizar processos repetitivos e aumentar a eficiência.",
                             },
                         ].map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
+                            <div key={index} className="animate-fade-in-up h-full" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-purple-500/50 transition-colors backdrop-blur-sm">
                                         <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{feature.icon}</div>
@@ -177,7 +145,7 @@ export default new DigitalTransformation();
                                         <p className="text-gray-400">{feature.description}</p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -187,13 +155,7 @@ export default new DigitalTransformation();
             <section className="py-24 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6 animate-fade-in-up">
                             <h2 className="text-3xl md:text-4xl font-bold">Desenvolvimento Ágil e Moderno</h2>
                             <p className="text-gray-300 text-lg">
                                 Adotamos as melhores práticas da indústria para garantir que seu software seja não apenas funcional, mas também seguro, escalável e fácil de manter.
@@ -215,15 +177,9 @@ export default new DigitalTransformation();
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6 animate-fade-in-up [animation-delay:200ms]">
                             <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-1 rounded-lg">
                                 <div className="bg-gray-900 p-8 rounded-lg">
                                     <h3 className="text-2xl font-bold mb-4">Tech Stack</h3>
@@ -232,7 +188,7 @@ export default new DigitalTransformation();
                                             { label: "Frontend", val: "React, Next.js, Vue" },
                                             { label: "Backend", val: "Node.js, Python, Go" },
                                             { label: "Mobile", val: "React Native, Flutter" },
-                                            { label: "Database", val: "PostgreSQL, MangoDB" },
+                                            { label: "Database", val: "PostgreSQL, MongoDB" },
                                             { label: "DevOps", val: "Docker, K8s, Terraform" },
                                             { label: "Cloud", val: "AWS, Azure, GCP" }
                                         ].map((item, idx) => (
@@ -244,7 +200,7 @@ export default new DigitalTransformation();
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -255,12 +211,7 @@ export default new DigitalTransformation();
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
+                        <div className="animate-fade-in-up">
                             <h2 className="text-4xl md:text-6xl font-bold mb-6">Vamos Construir Algo Incrível?</h2>
                             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
                                 Entre em contato com nossos especialistas para discutir seu próximo projeto de software.
@@ -272,7 +223,7 @@ export default new DigitalTransformation();
                                 Falar com Consultor
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>

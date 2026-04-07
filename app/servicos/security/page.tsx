@@ -1,6 +1,6 @@
-"use client"
+// Server Component — no "use client", no Framer Motion
+// All entrance animations use CSS classes from styles/animations.css
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
     ArrowRight,
@@ -15,16 +15,11 @@ import {
     Server,
 } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { SecurityPlatform } from "@/components/interactive/security-platform"
+import { SecurityPlatformWrapper as SecurityPlatform } from "@/components/interactive/wrappers/security-wrapper"
 
 export default function SecurityPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden">
-            {/* Header */}
-            {/* Header removed - using global Navbar */}
-
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -35,40 +30,20 @@ export default function SecurityPage() {
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center mb-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6"
-                        >
+                        <div className="animate-fade-in-up inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
                             <Shield className="h-4 w-4 text-cyan-400" />
                             <span className="text-sm text-cyan-400">Segurança de Nível Empresarial</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight"
-                        >
+                        <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent leading-tight">
                             VIVATEL Security
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
+                        <p className="animate-fade-in-up [animation-delay:200ms] text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                             Proteção abrangente com detecção de ameaças em tempo real, conformidade regulatória e criptografia de ponta a ponta. Mantenha sua infraestrutura segura 24/7.
-                        </motion.p>
+                        </p>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="flex flex-wrap gap-4 justify-center"
-                        >
+                        <div className="animate-fade-in-up [animation-delay:300ms] flex flex-wrap gap-4 justify-center">
                             <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
                                 Começar Agora
                                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -76,22 +51,17 @@ export default function SecurityPage() {
                             <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-900 px-8 py-6 rounded-full text-lg font-medium">
                                 Avaliação de Segurança
                             </Button>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="relative w-full max-w-5xl mx-auto"
-                    >
+                    <div className="animate-fade-in-up [animation-delay:400ms] relative w-full max-w-5xl mx-auto">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-sky-500/20 rounded-lg blur-3xl" />
                         <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden shadow-2xl">
                             <div className="relative h-[300px] md:h-[500px] w-full">
                                 <SecurityPlatform />
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -140,13 +110,7 @@ export default function SecurityPage() {
                                 description: "Autenticação multifator e controle de acesso baseado em funções.",
                             },
                         ].map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
+                            <div key={index} className="animate-fade-in-up h-full" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="mb-4 p-3 bg-gray-800/30 rounded-lg inline-block">{feature.icon}</div>
@@ -154,7 +118,7 @@ export default function SecurityPage() {
                                         <p className="text-gray-400">{feature.description}</p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -219,13 +183,7 @@ export default function SecurityPage() {
                                 icon: <Lock className="h-8 w-8 text-cyan-400" />,
                             },
                         ].map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
+                            <div key={index} className="animate-fade-in-up h-full" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl">
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-8 rounded-xl border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm">
                                         <div className="flex items-center gap-4 mb-4">
@@ -245,7 +203,7 @@ export default function SecurityPage() {
                                         </ul>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -255,13 +213,7 @@ export default function SecurityPage() {
             <section className="py-24 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6 animate-fade-in-up">
                             <h2 className="text-3xl md:text-4xl font-bold">Inteligência de Ameaças</h2>
                             <p className="text-gray-300 text-lg">
                                 Nossa plataforma utiliza inteligência artificial e machine learning para identificar e neutralizar ameaças antes que elas afetem sua infraestrutura.
@@ -283,15 +235,9 @@ export default function SecurityPage() {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6 animate-fade-in-up [animation-delay:200ms]">
                             <div className="bg-gradient-to-br from-blue-500/20 to-sky-500/20 p-1 rounded-lg">
                                 <div className="bg-gray-900 p-8 rounded-lg">
                                     <h3 className="text-2xl font-bold mb-6">Estatísticas de Proteção</h3>
@@ -346,7 +292,7 @@ export default function SecurityPage() {
                                     <div className="text-sm text-gray-400">SOC Operacional</div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -374,20 +320,14 @@ export default function SecurityPage() {
                             "HIPAA Ready",
                             "Cloud Security Alliance",
                         ].map((cert, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: index * 0.05 }}
-                            >
+                            <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 50}ms` }}>
                                 <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-lg">
                                     <div className="h-full bg-gradient-to-b from-gray-900 to-gray-950 p-6 rounded-lg border border-gray-800/50 hover:border-sky-500/50 transition-colors backdrop-blur-sm text-center">
                                         <ShieldCheck className="h-12 w-12 text-cyan-400 mx-auto mb-3" />
                                         <h3 className="text-sm font-bold">{cert}</h3>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -447,14 +387,7 @@ export default function SecurityPage() {
                                 ],
                             },
                         ].map((plan, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="relative"
-                            >
+                            <div key={index} className="animate-fade-in-up relative" style={{ animationDelay: `${index * 100}ms` }}>
                                 {plan.popular && (
                                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-sky-500 text-white text-sm font-medium px-4 py-1 rounded-full">
                                         Recomendado
@@ -480,7 +413,7 @@ export default function SecurityPage() {
                                         </Button>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -492,12 +425,7 @@ export default function SecurityPage() {
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
+                        <div className="animate-fade-in-up">
                             <h2 className="text-4xl md:text-6xl font-bold mb-6">Proteja Sua Infraestrutura Hoje</h2>
                             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
                                 Solicite uma avaliação de segurança gratuita e descubra como podemos proteger seu negócio.
@@ -518,7 +446,7 @@ export default function SecurityPage() {
                                     Falar com Especialista
                                 </Button>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>

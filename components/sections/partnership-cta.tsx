@@ -16,7 +16,7 @@ const partners = [
 ]
 
 const testimonials = [
-  { name: "Evandro Ferreira", role: "CTO, MELM Solutions", content: "VIVATEL transformou completamente nossa infraestrutura. Uma solução verdadeiramente soberana para Angola." },
+  { name: "Domingos Gonga", role: "CTO, MELM Solutions", content: "VIVATEL transformou completamente nossa infraestrutura. Uma solução verdadeiramente soberana para Angola." },
   { name: "Maria Santos", role: "Diretora de TI, BancoDigital", content: "A escalabilidade e performance superaram nossas expectativas. O suporte é excelente." },
   { name: "Carlos Silva", role: "Gerente de Inovação", content: "VIVATEL é o futuro para o ecossistema digital angolano. Total controle e segurança." },
 ]

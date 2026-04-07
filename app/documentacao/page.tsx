@@ -1,7 +1,6 @@
-"use client"
+// Server Component — no "use client", no Framer Motion
+// All entrance animations use CSS classes from styles/animations.css
 
-import { useState } from "react"
-import { motion } from "framer-motion"
 import {
     Search,
     Book,
@@ -23,8 +22,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export default function DocumentacaoPage() {
-    const [searchQuery, setSearchQuery] = useState("")
-
     const categories = [
         {
             title: "Vivatel Cloud",
@@ -66,7 +63,7 @@ export default function DocumentacaoPage() {
     return (
         <div className="min-h-screen bg-black text-white selection:bg-sky-500/30">
             {/* Background Decorations */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none">
+            <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] -translate-y-1/2" />
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] translate-y-1/2" />
             </div>
@@ -74,54 +71,36 @@ export default function DocumentacaoPage() {
             <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
                 {/* Hero Section */}
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6"
-                    >
+                    <div className="animate-fade-in-up inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6">
                         <Book className="h-4 w-4 text-cyan-400" />
                         <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">Documentação Oficial</span>
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent"
-                    >
+                    <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-cyan-100 to-blue-200 bg-clip-text text-transparent">
                         Central de Conhecimento Vivatel
-                    </motion.h1>
+                    </h1>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="relative max-w-2xl mx-auto"
-                    >
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                        <input
-                            type="text"
-                            placeholder="Pesquise por produtos, guias ou termos técnicos..."
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 pl-12 pr-4 text-lg focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500/50 transition-all backdrop-blur-md"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
-                            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-500 bg-black/50 border border-white/10 rounded-md">
-                                <span className="text-xs">⌘</span>K
-                            </kbd>
-                        </div>
-                    </motion.div>
+                    <div className="animate-fade-in-up [animation-delay:200ms] relative max-w-2xl mx-auto">
+                        <form action="/search" method="GET">
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Pesquise por produtos, guias ou termos técnicos..."
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl py-5 pl-12 pr-4 text-lg focus:outline-none focus:ring-2 focus:ring-sky-500/50 focus:border-sky-500/50 transition-all backdrop-blur-md"
+                            />
+                            <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
+                                <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-500 bg-black/50 border border-white/10 rounded-md">
+                                    <span className="text-xs">⌘</span>K
+                                </kbd>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 {/* Popular Topics & Quick Actions */}
-                <div className="grid lg:grid-cols-3 gap-8 mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="lg:col-span-2 grid sm:grid-cols-2 gap-4"
-                    >
+                <div className="grid lg:grid-cols-3 gap-8 mb-20 animate-fade-in-up [animation-delay:300ms]">
+                    <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
                         <Link href="#" className="group p-6 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
                             <div className="bg-sky-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-cyan-400 group-hover:scale-110 transition-transform">
                                 <Play className="h-6 w-6 fill-current" />
@@ -150,14 +129,9 @@ export default function DocumentacaoPage() {
                                 <ArrowRight className="ml-auto h-6 w-6 text-gray-500 group-hover:text-white transition-colors" />
                             </div>
                         </Link>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="p-8 bg-gradient-to-br from-cyan-950/40 to-black border border-sky-500/20 rounded-3xl"
-                    >
+                    <div className="p-8 bg-gradient-to-br from-cyan-950/40 to-black border border-sky-500/20 rounded-3xl">
                         <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                             <FileText className="h-5 w-5 text-cyan-400" />
                             Artigos Populares
@@ -173,41 +147,36 @@ export default function DocumentacaoPage() {
                         <Button variant="ghost" className="w-full mt-6 text-cyan-400 hover:bg-cyan-400/10">
                             Ver todos os artigos
                         </Button>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Categories Grid */}
-                <h2 className="text-2xl md:text-3xl font-bold mb-8">Navegue por Categoria</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-8 animate-fade-in-up">Navegue por Categoria</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
                     {categories.map((cat, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/20 transition-all"
-                        >
-                            <div className={`${cat.bg} ${cat.color} w-10 h-10 rounded-xl flex items-center justify-center mb-6`}>
-                                <cat.icon className="h-5 w-5" />
+                        <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
+                            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/20 transition-all h-full">
+                                <div className={`${cat.bg} ${cat.color} w-10 h-10 rounded-xl flex items-center justify-center mb-6`}>
+                                    <cat.icon className="h-5 w-5" />
+                                </div>
+                                <h3 className="text-lg font-bold mb-4">{cat.title}</h3>
+                                <ul className="space-y-3">
+                                    {cat.items.map((item, j) => (
+                                        <li key={j}>
+                                            <Link href="#" className="flex items-center gap-2 text-sm text-gray-500 hover:text-cyan-400 transition-colors group">
+                                                <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                {item}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <h3 className="text-lg font-bold mb-4">{cat.title}</h3>
-                            <ul className="space-y-3">
-                                {cat.items.map((item, j) => (
-                                    <li key={j}>
-                                        <Link href="#" className="flex items-center gap-2 text-sm text-gray-500 hover:text-cyan-400 transition-colors group">
-                                            <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            {item}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* Developer Tools Section */}
-                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-20">
+                <div className="animate-fade-in-up bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-20">
                     <div className="flex flex-col lg:flex-row gap-12 items-center">
                         <div className="lg:w-1/2 space-y-6">
                             <h2 className="text-3xl font-bold">Ferramentas de Desenvolvedor</h2>
@@ -242,7 +211,7 @@ export default function DocumentacaoPage() {
                 </div>
 
                 {/* Community & Support */}
-                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto text-center">
+                <div className="animate-fade-in-up grid md:grid-cols-2 gap-12 max-w-5xl mx-auto text-center">
                     <div className="space-y-4">
                         <div className="bg-blue-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-400">
                             <MessageSquare className="h-8 w-8" />

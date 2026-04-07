@@ -1,8 +1,8 @@
-"use client"
+// Server Component — no "use client", no Framer Motion in the page itself
+// All entrance animations use CSS classes from styles/animations.css
 
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { TeamVisualization } from "@/components/interactive/team-visualization"
+import { TeamVisualizationWrapper as TeamVisualization } from "@/components/interactive/wrappers/sobre-wrapper"
 import { SpinningGlobe } from "@/components/ui/spinning-globe"
 import {
     CheckCircle,
@@ -34,42 +34,22 @@ export default function SobrePage() {
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-2 mb-6"
-                        >
+                        <div className="animate-fade-in-up inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-2 mb-6">
                             <Target className="h-4 w-4 text-teal-400" />
                             <span className="text-sm text-teal-400">Nossa Missão</span>
-                        </motion.div>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-teal-200 to-cyan-200 bg-clip-text text-transparent leading-tight"
-                        >
+                        </div>
+                        <h1 className="animate-fade-in-up [animation-delay:200ms] text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-teal-200 to-cyan-200 bg-clip-text text-transparent leading-tight">
                             Soberania Digital para Angola
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
+                        <p className="animate-fade-in-up [animation-delay:400ms] text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                             A Vivatel nasceu com o propósito de transformar o cenário tecnológico de Angola, oferecendo infraestrutura de classe mundial desenvolvida localmente.
-                        </motion.p>
+                        </p>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="relative w-full max-w-6xl mx-auto min-h-[400px] md:min-h-[600px] flex items-center justify-center -mt-10"
-                    >
+                    <div className="animate-fade-in-up [animation-delay:600ms] relative w-full max-w-6xl mx-auto min-h-[400px] md:min-h-[600px] flex items-center justify-center -mt-10">
                         <SpinningGlobe />
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -77,12 +57,7 @@ export default function SobrePage() {
             <section className="py-24 relative">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-8"
-                        >
+                        <div className="space-y-8 animate-fade-in-up">
                             <div className="space-y-4">
                                 <h2 className="text-3xl md:text-5xl font-bold">Nossa História</h2>
                                 <div className="h-1 w-20 bg-teal-500 rounded-full" />
@@ -103,19 +78,14 @@ export default function SobrePage() {
                                     <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">Capacidade de Rede</div>
                                 </div>
                             </div>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-teal-500/10"
-                        >
+                        </div>
+                        <div className="animate-fade-in-up [animation-delay:200ms] relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-teal-500/10">
                             <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-blue-500/20 z-0" />
                             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay" />
                             <div className="relative z-10 h-full">
                                 <TeamVisualization />
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -124,7 +94,7 @@ export default function SobrePage() {
             <section className="py-24 relative overflow-hidden">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-500/5 rounded-full blur-[120px]" />
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-20">
+                    <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in-up">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6">Visão de Futuro</h2>
                         <p className="text-xl text-gray-400">
                             Não estamos apenas construindo uma empresa, estamos construindo a espinha dorsal digital da Nação.
@@ -149,20 +119,15 @@ export default function SobrePage() {
                                 icon: Users
                             }
                         ].map((item, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                viewport={{ once: true }}
-                                className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all group"
-                            >
-                                <div className="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <item.icon className="w-7 h-7 text-teal-400" />
+                            <div key={i} className="animate-fade-in-up h-full" style={{ animationDelay: `${i * 100}ms` }}>
+                                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all group h-full">
+                                    <div className="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                        <item.icon className="w-7 h-7 text-teal-400" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                                    <p className="text-gray-400 leading-relaxed">{item.desc}</p>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -172,12 +137,7 @@ export default function SobrePage() {
             <section className="py-24 bg-gradient-to-b from-black to-gray-950">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col lg:flex-row gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="lg:w-1/2 order-2 lg:order-1"
-                        >
+                        <div className="animate-fade-in-up lg:w-1/2 order-2 lg:order-1">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4">
                                     <div className="aspect-square bg-white/5 rounded-2xl border border-white/10 p-8 flex flex-col justify-center gap-4 hover:border-teal-500/50 transition-colors">
@@ -200,13 +160,8 @@ export default function SobrePage() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="lg:w-1/2 space-y-8 order-1 lg:order-2"
-                        >
+                        </div>
+                        <div className="animate-fade-in-up [animation-delay:200ms] lg:w-1/2 space-y-8 order-1 lg:order-2">
                             <h2 className="text-3xl md:text-5xl font-bold">Infraestrutura que Impulsiona o Futuro</h2>
                             <p className="text-gray-400 text-lg">
                                 Localizada no coração tecnológico de Luanda, nossa infraestrutura é projetada para as cargas de trabalho mais exigentes.
@@ -224,7 +179,7 @@ export default function SobrePage() {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -232,24 +187,22 @@ export default function SobrePage() {
             {/* Values Section */}
             <section className="py-24 bg-gray-950/50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Nossos Valores</h2>
+                    <h2 className="animate-fade-in-up text-3xl md:text-5xl font-bold text-center mb-16">Nossos Valores</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             { title: "Soberania", icon: Shield, desc: "Garantir a independência tecnológica e a segurança dos dados nacionais em cada bit processado." },
                             { title: "Inovação", icon: Zap, desc: "Busca constante pelas tecnologias mais avançadas para servir nossos clientes com o que há de melhor no mundo." },
                             { title: "Excelência", icon: Award, desc: "Compromisso inegociável com a qualidade, disponibilidade e precisão em todos os nossos serviços." }
                         ].map((item, i) => (
-                            <motion.div
-                                key={i}
-                                whileHover={{ y: -5 }}
-                                className="p-8 rounded-2xl bg-black border border-white/10 hover:border-teal-500/50 transition-all duration-300 group"
-                            >
-                                <div className="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition-colors">
-                                    <item.icon className="w-8 h-8 text-teal-400" />
+                            <div key={i} className="animate-fade-in-up h-full" style={{ animationDelay: `${i * 100}ms` }}>
+                                <div className="p-8 rounded-2xl bg-black border border-white/10 hover:border-teal-500/50 transition-all duration-300 group h-full">
+                                    <div className="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition-colors">
+                                        <item.icon className="w-8 h-8 text-teal-400" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                                    <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                <p className="text-gray-400 text-lg leading-relaxed">{item.desc}</p>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -263,7 +216,7 @@ export default function SobrePage() {
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 md:p-16 text-center">
+                    <div className="animate-fade-in-up max-w-4xl mx-auto bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 md:p-16 text-center">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6">Pronto para digitalizar o seu amanhã?</h2>
                         <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                             Seja você uma startup ou uma grande corporação, temos a infraestrutura certa para o seu crescimento.

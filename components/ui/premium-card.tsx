@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
@@ -28,9 +30,9 @@ export const PremiumCard = ({
   }
 
   const glowStyles = {
-    top: "radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.15), transparent 70%)",
-    bottom: "radial-gradient(circle at 50% 120%, rgba(59, 130, 246, 0.15), transparent 70%)",
-    center: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 70%)",
+    top: "radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.22), transparent 70%)",
+    bottom: "radial-gradient(circle at 50% 120%, rgba(59, 130, 246, 0.22), transparent 70%)",
+    center: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.18), transparent 70%)",
   }
 
   return (
@@ -53,7 +55,7 @@ export const PremiumCard = ({
       {/* Background with Dotted Pattern and Glow */}
       <div 
         className={cn(
-          "relative h-full w-full bg-[#050505] rounded-[2.5rem] overflow-hidden backdrop-blur-sm",
+          "relative h-full w-full bg-black/80 rounded-[2.5rem] overflow-hidden backdrop-blur-md",
           innerClassName
         )}
         style={{
@@ -65,7 +67,7 @@ export const PremiumCard = ({
         }}
       >
         {/* Border Overlay */}
-        <div className="absolute inset-0 rounded-[2.5rem] border border-blue-500/10 group-hover:border-blue-500/30 transition-colors duration-500" />
+        <div className="absolute inset-0 rounded-[2.5rem] border border-blue-500/20 group-hover:border-blue-500/50 transition-colors duration-500" />
         
         {/* Content */}
         <div className="relative z-10 h-full">

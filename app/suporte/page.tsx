@@ -15,8 +15,12 @@ import {
     AlertCircle
 } from "lucide-react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChatWidget } from "@/components/interactive/chat-widget"
+import dynamic from "next/dynamic"
+
+const ChatWidget = dynamic(
+    () => import("@/components/interactive/chat-widget").then(mod => mod.ChatWidget),
+    { ssr: false }
+)
 
 export default function SuportePage() {
     const [faqOpen, setFaqOpen] = useState<number | null>(null)
@@ -57,63 +61,40 @@ export default function SuportePage() {
 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center mb-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6"
-                        >
+                        <div className="animate-fade-in-up inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-full px-4 py-2 mb-6">
                             <LifeBuoy className="h-4 w-4 text-cyan-400" />
                             <span className="text-sm text-cyan-400">Central de Ajuda</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight"
-                        >
+                        <h1 className="animate-fade-in-up [animation-delay:100ms] text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
                             Como podemos ajudar?
-                        </motion.h1>
+                        </h1>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
-                        >
+                        <p className="animate-fade-in-up [animation-delay:200ms] text-base sm:text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                             Nossa equipe de especialistas está pronta para ajudar com qualquer questão técnica, comercial ou financeira.
-                        </motion.p>
+                        </p>
                     </div>
 
                     {/* Support Channels */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-24"
-                    >
+                    <div className="animate-fade-in-up [animation-delay:300ms] grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-24">
                         {[
                             {
                                 icon: <MessageSquare className="h-8 w-8 text-cyan-400" />,
                                 title: "Chat ao Vivo",
                                 description: "Fale instantaneamente com nossa equipe de suporte durante o horário comercial.",
                                 action: "Iniciar Chat",
-                                delay: 0,
                             },
                             {
                                 icon: <Mail className="h-8 w-8 text-blue-400" />,
                                 title: "Email",
                                 description: "Envie-nos um email para suporte@vivatel.ao e responderemos em até 2 horas.",
                                 action: "Enviar Email",
-                                delay: 0.1,
                             },
                             {
                                 icon: <Phone className="h-8 w-8 text-indigo-400" />,
                                 title: "Telefone",
                                 description: "Suporte técnico de emergência disponível 24/7 para clientes críticos.",
                                 action: "+244 923 000 000",
-                                delay: 0.2,
                             },
                         ].map((channel, i) => (
                             <div key={i} className="bg-gradient-to-b from-gray-900 to-gray-950 p-[1px] rounded-xl hover:scale-[1.02] transition-transform">
@@ -133,7 +114,7 @@ export default function SuportePage() {
                                 </div>
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -143,12 +124,7 @@ export default function SuportePage() {
                     <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
 
                         {/* Form */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
+                        <div className="animate-fade-in-up">
                             <h2 className="text-3xl font-bold mb-2">Envie uma mensagem</h2>
                             <p className="text-gray-400 mb-8">Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
 
@@ -190,15 +166,10 @@ export default function SuportePage() {
                                     <Send className="ml-2 h-4 w-4" />
                                 </Button>
                             </form>
-                        </motion.div>
+                        </div>
 
                         {/* FAQ */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
+                        <div className="animate-fade-in-up [animation-delay:200ms]">
                             <h2 className="text-3xl font-bold mb-2">Perguntas Frequentes</h2>
                             <p className="text-gray-400 mb-8">Respostas para as dúvidas mais comuns dos nossos clientes.</p>
 
@@ -215,20 +186,15 @@ export default function SuportePage() {
                                             <span className="font-medium text-gray-200">{faq.q}</span>
                                             <ChevronDown className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${faqOpen === index ? 'rotate-180' : ''}`} />
                                         </button>
-                                        <AnimatePresence>
-                                            {faqOpen === index && (
-                                                <motion.div
-                                                    initial={{ height: 0, opacity: 0 }}
-                                                    animate={{ height: "auto", opacity: 1 }}
-                                                    exit={{ height: 0, opacity: 0 }}
-                                                    transition={{ duration: 0.3 }}
-                                                >
-                                                    <div className="p-4 pt-0 text-gray-400 text-sm border-t border-gray-800/50">
-                                                        {faq.a}
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                        <div
+                                            className={`transition-all duration-300 ease-in-out ${
+                                                faqOpen === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                                            } overflow-hidden`}
+                                        >
+                                            <div className="p-4 pt-0 text-gray-400 text-sm border-t border-gray-800/50">
+                                                {faq.a}
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -243,7 +209,7 @@ export default function SuportePage() {
                                     </Link>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
                     </div>
                 </div>
@@ -253,7 +219,7 @@ export default function SuportePage() {
             <section className="py-24 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.1),transparent_60%)]" />
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-16 animate-fade-in-up">
                         <h2 className="text-3xl font-bold mb-4">Central de Conhecimento</h2>
                         <p className="text-gray-400">Recursos técnicos e documentação para desenvolvedores.</p>
                     </div>
@@ -264,7 +230,7 @@ export default function SuportePage() {
                             { title: "Tutoriais e Guias", desc: "Passo a passo para configurar seus serviços." },
                             { title: "Comunidade", desc: "Fóruns de discussão e troca de conhecimento." }
                         ].map((item, i) => (
-                            <Link key={i} href="/documentacao" className="group">
+                            <Link key={i} href="/documentacao" className="group animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                                 <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl hover:border-sky-500/50 transition-colors group-hover:bg-gray-800/50">
                                     <div className="flex items-center justify-between mb-4">
                                         <FileText className="h-8 w-8 text-gray-500 group-hover:text-cyan-400 transition-colors" />
@@ -292,20 +258,15 @@ export default function SuportePage() {
             </footer>
 
             {/* Floating Chat Button */}
-            <AnimatePresence>
-                {!isChatOpen && (
-                    <motion.button
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0, opacity: 0 }}
-                        onClick={() => setIsChatOpen(true)}
-                        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-full p-4 shadow-lg hover:shadow-sky-500/50 transition-all duration-300 hover:scale-110"
-                    >
-                        <MessageSquare className="h-6 w-6" />
-                        <span className="sr-only">Abrir Chat</span>
-                    </motion.button>
-                )}
-            </AnimatePresence>
+            {!isChatOpen && (
+                <button
+                    onClick={() => setIsChatOpen(true)}
+                    className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white rounded-full p-4 shadow-lg hover:shadow-sky-500/50 transition-all duration-300 hover:scale-110 animate-fade-in-up"
+                >
+                    <MessageSquare className="h-6 w-6" />
+                    <span className="sr-only">Abrir Chat</span>
+                </button>
+            )}
 
             <ChatWidget isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
         </div>

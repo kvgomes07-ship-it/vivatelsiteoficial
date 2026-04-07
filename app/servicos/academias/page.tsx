@@ -4,7 +4,10 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { RoboticsHud, RoboticsSpecs } from "@/components/interactive/robotics-hud"
+import { 
+    RoboticsHudWrapper as RoboticsHud, 
+    RoboticsSpecsWrapper as RoboticsSpecs 
+} from "@/components/interactive/wrappers/academias-wrapper"
 import { Footer } from "@/components/footer"
 
 export default function AcademiasPage() {
@@ -32,8 +35,8 @@ export default function AcademiasPage() {
                             <span className="text-[10px] text-cyan-400 font-black uppercase tracking-[0.3em]">LABS_ACTIVE: ROBOTICS_DEPT</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black mb-6 uppercase tracking-tighter leading-[0.8] italic">
-                          VIVATEL <br /> <span className="text-cyan-500">Robotics</span>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 uppercase tracking-tighter leading-[0.9] italic">
+                          VIVATEL <br /> <span className="text-cyan-500">Robotics & Systems</span>
                         </h1>
 
                         <p className="text-sm md:text-lg text-gray-500 font-bold uppercase tracking-widest mb-10 max-w-2xl mx-auto">
@@ -63,13 +66,13 @@ export default function AcademiasPage() {
                     <p className="text-cyan-400 font-black text-[10px] uppercase tracking-widest max-w-2xl mx-auto">Sistemas de controlo e automação industrial soberana</p>
                 </div>
 
-                <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
                     {units.map((unit, index) => (
-                        <div key={index} className="h-full bg-white/[0.02] p-8 border-l border-cyan-500/30 hover:border-cyan-400 group transition-all animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                        <div key={index} className="h-full bg-black/60 backdrop-blur-md p-8 border-l border-cyan-500/30 hover:border-cyan-400 hover:bg-black/80 group transition-all animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                             <div className="mb-4 inline-block">{unit.icon}</div>
                             <h3 className="text-xl font-black mb-3 uppercase tracking-tighter group-hover:text-cyan-400 transition-colors italic">{unit.title}</h3>
-                            <p className="text-gray-500 text-sm font-medium leading-relaxed group-hover:text-gray-300 transition-colors">{unit.description}</p>
-                            <div className="mt-6 flex items-center gap-2 opacity-20"><div className="h-px flex-1 bg-cyan-900" /><span className="text-[8px] font-mono">READY</span></div>
+                            <p className="text-gray-400 text-sm font-medium leading-relaxed group-hover:text-gray-200 transition-colors">{unit.description}</p>
+                            <div className="mt-6 flex items-center gap-2 opacity-40"><div className="h-px flex-1 bg-cyan-900" /><span className="text-[8px] font-mono text-cyan-500">READY</span></div>
                         </div>
                     ))}
                 </div>
