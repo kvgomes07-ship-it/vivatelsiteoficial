@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
+import { FORMSPREE_ID } from "@/lib/constants"
 
 const ChatWidget = dynamic(
     () => import("@/components/interactive/chat-widget").then(mod => mod.ChatWidget),
@@ -25,6 +26,8 @@ const ChatWidget = dynamic(
 export default function SuportePage() {
     const [faqOpen, setFaqOpen] = useState<number | null>(null)
     const [isChatOpen, setIsChatOpen] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
 
     const faqs = [
         {
@@ -128,26 +131,47 @@ export default function SuportePage() {
                             <h2 className="text-3xl font-bold mb-2">Envie uma mensagem</h2>
                             <p className="text-gray-400 mb-8">Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
 
-                            <form className="space-y-6">
+                            <form onSubmit={async (e) => {
+                                e.preventDefault();
+                                const formData = new FormData(e.currentTarget);
+                                const data = Object.fromEntries(formData.entries());
+                                
+                                setIsSubmitting(true);
+                                try {
+                                    const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                                        method: "POST",
+                                        headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(data),
+                                    });
+                                    if (response.ok) {
+                                        alert("Mensagem enviada com sucesso!");
+                                        (e.target as HTMLFormElement).reset();
+                                    }
+                                } catch (error) {
+                                    console.error(error);
+                                } finally {
+                                    setIsSubmitting(false);
+                                }
+                            }} className="space-y-6">
                                 <div className="grid grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-300">Nome</label>
-                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Seu nome" />
+                                        <input required name="name" type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Seu nome" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-300">Empresa</label>
-                                        <input type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Nome da empresa" />
+                                        <input required name="company" type="text" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="Nome da empresa" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Email Corporativo</label>
-                                    <input type="email" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="voce@empresa.com" />
+                                    <input required name="email" type="email" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors" placeholder="voce@empresa.com" />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Assunto</label>
-                                    <select className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors appearance-none">
+                                    <select name="subject" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors appearance-none">
                                         <option>Suporte Técnico</option>
                                         <option>Vendas / Comercial</option>
                                         <option>Financeiro</option>
@@ -158,15 +182,16 @@ export default function SuportePage() {
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-300">Mensagem</label>
-                                    <textarea className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors h-32 resize-none" placeholder="Como podemos ajudar?" />
+                                    <textarea required name="message" className="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors h-32 resize-none" placeholder="Como podemos ajudar?" />
                                 </div>
 
-                                <Button className="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 h-12 text-lg">
-                                    Enviar Mensagem
+                                <Button disabled={isSubmitting} className="w-full bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 h-12 text-lg">
+                                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
                                     <Send className="ml-2 h-4 w-4" />
                                 </Button>
                             </form>
                         </div>
+
 
                         {/* FAQ */}
                         <div className="animate-fade-in-up [animation-delay:200ms]">

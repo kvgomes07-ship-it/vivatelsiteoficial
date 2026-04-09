@@ -1,9 +1,13 @@
-// Server Component — no "use client", no Framer Motion in the page itself
-// All entrance animations use CSS classes from styles/animations.css
-
+import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { TeamVisualizationWrapper as TeamVisualization } from "@/components/interactive/wrappers/sobre-wrapper"
 import { SpinningGlobe } from "@/components/ui/spinning-globe"
+
+export const metadata: Metadata = {
+    title: "Sobre Nós",
+    description: "Conheça a história, missão e visão da VIVATEL. Nossa jornada rumo à soberania digital em Angola.",
+}
+
 import {
     CheckCircle,
     Trophy,

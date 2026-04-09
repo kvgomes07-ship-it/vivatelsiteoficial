@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enforce types and lint for production quality
   typescript: {
-    ignoreBuildErrors: true,
+    // Enforce types for production quality
+    ignoreBuildErrors: false,
   },
+
   images: {
-    unoptimized: true,
+    // Enabled for better LCP and performance
+    unoptimized: false,
+    formats: ['image/avif', 'image/webp'],
   },
 }
 
 export default nextConfig
+

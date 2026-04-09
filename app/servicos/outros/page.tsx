@@ -11,6 +11,7 @@ import {
     Database,
 } from "lucide-react"
 import Link from "next/link"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 import { 
     SoftwareVisualizationWrapper as SoftwareVisualization, 
     IoTVisualizationWrapper as IoTVisualization, 
@@ -74,9 +75,11 @@ export default function OutrosServicosPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
-                                Solicitar Orçamento
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Software">
+                                <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
+                                    Solicitar Orçamento
+                                </Button>
+                            </QuoteButton>
                         </div>
 
                         <div className="animate-fade-in-up [animation-delay:200ms]">
@@ -125,9 +128,11 @@ export default function OutrosServicosPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
-                                Falar com Especialista
-                            </Button>
+                            <QuoteButton serviceName="IoT & Stream">
+                                <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
+                                    Falar com Especialista
+                                </Button>
+                            </QuoteButton>
                         </div>
                     </div>
                 </div>
@@ -159,9 +164,11 @@ export default function OutrosServicosPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
-                                Conhecer Programas
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Academias">
+                                <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600">
+                                    Conhecer Programas
+                                </Button>
+                            </QuoteButton>
                         </div>
 
                         <div className="animate-fade-in-up [animation-delay:200ms]">
@@ -184,14 +191,14 @@ export default function OutrosServicosPage() {
                         <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
                             Do código à conectividade, temos todas as ferramentas para o seu sucesso.
                         </p>
-                        <Link href="/">
+                        <QuoteButton serviceName="Inovação - Contacto Geral">
                             <Button
                                 size="lg"
                                 className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg"
                             >
                                 Contactar Agora
                             </Button>
-                        </Link>
+                        </QuoteButton>
                     </div>
                 </div>
             </section>

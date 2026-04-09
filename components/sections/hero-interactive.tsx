@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
+import { FORMSPREE_ID } from "@/lib/constants"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import {
   Dialog,
@@ -110,13 +111,29 @@ function HeroCarousel() {
                   {slide.src && (
                     <div className="absolute inset-0 z-0">
                       {slide.type === "video" ? (
-                        <video className="w-full h-full object-cover opacity-40" src={slide.src} autoPlay loop muted playsInline />
+                        <video 
+                          className="w-full h-full object-cover opacity-40" 
+                          src={slide.src} 
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline 
+                          preload="auto"
+                        />
                       ) : (
-                        <Image src={slide.src} alt={slide.title} fill className="object-cover opacity-40 shadow-inner" />
+                        <Image 
+                          src={slide.src} 
+                          alt={slide.title} 
+                          fill 
+                          priority={index <= 2} // Prioritize first few slides
+                          className="object-cover opacity-40 shadow-inner text-transparent"
+                          sizes="(max-width: 768px) 100vw, 480px"
+                        />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20" />
                     </div>
                   )}
+
                   <div className="relative z-10 w-full h-full p-8 flex flex-col text-left">
                     <div className="flex justify-between items-start mb-8 md:mb-12">
                       <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500/80">{slide.title}</span>
@@ -137,18 +154,36 @@ function HeroCarousel() {
         </AnimatePresence>
       </div>
       <div className="mt-12 flex items-center gap-12 z-40">
-        <button onClick={prev} className="p-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all group scale-90 md:scale-100">
+        <button 
+          onClick={prev} 
+          aria-label="Slide anterior"
+          className="p-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all group scale-90 md:scale-100"
+        >
           <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-white rotate-180" />
         </button>
         <div className="flex gap-2.5">
           {slides.map((_, i) => (
-            <button key={i} onClick={() => setCurrent(i)} className="relative h-1.5 overflow-hidden transition-all duration-700 rounded-full" style={{ width: current === i ? "40px" : "8px", backgroundColor: current === i ? "#2563eb" : "rgba(255,255,255,0.2)" }} />
+            <button 
+              key={i} 
+              onClick={() => setCurrent(i)} 
+              aria-label={`Ir para o slide ${i + 1}`}
+              className="relative h-1.5 overflow-hidden transition-all duration-700 rounded-full" 
+              style={{ 
+                width: current === i ? "40px" : "8px", 
+                backgroundColor: current === i ? "#2563eb" : "rgba(255,255,255,0.2)" 
+              }} 
+            />
           ))}
         </div>
-        <button onClick={next} className="p-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all group scale-90 md:scale-100">
+        <button 
+          onClick={next} 
+          aria-label="Próximo slide"
+          className="p-3.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all group scale-90 md:scale-100"
+        >
           <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-white" />
         </button>
       </div>
+
     </div>
   )
 }
@@ -165,7 +200,7 @@ export function HeroCTAButton() {
     e.preventDefault()
     setIsSubmitting(true)
     try {
-      const response = await fetch(`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID || "mnpkrpkp"}`, {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, company, phone }),

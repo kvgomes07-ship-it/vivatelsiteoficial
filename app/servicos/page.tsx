@@ -1,9 +1,16 @@
+import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import {
     ArrowRight, Code, Shield, Radio, Database, Zap, BookOpen, Cloud, BarChart3,
 } from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+    title: "Nossos Serviços",
+    description: "Conectividade soberana, Cloud, Segurança e Software. Explore o ecossistema completo da VIVATEL.",
+}
+
 
 export default function ServicosPage() {
     const mainServices = [
@@ -34,7 +41,9 @@ export default function ServicosPage() {
             {/* Main Services */}
             <section className="py-24 relative overflow-hidden text-center">
                 <div className="container mx-auto px-4 relative z-10">
+                    <h2 className="sr-only">Serviços Principais</h2>
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+
                         {mainServices.map((service, index) => (
                             <Link key={index} href={service.href} className="group animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="h-full bg-white/[0.02] border border-white/5 p-8 rounded-none group-hover:border-blue-500/40 transition-all text-left">
@@ -59,7 +68,9 @@ export default function ServicosPage() {
             {/* Additional Services */}
             <section className="py-24 relative overflow-hidden bg-white/[0.01]">
                 <div className="container mx-auto px-4 relative z-10">
+                    <h2 className="sr-only">Serviços Adicionais</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
                         {additionalServices.map((service, index) => (
                             <Link key={index} href={service.href} className="group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
                                 <div className="h-full bg-white/[0.02] border border-white/5 p-6 rounded-none group-hover:border-blue-500/40 transition-all text-left">

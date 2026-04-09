@@ -76,12 +76,24 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), sans-serif;
     font-feature-settings: 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html {
-    @apply scroll-smooth;
+}
+
+@layer utilities {
+  .gpu-accelerate {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
