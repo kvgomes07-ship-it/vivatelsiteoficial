@@ -29,17 +29,17 @@ export function HeroSection() {
         {/* ── Static hero text ── */}
         <div className="max-w-5xl mx-auto text-center mb-16 relative flex flex-col items-center">
           {/* Badge */}
-          <div className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-black uppercase tracking-widest mb-4 backdrop-blur-md">
+          <div className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-black uppercase tracking-widest mb-4">
             Módulo de Ação 01 — Conectividade Soberana
           </div>
 
           {/* Headline */}
-          <h1 className="text-[42px] sm:text-[56px] md:text-[64px] lg:text-[80px] font-black mb-4 tracking-tighter text-[#ffffff] leading-[0.9] max-w-[950px] mx-auto animate-fade-in-up">
+          <h1 className="text-[42px] sm:text-[56px] md:text-[64px] lg:text-[80px] font-black mb-4 tracking-tighter text-[#ffffff] leading-[0.9] max-w-[950px] mx-auto">
             Infraestrutura Digital <br className="hidden sm:block" /> Soberana para Angola
           </h1>
 
           {/* Tagline */}
-          <p className="text-[15px] md:text-[18px] font-medium text-white/60 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:200ms]">
+          <p className="text-[15px] md:text-[18px] font-medium text-white/60 mb-8 max-w-2xl mx-auto leading-relaxed">
             Liderando o futuro tecnológico de Angola com infraestrutura de rede de classe mundial e processamento local.
           </p>
 

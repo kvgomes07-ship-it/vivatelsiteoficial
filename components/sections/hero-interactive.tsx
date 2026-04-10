@@ -39,7 +39,7 @@ function HeroButton({ onClick, children }: { onClick: () => void; children: Reac
       onClick={onClick}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="relative group overflow-hidden px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600/20 to-blue-500/20 border border-blue-500/30 backdrop-blur-md transition-all duration-300 hover:border-blue-400/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+      className="relative group overflow-hidden px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600/20 to-blue-500/20 border border-blue-500/30 transition-all duration-300 hover:border-blue-400/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]"
     >
       <motion.div
         animate={{ left: ["-100%", "200%"] }}
@@ -136,13 +136,13 @@ function HeroCarousel() {
 
                   <div className="relative z-10 w-full h-full p-8 flex flex-col text-left">
                     <div className="flex justify-between items-start mb-8 md:mb-12">
-                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500/80">{slide.title}</span>
-                      <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">{index + 1}/{slides.length}</span>
+                      <span className="text-[10px] font-bold tracking-widest text-blue-500/80">{slide.title}</span>
+                      <span className="text-[10px] font-bold text-white/30 tracking-widest">{index + 1}/{slides.length}</span>
                     </div>
                     <div className="mt-auto">
                       <div className="flex items-baseline gap-2 mb-2">
                         <span className="text-5xl md:text-7xl font-black text-white tracking-tighter tabular-nums drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{slide.value}</span>
-                        <span className="text-xl md:text-2xl font-black text-blue-500 uppercase tracking-tighter">{slide.suffix}</span>
+                        <span className="text-[11px] font-bold text-blue-500 tracking-tighter">{slide.suffix}</span>
                       </div>
                       <p className="text-[11px] md:text-xs text-white/40 leading-relaxed max-w-[280px]">{slide.desc}</p>
                     </div>
@@ -214,32 +214,32 @@ export function HeroCTAButton() {
 
   return (
     <>
-      <div className="animate-fade-in-up [animation-delay:400ms]">
+      <div>
         <HeroButton onClick={() => setIsModalOpen(true)}>Começar Agora</HeroButton>
       </div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="border-gray-800 bg-[#0c0c0c]">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-black tracking-tighter uppercase">Demonstração VIVATEL</DialogTitle>
+            <DialogTitle className="text-2xl font-bold tracking-tight">Demonstração VIVATEL</DialogTitle>
             <DialogDescription className="text-gray-500 font-medium">Agende sua avaliação de infraestrutura dedicada.</DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Email</Label>
+              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Email</Label>
               <Input type="email" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required className="border-white/10 bg-black/40 text-white" />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Empresa</Label>
+              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Empresa</Label>
               <Input value={company} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)} required className="border-white/10 bg-black/40 text-white" />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Telefone</Label>
+              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Telefone</Label>
               <Input type="tel" value={phone} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)} className="border-white/10 bg-black/40 text-white" />
             </div>
             <DialogFooter className="pt-4 gap-2">
               <Button type="button" onClick={() => setIsModalOpen(false)} variant="outline" className="border-white/10 text-gray-400">Cancelar</Button>
-              <Button type="submit" disabled={isSubmitting} className="bg-blue-600 hover:bg-blue-500 font-black uppercase tracking-widest">
+              <Button type="submit" disabled={isSubmitting} className="bg-blue-600 hover:bg-blue-500 font-bold tracking-tight">
                 {isSubmitting ? "Enviando..." : "Submeter"}
               </Button>
             </DialogFooter>

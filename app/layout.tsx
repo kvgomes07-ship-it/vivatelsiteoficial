@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { JsonLd } from "@/components/json-ld"
 import { MeshBackground } from "@/components/ui/mesh-background"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -60,7 +62,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/icon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 }
 
@@ -77,6 +85,8 @@ export default function RootLayout({
           <MeshBackground />
           <Navbar />
           {children}
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

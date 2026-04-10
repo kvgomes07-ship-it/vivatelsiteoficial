@@ -3,22 +3,26 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { 
-    Wifi, Cloud, Globe, Code, ArrowLeft, ArrowRight, 
-    Shield, Zap, Clock, Database, Smartphone, Laptop, 
-    Layers, Cpu, Server, Lock
+    Wifi, Cloud, Globe, Code, ArrowLeft, ArrowRight, CheckCircle, 
+    Database, Shield, Zap, Clock, Smartphone, Laptop, 
+    Layers, Cpu, Server, Lock, Network
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { SpeedGraph } from "@/components/interactive/visualizations/speed-graph"
-import { DomainSearchMock } from "@/components/interactive/inputs/domain-search-mock"
 import { HoverGlowCard } from "@/components/interactive/cards/hover-glow-card"
-import { QuoteButton } from "@/components/interactive/buttons/quote-button"
+import { Footer } from "@/components/footer"
+import dynamic from "next/dynamic"
+
+// Dynamic imports for heavy visualizations
+const SpeedGraph = dynamic(() => import("@/components/interactive/visualizations/speed-graph").then(m => m.SpeedGraph), { ssr: false })
+const DomainSearchMock = dynamic(() => import("@/components/interactive/inputs/domain-search-mock").then(m => m.DomainSearchMock), { ssr: false })
+const QuoteButton = dynamic(() => import("@/components/interactive/buttons/quote-button").then(m => m.QuoteButton), { ssr: false })
 
 export default function EspecificacoesPage() {
     return (
-        <div className="min-h-screen bg-[#020617] text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+        <div className="min-h-screen bg-[#08080c] text-white selection:bg-blue-500/30 font-sans">
             {/* Navigation / Header */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-[#020617]/60 backdrop-blur-md border-b border-white/5">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[#08080c]/60 backdrop-blur-md border-b border-white/5">
                 <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                     <Link href="/servicos/analytics" className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                         <div className="p-2 rounded-full group-hover:bg-white/5 transition-colors">
@@ -28,7 +32,7 @@ export default function EspecificacoesPage() {
                     </Link>
                     <div className="hidden md:flex items-center gap-8">
                         {["Internet", "Cloud", "Domínios", "Software"].map((item) => (
-                            <button key={item} className="text-sm font-medium text-gray-500 hover:text-cyan-400 transition-colors uppercase tracking-[0.2em]">
+                            <button key={item} className="text-sm font-medium text-gray-500 hover:text-cyan-400 transition-colors tracking-widest">
                                 {item}
                             </button>
                         ))}
@@ -42,7 +46,7 @@ export default function EspecificacoesPage() {
                     <div 
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[1000px] h-[600px] lg:h-[1000px] rounded-full opacity-40 blur-[100px] animate-pulse-glow gpu-accelerate"
                         style={{
-                        background: `radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)`,
+                        background: `radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, transparent 70%)`,
                         }}
                     />
                     <div className="container mx-auto">
@@ -54,14 +58,14 @@ export default function EspecificacoesPage() {
                                 transition={{ duration: 0.8 }}
                                 className="space-y-8"
                             >
-                                <div className="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-2">
-                                    <Wifi className="h-4 w-4 text-cyan-400" />
-                                    <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Internet Dedicada</span>
+                                <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2">
+                                    <Wifi className="h-4 w-4 text-green-400" />
+                                    <span className="text-xs font-bold text-green-400 tracking-widest">Internet Dedicada</span>
                                 </div>
                                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
-                                    Velocidade <span className="text-cyan-400">Simétrica</span> Sem Limites.
+                                    Velocidade <span className="text-green-400">Simétrica</span> Sem Limites.
                                 </h2>
-                                <p className="text-xl text-gray-400 max-w-lg leading-relaxed">
+                                <p className="text-xl text-gray-400 max-w-lg leading-relaxed font-medium">
                                     Infraestrutura de alta disponibilidade com <span className="text-white font-semibold">500 Mbps</span> de upload e download garantidos em contrato.
                                 </p>
                                 <div className="grid grid-cols-2 gap-6">
@@ -70,7 +74,7 @@ export default function EspecificacoesPage() {
                                         { icon: Shield, label: "Uptime Garantido", value: "99.9%" }
                                     ].map((item, i) => (
                                         <div key={i} className="flex flex-col gap-2">
-                                            <item.icon className="h-6 w-6 text-cyan-400" />
+                                            <item.icon className="h-6 w-6 text-green-400" />
                                             <div className="text-2xl font-bold">{item.value}</div>
                                             <div className="text-sm text-gray-500">{item.label}</div>
                                         </div>
@@ -103,12 +107,12 @@ export default function EspecificacoesPage() {
                             >
                                 <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2">
                                     <Cloud className="h-4 w-4 text-blue-400" />
-                                    <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Armazenamento Cloud</span>
+                                    <span className="text-xs font-bold text-blue-400 tracking-widest">Armazenamento Cloud</span>
                                 </div>
                                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
                                     Sua Empresa <span className="text-blue-400">Escalável</span>.
                                 </h2>
-                                <p className="text-xl text-gray-400 leading-relaxed">
+                                <p className="text-xl text-gray-400 leading-relaxed font-medium">
                                     Segurança de nível bancário e acesso remoto instantâneo. Pague apenas pelo que usar com escalabilidade infinita.
                                 </p>
                                 <ul className="space-y-4">
@@ -121,7 +125,7 @@ export default function EspecificacoesPage() {
                                             <div className="bg-blue-500/20 p-2 rounded-lg">
                                                 <item.icon className="h-5 w-5 text-blue-400" />
                                             </div>
-                                            <span className="font-medium">{item.text}</span>
+                                            <span className="font-bold tracking-tight text-sm text-gray-300">{item.text}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -132,14 +136,14 @@ export default function EspecificacoesPage() {
                                 className="lg:w-1/2 grid grid-cols-2 gap-4"
                             >
                                 {[
-                                    { icon: Server, title: "SaaS", desc: "Infra disponível" },
-                                    { icon: Cpu, title: "PaaS", desc: "Ambiente dev" }
+                                    { icon: Server, title: "SaaS", desc: "Infraestrutura disponível" },
+                                    { icon: Cpu, title: "PaaS", desc: "Ambiente de desenvolvimento" }
                                 ].map((card, i) => (
-                                    <HoverGlowCard key={i} className="p-8 aspect-square flex flex-col items-center justify-center text-center gap-4" glowColor="rgba(59, 130, 246, 0.2)">
+                                    <HoverGlowCard key={i} className="p-8 aspect-square flex flex-col items-center justify-center text-center gap-4">
                                         <card.icon className="h-12 w-12 text-blue-400" />
                                         <div>
-                                            <div className="text-2xl font-bold">{card.title}</div>
-                                            <div className="text-sm text-gray-500">{card.desc}</div>
+                                            <div className="text-2xl font-black tracking-tighter">{card.title}</div>
+                                            <div className="text-sm text-gray-500 font-bold">{card.desc}</div>
                                         </div>
                                     </HoverGlowCard>
                                 ))}
@@ -159,10 +163,10 @@ export default function EspecificacoesPage() {
                         >
                             <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mx-auto">
                                 <Globe className="h-4 w-4 text-purple-400" />
-                                <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Domínios .AO</span>
+                                <span className="text-xs font-bold text-purple-400 tracking-widest">Domínios .AO Official</span>
                             </div>
-                            <h2 className="text-5xl md:text-8xl font-black tracking-tighter">Sua identidade <span className="text-purple-400">digital</span>.</h2>
-                            <p className="text-xl text-gray-400">Garanta seu endereço oficial na rede nacional de Angola com ativação instantânea.</p>
+                            <h2 className="text-5xl md:text-8xl font-black tracking-tighter">Sua identidade <span className="text-purple-400">digital</span> nacional.</h2>
+                            <p className="text-xl text-gray-400 font-bold tracking-tight">Garanta seu endereço oficial na rede nacional de Angola com ativação instantânea.</p>
                         </motion.div>
                         
                         <DomainSearchMock />
@@ -180,16 +184,16 @@ export default function EspecificacoesPage() {
                                 className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2"
                             >
                                 <Code className="h-4 w-4 text-emerald-400" />
-                                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Software Sob Medida</span>
+                                <span className="text-xs font-bold text-emerald-400 tracking-widest">Software Sob Medida</span>
                             </motion.div>
-                            <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Transformamos código em <span className="text-emerald-400">valor</span>.</h2>
+                            <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Transformamos código em <span className="text-emerald-400">valor real</span>.</h2>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                             {[
                                 { icon: Laptop, title: "Aplicações Web", desc: "Sistemas complexos escaláveis para nuvem.", delay: 0 },
                                 { icon: Smartphone, title: "Mobile Apps", desc: "Experiências iOS e Android de alta performance.", delay: 100 },
-                                { icon: Layers, title: "Ecosystems", desc: "Integração total de hardware e software.", delay: 200 }
+                                { icon: Layers, title: "Ecossistemas", desc: "Integração total de hardware e software.", delay: 200 }
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
@@ -198,14 +202,14 @@ export default function EspecificacoesPage() {
                                     viewport={{ once: true, amount: 0.3 }}
                                     transition={{ delay: item.delay / 1000 }}
                                 >
-                                    <HoverGlowCard className="p-10 h-full border-white/5 hover:border-emerald-500/30 transition-colors" glowColor="rgba(16, 185, 129, 0.2)">
+                                    <HoverGlowCard className="p-10 h-full border-white/5 hover:border-emerald-500/30 transition-colors">
                                         <div className="space-y-6">
                                             <div className="p-4 bg-emerald-500/10 rounded-2xl w-fit">
                                                 <item.icon className="h-8 w-8 text-emerald-400" />
                                             </div>
-                                            <h3 className="text-2xl font-bold">{item.title}</h3>
-                                            <p className="text-gray-400">{item.desc}</p>
-                                            <Button variant="link" className="p-0 text-emerald-400 hover:text-emerald-300 font-bold uppercase text-[10px] tracking-widest gap-2">
+                                            <h3 className="text-2xl font-black tracking-tighter">{item.title}</h3>
+                                            <p className="text-gray-500 font-bold text-sm">{item.desc}</p>
+                                            <Button variant="link" className="p-0 text-emerald-400 hover:text-emerald-300 font-bold tracking-widest gap-2">
                                                 Saber mais <ArrowRight className="h-3 w-3" />
                                             </Button>
                                         </div>
@@ -221,14 +225,14 @@ export default function EspecificacoesPage() {
             <footer className="fixed bottom-0 left-0 right-0 z-40 p-6 pointer-events-none">
                 <div className="container mx-auto flex justify-between items-end">
                     <div className="bg-black/60 backdrop-blur-md border border-white/10 p-4 rounded-2xl pointer-events-auto">
-                        <div className="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-1">Status de Operação</div>
+                        <div className="text-[10px] text-gray-500 tracking-[0.3em] mb-1">Status de Operação</div>
                         <div className="flex items-center gap-2">
                             <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                            <span className="text-xs font-bold text-white uppercase tabular-nums">Sistemas 100% Operacionais</span>
+                            <span className="text-xs font-bold text-white tabular-nums">Sistemas 100% Operacionais</span>
                         </div>
                     </div>
                     <QuoteButton serviceName="Especificações Técnicas - Orçamento">
-                        <Button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-6 rounded-full shadow-[0_0_30px_rgba(34,211,238,0.3)] pointer-events-auto">
+                        <Button className="bg-green-500 hover:bg-green-400 text-black font-black px-8 py-6 rounded-none shadow-[0_0_30px_rgba(34,197,94,0.3)] pointer-events-auto">
                             Solicitar Orçamento
                         </Button>
                     </QuoteButton>

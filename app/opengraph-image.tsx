@@ -69,7 +69,7 @@ export default async function Image() {
           fontSize: '24px',
           color: 'rgba(255,255,255,0.3)'
         }}>
-          vivatelsiteoficial.vercel.app
+          vivatel.com.ao
         </div>
       </div>
     ),

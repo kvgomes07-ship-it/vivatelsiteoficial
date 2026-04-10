@@ -26,19 +26,19 @@ export function PartnershipCTA() {
     <>
       {/* Partners Section */}
       <section id="parceiros" className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10 text-center mb-16 animate-fade-in-up">
-           <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter italic">Nossos Parceiros Estratégicos</h2>
+        <div className="container mx-auto px-4 relative z-10 text-center mb-16">
+           <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter">Nossos Parceiros Estratégicos</h2>
            <p className="text-gray-500 font-medium max-w-2xl mx-auto">Parcerias com líderes que fortalecem nosso ecossistema digital soberano.</p>
         </div>
         
         <Marquee speed={40}>
           {partners.map((partner, index) => (
             <div key={index} className="w-[200px] flex-shrink-0">
-               <PremiumCard className="h-[120px] bg-[#0c0c0c]/50 hover:border-blue-500/30" glowPosition="center">
+               <PremiumCard className="h-[120px] bg-[#0c0c0c]/50 border-white/5 hover:border-blue-500/30">
                   <div className="p-4 flex items-center justify-center h-full">
                      {partner.logo ? (
                         <div className="relative w-full h-10">
-                           <Image src={partner.logo} alt={partner.name} fill className="object-contain grayscale hover:grayscale-0 transition-all duration-700" />
+                           <Image src={partner.logo} alt={partner.name} fill sizes="200px" className="object-contain grayscale hover:grayscale-0 transition-all duration-700" />
                         </div>
                      ) : (
                         <Globe className="h-8 w-8 text-blue-500/40" />
@@ -55,13 +55,13 @@ export function PartnershipCTA() {
         <div className="container mx-auto px-4 relative z-10">
            <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((t, i) => (
-                <PremiumCard key={i} glowPosition="top" className="animate-fade-in-up">
+                <PremiumCard key={i} className="border-white/5 hover:border-blue-500/30">
                    <div className="p-8 h-full flex flex-col justify-between">
-                     <p className="text-gray-400 font-medium italic mb-8 leading-relaxed">"{t.content}"</p>
+                     <p className="text-gray-400 font-medium mb-8 leading-relaxed">"{t.content}"</p>
                      <div className="flex items-center gap-4 pt-6 border-t border-white/5">
                         <div className="h-10 w-10 rounded-full bg-blue-600/20 flex items-center justify-center font-bold text-blue-400">{t.name.charAt(0)}</div>
                         <div className="text-left">
-                           <p className="font-bold text-white text-sm uppercase tracking-tighter">{t.name}</p>
+                           <p className="font-bold text-white text-sm tracking-tighter">{t.name}</p>
                            <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{t.role}</p>
                         </div>
                      </div>

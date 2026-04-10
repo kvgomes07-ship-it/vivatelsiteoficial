@@ -19,7 +19,7 @@ export function RoboticsHud() {
         <div className="relative w-full h-full">
            <div className="absolute inset-[-15px] border-2 border-dashed border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite] transform-gpu" />
            <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full" />
-           <Image src="/bot_greenprint.gif" alt="AI Robotics Assistant" fill className="object-contain filter brightness-110 contrast-125" unoptimized />
+           <Image src="/bot_greenprint.gif" alt="AI Robotics Assistant" fill sizes="(max-width: 768px) 128px, 224px" className="object-contain filter brightness-110 contrast-125" unoptimized />
            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[8px] font-black text-cyan-400 font-mono tracking-widest uppercase whitespace-nowrap">UNIT_01: ACTIVE</span>
         </div>
       </div>
@@ -27,7 +27,7 @@ export function RoboticsHud() {
       <div className="absolute right-[2%] top-[30%] w-40 h-40 md:w-64 md:h-64 z-0 hidden md:flex items-center justify-center animate-float-micro" style={{ animationDelay: '1s' }}>
         <div className="relative w-full h-full">
            <div className="absolute inset-[-15px] border border-cyan-500/10 rounded-full animate-[spin_25s_linear_infinite] transform-gpu" />
-           <Image src="/pc_blueprint.gif" alt="System Blueprint" fill className="object-contain filter brightness-125 contrast-110" unoptimized />
+           <Image src="/pc_blueprint.gif" alt="System Blueprint" fill sizes="(max-width: 768px) 160px, 256px" className="object-contain filter brightness-125 contrast-110" unoptimized />
            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[8px] font-black text-cyan-400/40 font-mono tracking-widest uppercase whitespace-nowrap">SYS_X86: COMPILING</span>
         </div>
       </div>

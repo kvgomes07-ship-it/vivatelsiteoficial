@@ -208,7 +208,7 @@ function HeroCarousel() {
                     {slide.type === 'video' ? (
                       <video className="w-full h-full object-cover opacity-40" src={slide.src} autoPlay loop muted playsInline />
                     ) : (
-                      <Image src={slide.src} alt={slide.title} fill className="object-cover opacity-40 shadow-inner" />
+                      <Image src={slide.src} alt={slide.title} fill sizes="(max-width: 768px) 85vw, 480px" className="object-cover opacity-40 shadow-inner" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20" />
                   </div>
@@ -487,7 +487,6 @@ export default function LandingPage() {
               <Link href={feature.href || "#"} key={index} className="block group">
                 <PremiumCard
                   className="transition-all duration-300 h-full hover:border-blue-500/50 cursor-pointer"
-                  glowPosition={index % 2 === 0 ? "bottom" : "top"}
                 >
                   <div className="p-8 h-full flex flex-col">
                     <PremiumIcon icon={feature.icon} />
@@ -973,7 +972,6 @@ export default function LandingPage() {
                 <div key={index} className="w-[200px] flex-shrink-0">
                   <PremiumCard
                     className="h-[120px] border-white/5 bg-[#151515]/50 backdrop-blur-md hover:border-blue-500/30 transition-all duration-500"
-                    glowPosition="center"
                   >
                     <div className="p-4 flex items-center justify-center text-center h-full">
                       <div className="relative w-full h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
@@ -983,6 +981,7 @@ export default function LandingPage() {
                               src={partner.logo}
                               alt={partner.name}
                               fill
+                              sizes="200px"
                               className="object-contain transition-all duration-500"
                             />
                           </div>
@@ -1072,7 +1071,6 @@ export default function LandingPage() {
             ].map((testimonial, index) => (
               <PremiumCard
                 key={index}
-                glowPosition="top"
               >
                 <div className="p-8 h-full flex flex-col justify-between">
                   <div>

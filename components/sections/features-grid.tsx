@@ -8,9 +8,8 @@ import { PremiumCard } from "../ui/premium-card"
 function PremiumIcon({ icon: Icon }: { icon: any }) {
   return (
     <div className="relative mb-6 inline-block">
-      <div className="absolute -inset-2 rounded-2xl blur-xl opacity-20 bg-blue-500 animate-pulse-glow z-0" />
-      <div className="relative z-10 p-4 rounded-2xl bg-[#0c0c0c] border border-white/10 shadow-2xl animate-float-micro">
-        <Icon className="h-8 w-8 text-blue-400 relative z-10" />
+      <div className="relative z-10 p-4 rounded-2xl bg-white/[0.05] border border-white/10">
+        <Icon className="h-8 w-8 text-blue-500 relative z-10" />
       </div>
     </div>
   )
@@ -30,8 +29,8 @@ export function FeaturesGrid() {
   return (
     <section id="recursos" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter italic">Ecossistema VIVATEL</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter">Ecossistema VIVATEL</h2>
           <p className="text-gray-500 font-medium max-w-2xl mx-auto">
             Plataforma completa com ferramentas especializadas para transformar sua infraestrutura digital.
           </p>
@@ -42,16 +41,14 @@ export function FeaturesGrid() {
             <Link 
               href={feature.href} 
               key={index} 
-              className={`block group animate-fade-in-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="block group"
             >
               <PremiumCard
-                className="h-full border-blue-500/10 hover:border-blue-500/40"
-                glowPosition={index % 2 === 0 ? "bottom" : "top"}
+                className="h-full border-white/10"
               >
                 <div className="p-8 h-full flex flex-col">
                   <PremiumIcon icon={feature.icon} />
-                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-blue-400 transition-colors uppercase tracking-tight italic">{feature.title}</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-blue-500 transition-colors tracking-tight">{feature.title}</h3>
                   <p className="text-gray-400 font-medium leading-relaxed">{feature.description}</p>
                 </div>
               </PremiumCard>

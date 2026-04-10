@@ -1,87 +1,43 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface PremiumCardProps {
   children: React.ReactNode
   className?: string
   innerClassName?: string
-  glowPosition?: "top" | "bottom" | "center"
+  variant?: "default" | "mesh"
 }
 
 export const PremiumCard = ({ 
   children, 
   className, 
   innerClassName,
-  glowPosition = "bottom" 
+  variant = "default"
 }: PremiumCardProps) => {
-  const cardRef = React.useRef<HTMLDivElement>(null)
-  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 })
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    })
-  }
-
-  const glowStyles = {
-    top: "radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.22), transparent 70%)",
-    bottom: "radial-gradient(circle at 50% 120%, rgba(59, 130, 246, 0.22), transparent 70%)",
-    center: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.18), transparent 70%)",
-  }
-
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.5 }}
+    <div
       className={cn(
-        "group relative h-full rounded-[2.5rem] p-[1px] overflow-hidden transition-all duration-300",
+        "group relative h-full rounded-[2.5rem] border border-white/5 bg-[#08080c] transition-all duration-500 hover:border-blue-500/30",
         className
       )}
     >
-      {/* Animated Border/Glow Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      {/* Background with Dotted Pattern and Glow */}
-      <div 
-        className={cn(
-          "relative h-full w-full bg-black/80 rounded-[2.5rem] overflow-hidden backdrop-blur-md",
-          innerClassName
-        )}
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
-            ${glowStyles[glowPosition]}
-          `,
-          backgroundSize: "24px 24px, 100% 100%",
-        }}
-      >
-        {/* Border Overlay */}
-        <div className="absolute inset-0 rounded-[2.5rem] border border-blue-500/20 group-hover:border-blue-500/50 transition-colors duration-500" />
-        
-        {/* Content */}
-        <div className="relative z-10 h-full">
-          {children}
+      {/* Visual Depth Elements */}
+      {variant === "mesh" && (
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_70%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
         </div>
+      )}
 
-        {/* Shine Effect on Hover */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.08), transparent 40%)`,
-          }}
-        />
+      {/* Hover Glow Accent */}
+      <div className="absolute -inset-[1px] rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
+      {/* Clean content container */}
+      <div className={cn("relative z-10 h-full w-full", innerClassName)}>
+        {children}
       </div>
-    </motion.div>
+    </div>
   )
 }
