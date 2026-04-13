@@ -8,30 +8,11 @@ import {
     RadioTower, MapPin, GaugeCircle
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export function IoTStreamDashboard() {
-    const [deviceCount, setDeviceCount] = useState(0)
-    const [temp, setTemp] = useState(23.4)
-    const [isLocked, setIsLocked] = useState(true)
-    const [activeStream, setActiveStream] = useState(0)
-    const [logs, setLogs] = useState<{ id: string, time: string, msg: string }[]>([])
-
     // Simulated Real-time Systems
     useEffect(() => {
-        // Counter animation (requestAnimationFrame for smooth 60fps)
-        let start = 0
-        const duration = 2500
-        const target = 1243
-        let animationFrameId: number
-
-        const animateCount = (timestamp: number) => {
-            if (!start) start = timestamp
-            const progress = Math.min((timestamp - start) / duration, 1)
-            const easeOut = 1 - Math.pow(1 - progress, 4)
-            setDeviceCount(Math.floor(target * easeOut))
-            if (progress < 1) animationFrameId = requestAnimationFrame(animateCount)
-        }
-        animationFrameId = requestAnimationFrame(animateCount)
 
         // Real-time drift simulator (Environment Temp & Event Logs)
         const sysInitialLogs = [
@@ -65,7 +46,6 @@ export function IoTStreamDashboard() {
         }, 3500)
 
         return () => {
-            cancelAnimationFrame(animationFrameId)
             clearInterval(driftInterval)
         }
     }, [])
@@ -95,66 +75,13 @@ export function IoTStreamDashboard() {
                     transition={{ duration: 0.8 }}
                     className="relative h-[280px] md:h-[400px] w-full rounded-[40px] overflow-hidden group shadow-[0_20px_50px_-12px_rgba(255,81,47,0.2)]"
                 >
-                    {/* Fluid Animated Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#ff512f] via-[#dd2476] to-[#020617] transition-opacity duration-700 opacity-90 group-hover:opacity-100" />
-                    <motion.div 
-                        animate={{ x: [0, -100, 0], scale: [1, 1.2, 1] }} 
-                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                        className="absolute top-0 right-[-20%] w-[120%] h-full bg-[radial-gradient(circle_at_70%_20%,rgba(255,165,0,0.5)_0%,transparent_60%)] mix-blend-screen" 
+                    <Image 
+                        src="/streamiot.webp" 
+                        alt="Vivatel Stream & IoT"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        priority
                     />
-                    
-                    {/* Canvas Floating Particles Simulation via CSS */}
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+Cjwvc3ZnPg==')] pointer-events-none opacity-30" />
-
-                    {/* Content */}
-                    <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end z-10 pointer-events-none">
-                        <span className="text-white/80 text-[10px] font-black uppercase tracking-[0.4em] mb-4 flex items-center gap-2">
-                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_#4ade80]" />
-                            Unidade Principal Ativa — Live
-                        </span>
-                        
-                        <motion.h1 
-                            animate={{ textShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 20px rgba(255,255,255,0.4)", "0px 0px 0px rgba(255,255,255,0)"] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                            className="text-4xl md:text-7xl font-black mb-6 tracking-tighter max-w-2xl leading-[0.9] text-white"
-                        >
-                            VIVATEL<br />Stream & IoT
-                        </motion.h1>
-                        
-                        <div className="flex items-center gap-6">
-                            <div className="flex -space-x-4">
-                                {[1, 2, 3].map(i => (
-                                    <motion.div 
-                                        key={i} 
-                                        initial={{ scale: 0 }} 
-                                        animate={{ scale: 1 }} 
-                                        transition={{ delay: i * 0.1 + 0.5, type: 'spring' }}
-                                        className="w-10 h-10 rounded-full border-2 border-black bg-white/10 backdrop-blur-md shadow-lg" 
-                                    />
-                                ))}
-                            </div>
-                            <span className="text-white text-sm md:text-base font-black tracking-wide tabular-nums">
-                                {deviceCount.toLocaleString()}+ <span className="text-white/60 font-medium">Dispositivos Sincronizados</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* Floating Play Button (Interactive) */}
-                    <div className="absolute bottom-10 right-10 flex items-center gap-4 z-20">
-                        <motion.button 
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/30 group hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-colors"
-                        >
-                            <Play className="h-6 w-6 text-white ml-1 group-hover:text-black transition-colors" />
-                            {/* Ripple Effect Animation */}
-                            <motion.div 
-                                animate={{ scale: [1, 2], opacity: [0.5, 0] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                                className="absolute inset-0 rounded-full border border-white/50"
-                            />
-                        </motion.button>
-                    </div>
                 </motion.div>
             </section>
 
