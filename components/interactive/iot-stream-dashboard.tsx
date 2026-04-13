@@ -87,6 +87,22 @@ export function IoTStreamDashboard() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         priority
                     />
+                    {/* Floating Play Button (Interactive) */}
+                    <div className="absolute bottom-10 right-10 flex items-center gap-4 z-20">
+                        <motion.button 
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/30 group hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-colors cursor-pointer"
+                        >
+                            <Play className="h-6 w-6 text-white ml-1 group-hover:text-black transition-colors" />
+                            {/* Ripple Effect Animation */}
+                            <motion.div 
+                                animate={{ scale: [1, 2], opacity: [0.5, 0] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                                className="absolute inset-0 rounded-full border border-white/50 pointer-events-none"
+                            />
+                        </motion.button>
+                    </div>
                 </motion.div>
             </section>
 
