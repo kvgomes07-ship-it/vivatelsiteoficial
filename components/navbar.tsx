@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -13,16 +13,25 @@ export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [scrollY, setScrollY] = useState(0)
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
     const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrollY(window.scrollY)
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current)
+            }
+            scrollTimeoutRef.current = setTimeout(() => {
+                setScrollY(window.scrollY)
+            }, 16) // ~60fps throttle
         }
 
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll, { passive: true })
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+            if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+        }
     }, [])
 
     const headerClass =

@@ -112,7 +112,7 @@ function HeroCarousel() {
                       {slide.type === "video" ? (
                         <video className="w-full h-full object-cover opacity-40" src={slide.src} autoPlay loop muted playsInline />
                       ) : (
-                        <Image src={slide.src} alt={slide.title} fill className="object-cover opacity-40 shadow-inner" />
+                        <Image src={slide.src} alt={slide.title} fill className="object-cover opacity-40 shadow-inner" priority={isActive} />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20" />
                     </div>

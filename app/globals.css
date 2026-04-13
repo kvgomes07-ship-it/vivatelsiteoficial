@@ -82,6 +82,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Performance: Use will-change sparingly for critical animations */
+@layer utilities {
+  .will-animate {
+    will-change: transform, opacity;
   }
 }
