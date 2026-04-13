@@ -83,60 +83,58 @@ function HeroCarousel() {
   return (
     <div className="relative w-full h-[350px] md:h-[480px] flex flex-col items-center justify-center py-12 perspective-[1500px]">
       <div className="relative w-full h-full flex items-center justify-center">
-        <AnimatePresence initial={false}>
           {slides.map((slide, index) => {
             let offset = index - current
-            if (offset < -Math.floor(slides.length / 2)) offset += slides.length
-            if (offset > Math.floor(slides.length / 2)) offset -= slides.length
+            if (offset < -2) offset += slides.length
+            if (offset > 2) offset -= slides.length
             const isActive = offset === 0
-            if (Math.abs(offset) > 1) return null
+            
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: offset * 400, scale: 0.6 }}
                 animate={{
-                  opacity: isActive ? 1 : 0.4,
-                  x: offset * (isVerySmall ? 100 : 280),
-                  scale: isActive ? 1 : 0.8,
-                  rotateY: offset * -25,
-                  z: isActive ? 0 : -200,
-                  filter: isActive ? "blur(0px)" : "blur(4px)",
+                  opacity: Math.abs(offset) >= 2 ? 0 : isActive ? 1 : 0.4,
+                  x: offset * (isVerySmall ? 110 : 300),
+                  scale: isActive ? 1 : Math.abs(offset) === 1 ? 0.85 : 0.7,
+                  rotateY: offset * -15,
+                  z: isActive ? 0 : -150,
                 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                transition={{ type: "spring", stiffness: 250, damping: 30, mass: 0.8 }}
                 className="absolute w-[85%] md:w-[480px] h-full transform-gpu"
-                style={{ zIndex: isActive ? 30 : 10 }}
+                style={{ 
+                  zIndex: 30 - Math.abs(offset) * 10,
+                  pointerEvents: isActive ? "auto" : "none"
+                }}
               >
                 <div className="relative w-full h-full rounded-[32px] overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl">
                   {slide.src && (
-                    <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 z-0 bg-black">
                       {slide.type === "video" ? (
                         <video 
-                          className="w-full h-full object-cover opacity-40" 
+                          className="w-full h-full object-cover opacity-60 mix-blend-screen" 
                           src={slide.src} 
                           autoPlay 
                           loop 
                           muted 
                           playsInline 
-                          preload="auto"
                         />
                       ) : (
                         <Image 
                           src={slide.src} 
                           alt={slide.title} 
                           fill 
-                          priority={index <= 2} // Prioritize first few slides
-                          className="object-cover opacity-40 shadow-inner text-transparent"
+                          priority={index <= 2}
+                          className="object-cover opacity-50 mix-blend-screen"
                           sizes="(max-width: 768px) 100vw, 480px"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-[#0a0a0a]/20" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
                     </div>
                   )}
 
                   <div className="relative z-10 w-full h-full p-8 flex flex-col text-left">
                     <div className="flex justify-between items-start mb-8 md:mb-12">
-                      <span className="text-[10px] font-bold tracking-widest text-blue-500/80">{slide.title}</span>
+                      <span className="text-[10px] font-bold tracking-widest text-blue-500">{slide.title}</span>
                       <span className="text-[10px] font-bold text-white/30 tracking-widest">{index + 1}/{slides.length}</span>
                     </div>
                     <div className="mt-auto">
@@ -144,14 +142,13 @@ function HeroCarousel() {
                         <span className="text-5xl md:text-7xl font-black text-white tracking-tighter tabular-nums drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">{slide.value}</span>
                         <span className="text-[11px] font-bold text-blue-500 tracking-tighter">{slide.suffix}</span>
                       </div>
-                      <p className="text-[11px] md:text-xs text-white/40 leading-relaxed max-w-[280px]">{slide.desc}</p>
+                      <p className="text-[11px] md:text-xs text-white/50 leading-relaxed max-w-[280px] drop-shadow-lg">{slide.desc}</p>
                     </div>
                   </div>
                 </div>
               </motion.div>
             )
           })}
-        </AnimatePresence>
       </div>
       <div className="mt-12 flex items-center gap-12 z-40">
         <button 
