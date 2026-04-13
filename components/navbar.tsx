@@ -17,19 +17,10 @@ export function Navbar() {
     const pathname = usePathname()
 
     useEffect(() => {
-        let ticking = false;
-
         const handleScroll = () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const isScrolled = window.scrollY > 20;
-                    setScrolled(prev => prev !== isScrolled ? isScrolled : prev);
-                    ticking = false;
-                });
-                ticking = true;
-            }
+            setScrolled(window.scrollY > 20)
         }
-        window.addEventListener("scroll", handleScroll, { passive: true })
+        window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
@@ -65,13 +56,22 @@ export function Navbar() {
     return (
         <>
             <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 sm:pt-6 px-4 pointer-events-none">
-                <div
-                    className={cn(
-                        "flex items-center justify-between pointer-events-auto relative z-10 w-full transition-all duration-500 ease-in-out transform-gpu",
-                        scrolled 
-                            ? "max-w-[1100px] bg-[#0a0a0f]/80 backdrop-blur-xl px-10 rounded-full border border-white/10 h-[70px] shadow-2xl" 
-                            : "max-w-[1400px] bg-transparent px-8 border-transparent h-[80px]"
-                    )}
+                <motion.div
+                    initial={false}
+                    animate={{
+                        width: scrolled ? "100%" : "100%",
+                        maxWidth: scrolled ? "1100px" : "1400px",
+                        backgroundColor: scrolled ? "rgba(10, 10, 15, 0.7)" : "rgba(0,0,0,0)",
+                        backdropFilter: scrolled ? "blur(20px)" : "blur(0px)",
+                        paddingLeft: scrolled ? "2.5rem" : "2rem",
+                        paddingRight: scrolled ? "2.5rem" : "2rem",
+                        borderRadius: scrolled ? "100px" : "0px",
+                        border: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(255, 255, 255, 0)",
+                        height: scrolled ? "70px" : "80px",
+                        boxShadow: scrolled ? "0 25px 50px -12px rgba(0, 0, 0, 0.6)" : "none",
+                    }}
+                    transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                    className="flex items-center justify-between pointer-events-auto relative z-10"
                 >
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -169,7 +169,7 @@ export function Navbar() {
                             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </Button>
                     </div>
-                </div>
+                </motion.div>
             </header>
 
             {/* Mobile Menu */}
