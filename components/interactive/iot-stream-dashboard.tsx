@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
     Camera, Boxes, Activity, Zap, Play, Thermometer,
     Lightbulb, Lock, Unlock, Mic, Volume2, Search, Music2,
-    RadioTower, MapPin, GaugeCircle
+    RadioTower, MapPin, GaugeCircle, Wifi, Plus
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 export function IoTStreamDashboard() {
+    const [activeHeaderTab, setActiveHeaderTab] = useState(0)
     const [temp, setTemp] = useState(23.4)
     const [isLocked, setIsLocked] = useState(true)
     const [activeStream, setActiveStream] = useState(0)
@@ -72,6 +73,34 @@ export function IoTStreamDashboard() {
 
     return (
         <div className="w-full">
+            {/* Header / Stats Bar (Interactive) */}
+            <header className="flex flex-wrap justify-between items-center mb-10 gap-6 animate-fade-in-up">
+                <div className="flex bg-[#0A0F1E] p-1.5 rounded-full border border-white/[0.08] gap-1 shadow-inner">
+                    {['Resumo', 'Dispositivos', 'Áreas'].map((tab, i) => (
+                        <button 
+                            key={tab} 
+                            onClick={() => setActiveHeaderTab(i)}
+                            className={`px-6 py-2.5 text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full transition-all duration-300 ${
+                                activeHeaderTab === i 
+                                ? 'bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]' 
+                                : 'text-gray-400 hover:text-white hover:ring-1 hover:ring-blue-500/50 hover:bg-white/[0.02]'
+                            }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
+                <div className="flex gap-4 items-center">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/5 rounded-xl backdrop-blur-md">
+                        <Wifi className="h-4 w-4 text-cyan-500 animate-pulse" />
+                        <span className="text-[10px] font-mono tracking-widest text-cyan-50">LINK_STABLE: 10Gbps</span>
+                    </div>
+                    <button className="h-9 w-9 flex items-center justify-center p-0 bg-white hover:bg-cyan-400 text-black rounded-xl cursor-pointer transition-colors shadow-lg active:scale-95">
+                        <Plus className="h-5 w-5" />
+                    </button>
+                </div>
+            </header>
+
             {/* Top Interactive Hero Section */}
             <section className="mb-12">
                 <motion.div 

@@ -41,22 +41,6 @@ export default function IoTStreamPage() {
 
             {/* Main Content Area */}
             <main className="flex-1 overflow-y-auto max-h-screen pt-32 px-4 md:px-12 pb-20">
-                {/* Header / Stats Bar */}
-                <header className="flex flex-wrap justify-between items-center mb-10 gap-6 animate-fade-in-up">
-                    <div className="flex bg-white/5 p-1 rounded-full border border-white/10 gap-1">
-                        {['Resumo', 'Dispositivos', 'Áreas'].map((tab, i) => (
-                            <button key={tab} className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest rounded-full transition-all ${i === 0 ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(6,182,212,0.3)]' : 'hover:bg-white/10 text-gray-400 hover:text-white'}`}>{tab}</button>
-                        ))}
-                    </div>
-                    <div className="flex gap-4 items-center">
-                        <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/5 rounded-xl backdrop-blur-md">
-                            <Wifi className="h-4 w-4 text-cyan-500 animate-pulse" />
-                            <span className="text-[10px] font-mono tracking-widest">LINK_STABLE: 10Gbps</span>
-                        </div>
-                        <Plus className="h-8 w-8 p-1 bg-white hover:bg-cyan-400 text-black rounded-lg cursor-pointer transition-colors shadow-lg" />
-                    </div>
-                </header>
-
                 <IoTStreamDashboard />
             </main>
 
