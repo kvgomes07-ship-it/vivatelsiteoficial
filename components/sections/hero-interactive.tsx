@@ -209,7 +209,11 @@ export function HeroCTAButton() {
         setIsModalOpen(false)
         setEmail(""); setCompany(""); setPhone("")
       }
-    } catch (error) { console.error(error) } finally { setIsSubmitting(false) }
+    } catch (error) { 
+      // Silently catch error
+    } finally { 
+      setIsSubmitting(false) 
+    }
   }
 
   return (

@@ -148,7 +148,7 @@ export default function SuportePage() {
                                         (e.target as HTMLFormElement).reset();
                                     }
                                 } catch (error) {
-                                    console.error(error);
+                                    // Handle error silently
                                 } finally {
                                     setIsSubmitting(false);
                                 }

@@ -16,7 +16,7 @@ export function MeshBackground() {
     <div className="fixed inset-0 z-[-10] overflow-hidden pointer-events-none select-none bg-[#020403]">
       {/* 1. Neon Green Radial Central Glow */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[1000px] h-[600px] lg:h-[1000px] rounded-full opacity-40 blur-[100px] animate-pulse-glow gpu-accelerate"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] lg:w-[1000px] h-[600px] lg:h-[1000px] rounded-full opacity-40 blur-[100px] gpu-accelerate"
         style={{
           background: `radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%)`,
         }}
@@ -34,7 +34,7 @@ export function MeshBackground() {
 
       {/* 3. Luminous Waves (Optimized with CSS only) */}
       <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[400px] opacity-40 gpu-accelerate">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-[100%] border-t-[1px] border-[#00ff88]/20 blur-[20px] animate-float-micro" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-[100%] border-t-[1px] border-[#00ff88]/20 blur-[20px]" />
           <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-[1000px] h-[200px] rounded-[100%] border-t-[2px] border-[#00ff88]/10 blur-[40px]" />
       </div>
 

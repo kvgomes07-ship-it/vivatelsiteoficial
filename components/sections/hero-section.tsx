@@ -11,17 +11,6 @@ import { HeroCTAButton, HeroShowcase } from "./hero-interactive"
 export function HeroSection() {
   return (
     <section className="relative z-20 pt-24 pb-20 min-h-[90vh] flex flex-col justify-center">
-      {/* Particle Background — pure CSS, zero JS */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-0.5 h-0.5 bg-white rounded-full animate-float-particle opacity-10"
-            style={{ left: `${i * 12}%`, top: `${(i * 15) % 100}%`, animationDuration: `${6 + i}s` }}
-          />
-        ))}
-      </div>
-
       {/* Ambient glow blob */}
       <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[800px] md:w-[1200px] h-[400px] bg-blue-500/10 blur-[130px] rounded-full pointer-events-none z-0" />
 
