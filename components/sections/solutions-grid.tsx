@@ -55,7 +55,6 @@ export function SolutionsSection() {
                 ))}
               </ul>
               <Link href="/servicos/security"><Button className="bg-blue-600 hover:bg-blue-500 font-black tracking-tight text-[12px]">Saiba Mais</Button></Link>
-              <Link href="/servicos/security"><Button className="bg-blue-600 hover:bg-blue-500 font-black tracking-tight text-[12px]">Saiba mais</Button></Link>
             </div>
           </div>
 
