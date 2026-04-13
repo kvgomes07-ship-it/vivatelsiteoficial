@@ -11,6 +11,11 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 export function IoTStreamDashboard() {
+    const [temp, setTemp] = useState(23.4)
+    const [isLocked, setIsLocked] = useState(true)
+    const [activeStream, setActiveStream] = useState(0)
+    const [logs, setLogs] = useState<{ id: string, time: string, msg: string }[]>([])
+
     // Simulated Real-time Systems
     useEffect(() => {
 
