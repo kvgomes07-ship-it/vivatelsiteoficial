@@ -14,9 +14,9 @@ import {
 } from "lucide-react"
 import dynamic from "next/dynamic"
 
-const IoTStreamDashboard = dynamic(
-    () => import("@/components/interactive/iot-stream-dashboard").then(mod => ({ default: mod.IoTStreamDashboard })),
-    { loading: () => <div className="w-full h-[800px] bg-white/5 animate-pulse rounded-[40px] border border-white/5" /> }
+const IoTMarketingLanding = dynamic(
+    () => import("@/components/sections/iot-marketing-content").then(mod => ({ default: mod.IoTMarketingContent })),
+    { loading: () => <div className="w-full h-screen bg-[#020617] animate-pulse flex items-center justify-center"><div className="w-10 h-10 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div></div> }
 )
 
 export default function IoTStreamPage() {
@@ -39,9 +39,8 @@ export default function IoTStreamPage() {
                 </div>
             </aside>
 
-            {/* Main Content Area */}
-            <main className="flex-1 overflow-y-auto max-h-screen pt-32 px-4 md:px-12 pb-20">
-                <IoTStreamDashboard />
+            <main className="flex-1 overflow-y-auto max-h-screen pt-12 pb-20 w-full overflow-x-hidden">
+                <IoTMarketingLanding />
             </main>
 
             {/* Float Bottom Navigation (Mobile Mobile) */}
