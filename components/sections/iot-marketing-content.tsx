@@ -8,6 +8,16 @@ import { IoTBenefits } from "@/components/sections/iot-benefits"
 import { IoTUseCases } from "@/components/sections/iot-use-cases"
 import { IoTPricePlans } from "@/components/sections/iot-pricing"
 import { IoTTestimonials } from "@/components/sections/iot-testimonials"
+import { IoTFAQ } from "@/components/sections/iot-faq"
+import { IoTTechnicalSpecs } from "@/components/sections/iot-tech-specs"
+import { WhatsAppButton } from "@/components/ui/whatsapp-button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dotted-dialog"
 
 export function IoTMarketingContent() {
   return (
@@ -137,9 +147,21 @@ export function IoTMarketingContent() {
               Garantimos <strong className="text-white">99.9% de uptime</strong>. A nossa infraestrutura possui redundância geográfica, roteamento BGP robusto e proteção física de nós IoT. Quando o seu negócio não pode parar, ele corre na Vivatel.
             </p>
             
-            <button className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-lg transition-all flex items-center gap-2">
-              Ver Especificações Técnicas <ChevronRight className="h-4 w-4" />
-            </button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-lg transition-all flex items-center gap-2 cursor-pointer">
+                  Ver Especificações Técnicas <ChevronRight className="h-4 w-4" />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-black tracking-tighter flex items-center gap-2">
+                    <Shield className="h-6 w-6 text-cyan-500" /> Especificações Técnicas
+                  </DialogTitle>
+                </DialogHeader>
+                <IoTTechnicalSpecs />
+              </DialogContent>
+            </Dialog>
           </div>
           
           <div className="flex-1 relative z-10 flex justify-center">
@@ -155,13 +177,21 @@ export function IoTMarketingContent() {
         </div>
       </section>
 
-      {/* SECTION 8: SOCIAL PROOF */}
       <section className="w-full">
         <div className="text-center mb-16 px-4">
           <h2 className="text-3xl md:text-5xl font-black mb-4">Empresas Confiam</h2>
           <p className="text-gray-400 text-lg">Casos reais do mercado angolano.</p>
         </div>
         <IoTTestimonials />
+      </section>
+
+      {/* SECTION 9: FAQ */}
+      <section className="w-full">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-3xl md:text-5xl font-black mb-4">Perguntas Frequentes</h2>
+          <p className="text-gray-400 text-lg">Tudo o que precisa de saber para decidir.</p>
+        </div>
+        <IoTFAQ />
       </section>
 
       {/* SECTION 10: FINAL CTA */}
@@ -189,6 +219,7 @@ export function IoTMarketingContent() {
         </div>
       </section>
 
+      <WhatsAppButton />
     </div>
   )
 }
