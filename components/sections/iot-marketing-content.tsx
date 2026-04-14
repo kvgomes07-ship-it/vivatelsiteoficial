@@ -11,6 +11,7 @@ import { IoTTestimonials } from "@/components/sections/iot-testimonials"
 import { IoTFAQ } from "@/components/sections/iot-faq"
 import { IoTTechnicalSpecs } from "@/components/sections/iot-tech-specs"
 import { IoTPriceSimulator } from "@/components/sections/iot-simulator"
+import { IoTLeadForm } from "@/components/sections/iot-lead-form"
 import { WhatsAppButton } from "@/components/ui/whatsapp-button"
 import {
   Dialog,
@@ -48,12 +49,23 @@ export function IoTMarketingContent() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2">
-              Solicitar Demonstração <ArrowRight className="h-4 w-4" />
-            </button>
-            <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-black uppercase tracking-widest text-sm rounded-xl transition-all flex items-center justify-center gap-2">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2 cursor-pointer">
+                  Solicitar Demonstração <ArrowRight className="h-4 w-4" />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-black tracking-tighter">Solicitar Demonstração</DialogTitle>
+                </DialogHeader>
+                <IoTLeadForm />
+              </DialogContent>
+            </Dialog>
+
+            <a href="#planos" className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-black uppercase tracking-widest text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
               Ver Planos <ChevronRight className="h-4 w-4 text-gray-500" />
-            </button>
+            </a>
           </div>
         </motion.div>
 
@@ -134,7 +146,7 @@ export function IoTMarketingContent() {
       </section>
 
       {/* SECTION 6: PRICING */}
-      <section className="w-full">
+      <section id="planos" className="w-full">
         <div className="text-center mb-16 px-4">
           <h2 className="text-3xl md:text-5xl font-black mb-4">Planos Escaláveis</h2>
           <p className="text-gray-400 text-lg">Desenvolvidos para operações exigentes.</p>
@@ -205,7 +217,7 @@ export function IoTMarketingContent() {
       </section>
 
       {/* SECTION 10: FINAL CTA */}
-      <section className="w-full max-w-5xl mx-auto px-4 mt-20">
+      <section id="contato" className="w-full max-w-5xl mx-auto px-4 mt-20">
         <div className="p-16 md:p-24 rounded-[40px] bg-gradient-to-br from-cyan-900/40 via-black to-blue-900/40 border-2 border-cyan-500/30 text-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.2)_0%,transparent_70%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
           
@@ -218,12 +230,33 @@ export function IoTMarketingContent() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="px-10 py-5 bg-cyan-500 hover:bg-cyan-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-[0_0_40px_rgba(6,182,212,0.5)]">
-                Falar com Especialista
-              </button>
-              <button className="px-10 py-5 bg-black hover:bg-white/5 border border-white/20 text-white font-black uppercase tracking-widest text-sm rounded-xl transition-all flex items-center justify-center gap-2">
-                Solicitar Orçamento
-              </button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="px-10 py-5 bg-cyan-500 hover:bg-cyan-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-[0_0_40px_rgba(6,182,212,0.5)] cursor-pointer">
+                    Falar com Especialista
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-black tracking-tighter">Falar com Especialista</DialogTitle>
+                  </DialogHeader>
+                  <IoTLeadForm />
+                </DialogContent>
+              </Dialog>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="px-10 py-5 bg-black hover:bg-white/5 border border-white/20 text-white font-black uppercase tracking-widest text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    Solicitar Orçamento
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-black tracking-tighter">Solicitar Orçamento</DialogTitle>
+                  </DialogHeader>
+                  <IoTLeadForm />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
