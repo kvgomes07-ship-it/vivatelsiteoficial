@@ -10,6 +10,7 @@ import { IoTPricePlans } from "@/components/sections/iot-pricing"
 import { IoTTestimonials } from "@/components/sections/iot-testimonials"
 import { IoTFAQ } from "@/components/sections/iot-faq"
 import { IoTTechnicalSpecs } from "@/components/sections/iot-tech-specs"
+import { IoTPriceSimulator } from "@/components/sections/iot-simulator"
 import { WhatsAppButton } from "@/components/ui/whatsapp-button"
 import {
   Dialog,
@@ -121,6 +122,15 @@ export function IoTMarketingContent() {
           <p className="text-gray-400 text-lg">Adaptabilidade cibernética para o seu mercado.</p>
         </div>
         <IoTUseCases />
+      </section>
+
+      {/* SECTION 5.5: SIMULATOR (Extra) */}
+      <section className="w-full">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-3xl md:text-5xl font-black mb-4">Escolha o seu Futuro</h2>
+          <p className="text-gray-400 text-lg">Use o simulador abaixo para encontrar o equilíbrio entre performance e custo.</p>
+        </div>
+        <IoTPriceSimulator />
       </section>
 
       {/* SECTION 6: PRICING */}
