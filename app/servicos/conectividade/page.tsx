@@ -14,10 +14,11 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 export default function ConectividadePage() {
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden">
+        <div className="min-h-screen bg-transparent text-white overflow-hidden">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -42,10 +43,12 @@ export default function ConectividadePage() {
                         </p>
 
                         <div className="animate-fade-in-up [animation-delay:300ms] flex flex-wrap gap-4 justify-center">
-                            <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
-                                Solicitar Proposta
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Conectividade - Proposta">
+                                <Button className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white px-8 py-6 rounded-full text-lg font-medium shadow-lg shadow-blue-900/30 hover:shadow-blue-900/50 transition-all duration-300">
+                                    Solicitar Proposta
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </QuoteButton>
                             <Button variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-900 px-8 py-6 rounded-full text-lg font-medium">
                                 Ver Cobertura
                             </Button>
@@ -239,10 +242,12 @@ export default function ConectividadePage() {
                             Solicite uma proposta personalizada e descubra como nossa conectividade pode acelerar seu negócio.
                         </p>
                         <div className="flex flex-wrap gap-4 justify-center">
-                            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg">
-                                Solicitar Proposta
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Conectividade - Final CTA">
+                                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 px-8 py-6 text-lg">
+                                    Solicitar Proposta
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </QuoteButton>
                             <Button size="lg" variant="outline" className="border-gray-700 text-gray-300 hover:bg-gray-900 px-8 py-6 text-lg">
                                 Verificar Cobertura
                             </Button>

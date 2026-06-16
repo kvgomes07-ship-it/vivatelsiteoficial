@@ -61,7 +61,7 @@ export default function DocumentacaoPage() {
     ]
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-sky-500/30">
+        <div className="min-h-screen bg-transparent text-white selection:bg-sky-500/30">
             {/* Background Decorations */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] -translate-y-1/2" />

@@ -3,14 +3,7 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calculator, Users, Cpu, Clock, CheckCircle2 } from "lucide-react"
-import { IoTLeadForm } from "./iot-lead-form"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dotted-dialog"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 export function IoTPriceSimulator() {
   const [step, setStep] = useState(1)
@@ -109,19 +102,11 @@ export function IoTPriceSimulator() {
                </div>
              </div>
 
-             <Dialog>
-               <DialogTrigger asChild>
-                 <button className={`px-10 py-5 bg-${recommendation.color}-500 hover:bg-${recommendation.color}-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-xl cursor-pointer`}>
-                    Configurar Este Plano
-                 </button>
-               </DialogTrigger>
-               <DialogContent className="max-w-md">
-                 <DialogHeader>
-                   <DialogTitle className="text-2xl font-black tracking-tighter">Configurar Plano {recommendation.name}</DialogTitle>
-                 </DialogHeader>
-                 <IoTLeadForm />
-               </DialogContent>
-             </Dialog>
+             <QuoteButton serviceName={`VIVATEL IoT Simulador - Plano ${recommendation.name}`}>
+               <button className={`px-10 py-5 bg-${recommendation.color}-500 hover:bg-${recommendation.color}-400 text-black font-black uppercase tracking-widest text-sm rounded-xl transition-all shadow-xl cursor-pointer`}>
+                  Configurar Este Plano
+               </button>
+             </QuoteButton>
           </div>
         </div>
       </div>

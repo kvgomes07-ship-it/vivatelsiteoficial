@@ -9,6 +9,7 @@ import {
     RoboticsSpecsWrapper as RoboticsSpecs 
 } from "@/components/interactive/wrappers/academias-wrapper"
 import { Footer } from "@/components/footer"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 export default function AcademiasPage() {
     const units = [
@@ -44,9 +45,11 @@ export default function AcademiasPage() {
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center">
-                            <Button className="bg-cyan-600 hover:bg-cyan-500 text-black px-12 py-8 rounded-none text-xl font-black tracking-widest transition-all">
-                                <span className="uppercase flex items-center gap-2">Explorar Unidades <ArrowRight className="h-5 w-5" /></span>
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Robotics - Consulta">
+                                <Button className="bg-cyan-600 hover:bg-cyan-500 text-black px-12 py-8 rounded-none text-xl font-black tracking-widest transition-all">
+                                    <span className="uppercase flex items-center gap-2">Explorar Unidades <ArrowRight className="h-5 w-5" /></span>
+                                </Button>
+                            </QuoteButton>
                         </div>
                     </div>
 

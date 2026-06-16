@@ -1,29 +1,18 @@
-// Server Component — no "use client"
-// Imports the heavy interactive dashboard via next/dynamic for performance.
+import { Metadata } from 'next'
+import { IoTMarketingContent } from "@/components/sections/iot-marketing-content"
+import { Footer } from "@/components/footer"
 
-import {
-    Boxes,
-    Activity,
-    Zap,
-    Home,
-    LayoutDashboard,
-    Bell,
-    Settings,
-    Wifi,
-    Plus,
-} from "lucide-react"
-import dynamic from "next/dynamic"
-
-const IoTMarketingLanding = dynamic(
-    () => import("@/components/sections/iot-marketing-content").then(mod => ({ default: mod.IoTMarketingContent })),
-    { loading: () => <div className="w-full h-screen bg-[#020617] animate-pulse flex items-center justify-center"><div className="w-10 h-10 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div></div> }
-)
+export const metadata: Metadata = {
+  title: "IoT & Streaming em Tempo Real | Conectividade Industrial em Angola",
+  description: "Transforme a sua operação com soluções de IoT e Streaming em tempo real. Monitore, automatize e tome decisões baseadas em dados com a infraestrutura de alta performance da Vivatel.",
+}
 
 export default function IoTStreamPage() {
     return (
-        <div className="min-h-screen bg-[#020617] text-white font-sans">
-            <main className="w-full pt-12 pb-20 overflow-x-hidden">
-                <IoTMarketingLanding />
+        <div className="min-h-screen bg-transparent text-white font-sans">
+            <main className="w-full pt-12 overflow-x-hidden">
+                <IoTMarketingContent />
+                <Footer />
             </main>
         </div>
     )

@@ -15,17 +15,7 @@ import Image from "next/image"
 import dynamic from "next/dynamic"
 import { FORMSPREE_ID } from "@/lib/constants"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dotted-dialog"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 const AnalyticsPlatform = dynamic(
   () => import("../interactive/analytics-platform").then(m => ({ default: m.AnalyticsPlatform })),
@@ -187,67 +177,62 @@ function HeroCarousel() {
 
 // ── Exported: CTA Button + Contact Modal ─────────────────────
 export function HeroCTAButton() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [email, setEmail] = useState("")
-  const [company, setCompany] = useState("")
-  const [phone, setPhone] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, company, phone }),
-      })
-      if (response.ok) {
-        setIsModalOpen(false)
-        setEmail(""); setCompany(""); setPhone("")
-      }
-    } catch (error) { 
-      // Silently catch error
-    } finally { 
-      setIsSubmitting(false) 
-    }
-  }
-
   return (
-    <>
-      <div>
-        <HeroButton onClick={() => setIsModalOpen(true)}>Começar Agora</HeroButton>
-      </div>
+    <QuoteButton serviceName="VIVATEL - Início">
+      <HeroButton onClick={() => {}}>Começar Agora</HeroButton>
+    </QuoteButton>
+  )
+}
 
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="border-gray-800 bg-[#0c0c0c]">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold tracking-tight">Demonstração VIVATEL</DialogTitle>
-            <DialogDescription className="text-gray-500 font-medium">Agende sua avaliação de infraestrutura dedicada.</DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Email</Label>
-              <Input type="email" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required className="border-white/10 bg-black/40 text-white" />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Empresa</Label>
-              <Input value={company} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)} required className="border-white/10 bg-black/40 text-white" />
-            </div>
-            <div className="space-y-2">
-              <Label className="text-[10px] font-bold tracking-widest text-gray-400">Telefone</Label>
-              <Input type="tel" value={phone} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)} className="border-white/10 bg-black/40 text-white" />
-            </div>
-            <DialogFooter className="pt-4 gap-2">
-              <Button type="button" onClick={() => setIsModalOpen(false)} variant="outline" className="border-white/10 text-gray-400">Cancelar</Button>
-              <Button type="submit" disabled={isSubmitting} className="bg-blue-600 hover:bg-blue-500 font-bold tracking-tight">
-                {isSubmitting ? "Enviando..." : "Submeter"}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
-    </>
+// ── Exported: ShinyText — animated shiny gradient text ───────
+// Continuous left→right shine sweep using a clipped CSS gradient
+// animated by framer-motion. Base color shows on the text, with a
+// brighter "shine" band travelling across it on a loop.
+export function ShinyText({
+  text,
+  baseColor = "#64CEFB",
+  shineColor = "#ffffff",
+  speed = 3,
+  spread = 100,
+  className = "",
+}: {
+  text: string
+  baseColor?: string
+  shineColor?: string
+  speed?: number // seconds per sweep
+  spread?: number // gradient angle in degrees
+  className?: string
+}) {
+  return (
+    <motion.span
+      className={className}
+      style={{
+        display: "inline-block",
+        backgroundImage: `linear-gradient(${spread}deg, ${baseColor} 35%, ${shineColor} 50%, ${baseColor} 65%)`,
+        backgroundSize: "200% 100%",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        color: "transparent",
+      }}
+      initial={{ backgroundPosition: "100% 0%" }}
+      animate={{ backgroundPosition: "-100% 0%" }}
+      transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
+    >
+      {text}
+    </motion.span>
+  )
+}
+
+// ── Exported: Hero CTA — black rounded-full button + modal ───
+export function HeroApplyButton({ children = "Falar com a nossa equipa" }: { children?: React.ReactNode }) {
+  return (
+    <QuoteButton serviceName="VIVATEL - Início">
+      <button className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-black px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-gray-900 md:px-8 md:py-4">
+        <span>{children}</span>
+        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+      </button>
+    </QuoteButton>
   )
 }
 
@@ -259,6 +244,15 @@ export function HeroShowcase() {
       <div className="w-full mt-12 bg-[#0c0c0c] border border-white/5 rounded-[40px] shadow-2xl overflow-hidden min-h-[300px]">
         <AnalyticsPlatform />
       </div>
+    </div>
+  )
+}
+
+// ── Exported: standalone analytics dashboard widget ──────────
+export function HeroDashboard() {
+  return (
+    <div className="w-full overflow-hidden rounded-[40px] border border-white/5 bg-[#0c0c0c] shadow-2xl min-h-[300px]">
+      <AnalyticsPlatform />
     </div>
   )
 }

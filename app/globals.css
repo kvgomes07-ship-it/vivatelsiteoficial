@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    /* Updated color palette to match VIVATEL branding */
-    --background: 222.2 20% 5%;
+    /* Updated color palette to match VIVATEL branding - Deep Blue Slate (#0a0f16) */
+    --background: 215 37.5% 6.3%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 20% 8%;
+    --card: 215 35% 8.5%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 20% 5%;
+    --popover: 215 37.5% 6.3%;
     --popover-foreground: 210 40% 98%;
 
     /* Primary: Emerald Green for Vivatel */
@@ -22,31 +22,31 @@
     --secondary: 158 35% 15%;
     --secondary-foreground: 160 40% 98%;
 
-    --muted: 160 20% 15%;
+    --muted: 158 20% 12%;
     --muted-foreground: 158 20% 65%;
 
     /* Accent: Glasiano Green */
     --accent: 160 84% 39%;
-    --accent-foreground: 222.2 20% 5%;
+    --accent-foreground: 215 37.5% 6.3%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222.2 30% 20%;
-    --input: 222.2 30% 20%;
+    --border: 215 30% 12%;
+    --input: 215 30% 12%;
     --ring: 165 85% 45%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 20% 5%;
+    --background: 215 37.5% 6.3%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 20% 8%;
+    --card: 215 35% 8.5%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 20% 5%;
+    --popover: 215 37.5% 6.3%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 160 84% 33%;
@@ -55,7 +55,7 @@
     --secondary: 158 35% 15%;
     --secondary-foreground: 160 40% 98%;
 
-    --muted: 160 20% 15%;
+    --muted: 158 20% 12%;
     --muted-foreground: 158 20% 65%;
 
     --accent: 160 84% 39%;
@@ -64,8 +64,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 160 30% 15%;
-    --input: 160 30% 15%;
+    --border: 215 30% 12%;
+    --input: 215 30% 12%;
     --ring: 160 84% 39%;
   }
 }

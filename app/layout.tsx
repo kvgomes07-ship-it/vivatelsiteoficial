@@ -78,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt" className="dark" suppressHydrationWarning>
+    <html lang="pt" className="dark" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${inter.variable} font-sans`}>
         <JsonLd />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

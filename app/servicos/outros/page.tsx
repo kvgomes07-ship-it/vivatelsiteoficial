@@ -20,7 +20,7 @@ import {
 
 export default function OutrosServicosPage() {
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden">
+        <div className="min-h-screen bg-transparent text-white overflow-hidden">
             {/* Header placeholder - using global Navbar */}
 
             {/* Hero Section */}

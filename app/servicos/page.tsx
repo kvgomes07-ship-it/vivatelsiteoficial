@@ -5,6 +5,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 export const metadata: Metadata = {
     title: "Nossos Serviços",
@@ -114,9 +115,11 @@ export default function ServicosPage() {
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Pronto para <span className="text-blue-500 font-black">Começar?</span></h2>
                     <p className="text-gray-400 font-medium tracking-wide text-sm mb-10 max-w-2xl mx-auto">Fale com nossa equipa de engenharia hoje mesmo.</p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-8 text-xl font-bold rounded-full group transition-all duration-300">
-                            Contactar Vendas <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        <QuoteButton serviceName="VIVATEL Services - Geral">
+                            <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-8 text-xl font-bold rounded-full group transition-all duration-300">
+                                Contactar Vendas <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </QuoteButton>
                     </div>
                 </div>
             </section>

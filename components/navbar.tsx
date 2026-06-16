@@ -70,7 +70,7 @@ export function Navbar() {
                             transition={{ duration: 0.5 }}
                             className="relative h-8 w-32 cursor-pointer"
                         >
-                            <Image src="/vivatel.png" alt="VIVATEL" fill className="object-contain" priority />
+                            <Image src="/vivatel.png" alt="VIVATEL" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain" priority />
                         </motion.div>
                     </Link>
 
@@ -142,7 +142,7 @@ export function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                        className="flex items-center gap-4"
+                        className="flex items-center gap-3"
                     >
                         <Button
                             variant="outline"
@@ -150,6 +150,11 @@ export function Navbar() {
                         >
                             Portal do Cliente
                         </Button>
+                        <Link href="https://vivatelplay.com/" target="_blank" rel="noopener noreferrer" className="hidden md:block">
+                            <Button className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 hover:from-blue-500 hover:via-cyan-400 hover:to-blue-400 text-white font-semibold shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300">
+                                <span className="relative z-10">▶ VivaTel Play</span>
+                            </Button>
+                        </Link>
                         <Button variant="ghost" size="icon" className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                         </Button>
@@ -200,11 +205,16 @@ export function Navbar() {
                                 </div>
                             ))}
                             <Button
-                                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 w-full text-white mt-4"
+                                className="bg-transparent border border-cyan-500 text-cyan-400 hover:bg-cyan-950 w-full mt-4"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Portal do Cliente
                             </Button>
+                            <Link href="https://vivatelplay.com/" target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                                <Button className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 hover:from-blue-500 hover:via-cyan-400 hover:to-blue-400 w-full text-white font-semibold shadow-[0_0_20px_rgba(34,211,238,0.3)] mt-2">
+                                    ▶ VivaTel Play
+                                </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

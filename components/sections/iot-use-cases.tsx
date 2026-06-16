@@ -1,47 +1,38 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, memo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Server, Factory, Building, ShoppingBag, ArrowRight } from "lucide-react"
+import { Factory, Truck, RadioTower, ArrowRight, ShieldCheck } from "lucide-react"
 
-export function IoTUseCases() {
+export const IoTUseCases = memo(function IoTUseCases() {
   const [activeCase, setActiveCase] = useState(0)
 
   const cases = [
     {
-      id: "corporate",
-      icon: Server,
-      title: "Empresas & IT",
-      problem: "Acesso lento a CRMs e falhas de comunicação na cloud paralisam operações.",
-      solution: "Link dedicado com baixa latência e failover automático garantem 100% de disponibilidade ao seu ERP e Cloud.",
-      results: "Redução de 90% em interrupções e aumento drástico de produtividade.",
-      color: "cyan"
-    },
-    {
       id: "industry",
       icon: Factory,
-      title: "Indústrias",
-      problem: "Dificuldade na monitorização de máquinas pesadas em tempo real gera tempos de inatividade.",
-      solution: "Rede robusta cruzada com sensores IoT preditivos comunicando à base num gateway local seguro.",
-      results: "Manutenção automatizada e +30% de eficiência de chão de fábrica.",
+      title: "Indústria & Produção",
+      problem: "Dificuldade na monitorização de máquinas pesadas em tempo real gera tempos de inatividade dispendiosos.",
+      solution: "Rede robusta cruzada com sensores IoT preditivos comunicando a um gateway local seguro via rede dedicada Vivatel.",
+      results: "Manutenção automatizada e +35% de eficiência no chão de fábrica em unidades fabris em Luanda e Viana.",
       color: "orange"
     },
     {
-      id: "hospitality",
-      icon: Building,
-      title: "Hotéis",
-      problem: "Wi-Fi fraco para os hóspedes e elevado custo elétrico em quartos vazios.",
-      solution: "Internet gigabit distribuída aliada a termóstatos e acessos IoT unificados no painel central Vivatel.",
-      results: "Score Máximo de hóspedes no Booking e -20% em consumo de energia.",
-      color: "blue"
+      id: "logistics",
+      icon: Truck,
+      title: "Logística & Frota",
+      problem: "Falta de visibilidade sobre a localização e estado da carga em rotas interprovinciais críticas.",
+      solution: "Rastreamento por satélite e sensores de temperatura/humidade integrados na nossa plataforma de streaming real-time.",
+      results: "Redução de 40% em perdas de carga e otimização total de rotas para o interior de Angola.",
+      color: "cyan"
     },
     {
-      id: "retail",
-      icon: ShoppingBag,
-      title: "Lojas & Retalho",
-      problem: "Sistemas de faturação lentos (POS) e falhas nas câmaras de segurança HD.",
-      solution: "Banda larga priorizada para pagamentos e compressão de streaming de vigilância via IoT Hub.",
-      results: "Auditoria remota perfeita e processamento de pagamentos sub-segundo.",
+      id: "telecom",
+      icon: RadioTower,
+      title: "Telecom & Infraestrutura",
+      problem: "Monitorização ineficiente de torres remotas e subestações, levando a falhas de serviço prolongadas.",
+      solution: "NOC centralizado com telemetria via IoT para gestão de energia, combustíveis e segurança física de sites remotos.",
+      results: "Uptime de 99.99% garantido e redução drástica em custos de deslocação para manutenção reativa.",
       color: "purple"
     }
   ]
@@ -61,8 +52,11 @@ export function IoTUseCases() {
                 : 'bg-transparent border-transparent hover:bg-white/5 opacity-60 hover:opacity-100'
               }`}
             >
-              <div className={`p-3 rounded-xl ${activeCase === idx ? 'bg-cyan-500 text-black' : 'bg-white/10 text-white'}`}>
-                <c.icon className="h-6 w-6" />
+              <div className={`p-3 rounded-xl transition-colors ${activeCase === idx ? 'bg-cyan-500 text-black' : 'bg-white/10 text-white'}`}>
+                {(() => {
+                  const Icon = c.icon;
+                  return <Icon className="h-6 w-6" />;
+                })()}
               </div>
               <span className="font-black text-lg tracking-tight">{c.title}</span>
             </button>
@@ -70,9 +64,9 @@ export function IoTUseCases() {
         </div>
 
         {/* Content Panel */}
-        <div className="lg:w-2/3 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-[40px] p-8 md:p-12 relative overflow-hidden min-h-[400px] flex flex-col justify-center">
-            {/* Ambient Background Glow based on active case */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="lg:w-2/3 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-[40px] p-8 md:p-12 relative overflow-hidden min-h-[450px] flex flex-col justify-center shadow-2xl">
+            {/* Ambient Background Glow based on active case - Simplified */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 blur-[64px] rounded-full pointer-events-none" />
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -80,30 +74,44 @@ export function IoTUseCases() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className="relative z-10"
               >
                 <div className="mb-10">
-                  <span className="text-[10px] font-black tracking-widest uppercase text-cyan-400 mb-2 block">O Problema</span>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="h-1 w-8 bg-red-500 rounded-full" />
+                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-red-500">O Problema Real</span>
+                  </div>
                   <p className="text-xl text-gray-400 font-medium leading-relaxed">
-                    {cases[activeCase].problem}
+                    "{cases[activeCase].problem}"
                   </p>
                 </div>
 
-                <div className="mb-10 p-6 bg-cyan-500/5 border border-cyan-500/20 rounded-2xl">
-                  <span className="text-[10px] font-black tracking-widest uppercase text-white mb-2 block flex items-center gap-2">
-                    A Solução Vivatel <ArrowRight className="h-4 w-4 text-cyan-400" />
+                <div className="mb-10 p-8 bg-cyan-500/5 border border-cyan-500/20 rounded-3xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-4 opacity-10">
+                    {(() => {
+                      const Icon = cases[activeCase].icon;
+                      return <Icon className="h-24 w-24 text-cyan-500" />;
+                    })()}
+                  </div>
+                  <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white mb-3 block flex items-center gap-2">
+                    A Solução Tecnológica Vivatel <ArrowRight className="h-4 w-4 text-cyan-400" />
                   </span>
                   <p className="text-2xl font-black text-white leading-tight">
                     {cases[activeCase].solution}
                   </p>
                 </div>
 
-                <div>
-                  <span className="text-[10px] font-black tracking-widest uppercase text-green-400 mb-2 block">O Resultado Prático</span>
-                  <p className="text-lg text-green-100 font-bold">
-                    ✓ {cases[activeCase].results}
-                  </p>
+                <div className="flex items-center gap-5">
+                  <div className="h-14 w-14 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
+                    <ShieldCheck className="h-7 w-7 text-green-500" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black tracking-[0.2em] uppercase text-green-500 mb-1 block">O Resultado Mensurável</span>
+                    <p className="text-lg text-green-100 font-bold">
+                      {cases[activeCase].results}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -111,4 +119,4 @@ export function IoTUseCases() {
       </div>
     </div>
   )
-}
+})

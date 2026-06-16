@@ -16,6 +16,7 @@ import Link from "next/link"
 import { CloudPlatformWrapper as CloudPlatform } from "@/components/interactive/wrappers/cloud-wrapper"
 import { PremiumCard } from "@/components/ui/premium-card"
 import { Footer } from "@/components/footer"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 export default function CloudPage() {
     const features = [
@@ -52,9 +53,11 @@ export default function CloudPage() {
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center">
-                            <Button className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 text-lg font-bold rounded-full group transition-all duration-300">
-                                Começar Agora <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </Button>
+                            <QuoteButton serviceName="VIVATEL Cloud">
+                                <Button className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 text-lg font-bold rounded-full group transition-all duration-300">
+                                    Começar Agora <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                </Button>
+                            </QuoteButton>
                             <Button variant="outline" className="border-white/10 text-gray-400 hover:bg-white/5 hover:text-white px-10 py-7 rounded-full text-lg font-bold transition-all">
                                 Documentação
                             </Button>
@@ -174,9 +177,11 @@ export default function CloudPage() {
                                             </li>
                                         ))}
                                     </ul>
-                                    <Button className={`mt-auto w-full py-6 rounded-full font-bold ${plan.popular ? "bg-blue-600 hover:bg-blue-500" : "bg-white/5 hover:bg-white/10"}`}>
-                                        {plan.price === "Custom" ? "Falar com Vendas" : "Começar Agora"}
-                                    </Button>
+                                    <QuoteButton serviceName={`Cloud Plan: ${plan.name}`}>
+                                        <Button className={`mt-auto w-full py-6 rounded-full font-bold ${plan.popular ? "bg-blue-600 hover:bg-blue-500" : "bg-white/5 hover:bg-white/10"}`}>
+                                            {plan.price === "Custom" ? "Falar com Vendas" : "Começar Agora"}
+                                        </Button>
+                                    </QuoteButton>
                                 </div>
                             </PremiumCard>
                         ))}
@@ -189,9 +194,11 @@ export default function CloudPage() {
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Sua jornada Digital <br /><span className="text-blue-500 font-black">Começa Aqui.</span></h2>
                     <p className="text-gray-500 font-medium mb-10 max-w-2xl mx-auto">Experimente a VIVATEL Cloud e descubra a performance de uma nuvem verdadeiramente soberana.</p>
-                    <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-8 text-xl font-bold rounded-full transition-all transform hover:scale-105">
-                        Iniciar Teste Gratuito <ArrowRight className="ml-2 h-6 w-6" />
-                    </Button>
+                    <QuoteButton serviceName="VIVATEL Cloud (Trial)">
+                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-8 text-xl font-bold rounded-full transition-all transform hover:scale-105">
+                            Iniciar Teste Gratuito <ArrowRight className="ml-2 h-6 w-6" />
+                        </Button>
+                    </QuoteButton>
                 </div>
             </section>
 

@@ -23,6 +23,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { QuoteButton } from "@/components/interactive/buttons/quote-button"
 
 // Animation Variants for Performance
 const containerVariants = {
@@ -85,13 +86,17 @@ export default function SecurityPage() {
                             </motion.p>
 
                             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-                                <Button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-7 rounded-2xl text-lg shadow-2xl shadow-blue-900/40 transition-all hover:scale-105 uppercase tracking-widest">
-                                    Começar Agora
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                                <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 font-black px-10 py-7 rounded-2xl text-lg uppercase tracking-widest">
-                                    Agendar Demo
-                                </Button>
+                                <QuoteButton serviceName="VIVATEL Security">
+                                    <Button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-7 rounded-2xl text-lg shadow-2xl shadow-blue-900/40 transition-all hover:scale-105 uppercase tracking-widest">
+                                        Começar Agora
+                                        <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </QuoteButton>
+                                <QuoteButton serviceName="Demonstração Security">
+                                    <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 font-black px-10 py-7 rounded-2xl text-lg uppercase tracking-widest">
+                                        Agendar Demo
+                                    </Button>
+                                </QuoteButton>
                             </motion.div>
                         </motion.div>
 
@@ -404,9 +409,11 @@ export default function SecurityPage() {
                                             ))}
                                         </ul>
                                     </div>
-                                    <Button className={`w-full font-medium h-12 rounded-lg transition-all text-sm ${plan.popular ? 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white border-0' : 'bg-transparent border border-white/10 hover:bg-white/5 text-gray-300'}`}>
-                                        {plan.price === "Custom" ? "Contactar Vendas" : "Começar Agora"}
-                                    </Button>
+                                    <QuoteButton serviceName={`Security Plan: ${plan.name}`}>
+                                        <Button className={`w-full font-medium h-12 rounded-lg transition-all text-sm ${plan.popular ? 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white border-0' : 'bg-transparent border border-white/10 hover:bg-white/5 text-gray-300'}`}>
+                                            {plan.price === "Custom" ? "Contactar Vendas" : "Começar Agora"}
+                                        </Button>
+                                    </QuoteButton>
                                 </div>
                             </motion.div>
                         ))}
@@ -430,12 +437,16 @@ export default function SecurityPage() {
                         Junte-se a milhares de empresas que confiam na VIVATEL para proteger seus ativos mais valiosos.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                         <Button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-8 rounded-2xl text-xl uppercase tracking-widest shadow-2xl transition-all hover:scale-105">
-                            Começar agora
-                        </Button>
-                        <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 font-black px-12 py-8 rounded-2xl text-xl uppercase tracking-widest">
-                            Falar com especialista
-                        </Button>
+                         <QuoteButton serviceName="VIVATEL Security - Iniciar">
+                             <Button className="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-8 rounded-2xl text-xl uppercase tracking-widest shadow-2xl transition-all hover:scale-105">
+                                Começar agora
+                            </Button>
+                         </QuoteButton>
+                         <QuoteButton serviceName="Especialista Security">
+                            <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 font-black px-12 py-8 rounded-2xl text-xl uppercase tracking-widest">
+                                Falar com especialista
+                            </Button>
+                         </QuoteButton>
                     </div>
                  </motion.div>
             </section>
