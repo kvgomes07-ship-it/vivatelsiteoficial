@@ -2,8 +2,8 @@
 
 import React, { useState } from "react"
 import Link from "next/link"
-import { 
-  Code, Shield, Brain, Radio, Database, Zap, BookOpen 
+import {
+  Code, Shield, Brain, Radio, Database, BookOpen
 } from "lucide-react"
 import { PremiumCard } from "../ui/premium-card"
 import {
@@ -12,7 +12,6 @@ import {
   CloudPreview,
   ConnectivityPreview,
   AIDataPreview,
-  IoTStreamPreview,
   AcademyPreview,
 } from "../interactive/service-card-previews"
 
@@ -32,7 +31,6 @@ const features = [
   { icon: Brain, title: "Cloud", description: "Infraestrutura em nuvem para servidores, hospedagem, escalabilidade e alta disponibilidade.", href: "/servicos/cloud", previewKey: "cloud" as const },
   { icon: Radio, title: "Conectividade", description: "Infraestrutura de conectividade soberana com banda larga, 5G e redundância garantida.", href: "/servicos/conectividade", previewKey: "connectivity" as const },
   { icon: Database, title: "AI & DATA", description: "Processamento de dados em tempo real com modelos de IA personalizados.", href: "/servicos/analytics", previewKey: "aidata" as const },
-  { icon: Zap, title: "Stream & IoT", description: "Streaming de dados em tempo real, robótica industrial e IoT para automação completa.", href: "/servicos/iot-stream", previewKey: "iot" as const },
   { icon: BookOpen, title: "Academias & Labs", description: "Programas de formação, certificação e inovação para desenvolver talento local.", href: "/servicos/academias", previewKey: "academy" as const },
 ]
 
@@ -42,7 +40,6 @@ const previewComponents: Record<string, React.FC<{ isActive: boolean }>> = {
   cloud: CloudPreview,
   connectivity: ConnectivityPreview,
   aidata: AIDataPreview,
-  iot: IoTStreamPreview,
   academy: AcademyPreview,
 }
 

@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Globe } from "lucide-react"
 import { PremiumCard } from "../ui/premium-card"
 import { Marquee } from "../ui/marquee-client"
+import { TestimonialCard, type Testimonial } from "../ui/testimonial"
 
 const partners = [
   { name: "Angola Cable", logo: "/angolacable.png" },
@@ -15,10 +16,10 @@ const partners = [
   { name: "7Smiles", logo: "/7Smile.png" },
 ]
 
-const testimonials = [
-  { name: "Domingos Gonga", role: "CTO, MELM Solutions", content: "VIVATEL transformou completamente nossa infraestrutura. Uma solução verdadeiramente soberana para Angola." },
-  { name: "Maria Santos", role: "Diretora de TI, BancoDigital", content: "A escalabilidade e performance superaram nossas expectativas. O suporte é excelente." },
-  { name: "Carlos Silva", role: "Gerente de Inovação", content: "VIVATEL é o futuro para o ecossistema digital angolano. Total controle e segurança." },
+const testimonials: Testimonial[] = [
+  { name: "Maria Santos", role: "Diretora de TI, BancoDigital", content: "A escalabilidade e performance superaram nossas expectativas. O suporte é excelente.", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&h=600&auto=format&fit=crop" },
+  { name: "Domingos Gonga", role: "CTO, MELM Solutions", content: "VIVATEL transformou completamente nossa infraestrutura. Uma solução verdadeiramente soberana para Angola.", image: "/image.png" },
+  { name: "Carlos Silva", role: "Gerente de Inovação", content: "VIVATEL é o futuro para o ecossistema digital angolano. Total controle e segurança.", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600" },
 ]
 
 export function PartnershipCTA() {
@@ -53,20 +54,9 @@ export function PartnershipCTA() {
       {/* Testimonials Section */}
       <section id="testemunhos" className="py-24 relative overflow-hidden bg-black/40">
         <div className="container mx-auto px-4 relative z-10">
-           <div className="grid md:grid-cols-3 gap-8">
+           <div className="flex flex-wrap items-stretch justify-center gap-6">
               {testimonials.map((t, i) => (
-                <PremiumCard key={i} className="border-white/5 hover:border-blue-500/30">
-                   <div className="p-8 h-full flex flex-col justify-between">
-                     <p className="text-gray-400 font-medium mb-8 leading-relaxed">"{t.content}"</p>
-                     <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                        <div className="h-10 w-10 rounded-full bg-blue-600/20 flex items-center justify-center font-bold text-blue-400">{t.name.charAt(0)}</div>
-                        <div className="text-left">
-                           <p className="font-bold text-white text-sm tracking-tighter">{t.name}</p>
-                           <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{t.role}</p>
-                        </div>
-                     </div>
-                   </div>
-                </PremiumCard>
+                <TestimonialCard key={i} testimonial={t} />
               ))}
            </div>
         </div>

@@ -11,7 +11,6 @@ const CloudPlatform = dynamic(() => import("../interactive/cloud-platform").then
 const SecurityPlatform = dynamic(() => import("../interactive/security-platform").then(m => ({ default: m.SecurityPlatform })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
 const ConnectivityVisualization = dynamic(() => import("../interactive/connectivity-visualization").then(m => ({ default: m.ConnectivityVisualization })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
 const SoftwareVisualization = dynamic(() => import("../interactive/software-visualization").then(m => ({ default: m.SoftwareVisualization })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
-const IoTVisualization = dynamic(() => import("../interactive/iot-visualization").then(m => ({ default: m.IoTVisualization })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
 const AcademyVisualization = dynamic(() => import("../interactive/academy-visualization").then(m => ({ default: m.AcademyVisualization })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
 
 export function SolutionsSection() {
@@ -78,6 +77,8 @@ export function SolutionsSection() {
                <ConnectivityVisualization />
             </div>
           </div>
+
+
         </div>
       </div>
     </section>
