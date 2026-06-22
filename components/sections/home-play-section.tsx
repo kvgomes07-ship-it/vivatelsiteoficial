@@ -1,8 +1,10 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
 import dynamic from "next/dynamic"
 import { CheckCircle, PlayCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const PlayVisualization = dynamic(() => import("../interactive/play-visualization").then(m => ({ default: m.PlayVisualization })), { ssr: false, loading: () => <div className="w-full h-full bg-gray-900/50 animate-pulse rounded-lg" /> })
 
@@ -23,6 +25,11 @@ export function HomePlaySection() {
                 <li key={i} className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-purple-500" /><span className="text-gray-300 font-medium text-sm">{feature}</span></li>
               ))}
             </ul>
+            <Link href="https://vivatelplay.com/" target="_blank" rel="noopener noreferrer">
+              <Button className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 hover:from-purple-500 hover:via-purple-400 hover:to-pink-400 text-white font-black tracking-tight text-[12px] shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] transition-all duration-300">
+                <span className="relative z-10">▶ Assistir VivaTel Play</span>
+              </Button>
+            </Link>
           </div>
           <div className="bg-white/5 border border-white/10 p-1 rounded-2xl overflow-hidden min-h-[300px] md:min-h-[400px]">
              <PlayVisualization />
